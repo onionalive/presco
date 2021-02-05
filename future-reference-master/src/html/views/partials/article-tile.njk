@@ -1,0 +1,31 @@
+{% set headerImage = 'https://www.datocms-assets.com' + article.header_image.value.path + '?w=800&fm=jpg' %}
+<a class='tile{{ " featured" if article.featured }}{{ " small-tile" if article.small_tile }}{{ " medium-tile" if article.medium_tile }}{{ " large-tile" if article.large_tile }}' href='/articles/{{ article.url }}'>
+	{% if article.featured %}
+	<div class='img' style="background-image:url({{ headerImage }})">
+		<div class='aspect-content'>
+		</div>
+		<div class="filter-div"></div>
+	{% elseif article.small_tile %}
+	<div class='aspect-ratio one-one' style="background-image:url({{ headerImage }})">
+	{% elseif article.medium_tile %}
+	<div class='aspect-ratio four-three' style="background-image:url({{ headerImage }})">
+	{% elseif article.large_tile %}
+	<div class='aspect-ratio sixteen-nine' style="background-image:url({{ headerImage }})">
+	{% else %}
+	<div class='aspect-ratio sixteen-nine' style="background-image:url({{ headerImage }})">
+	{% endif %}
+		<div class='aspect-content'>
+			<div class="filter-div"></div>
+		</div>
+	</div>
+	<div class='content'>
+		<p class='article-type-tile'>{{ article.article_type }}</p>
+		{% if article.featured %}
+		<h2>{{ article.title }}</h2>
+		<p class='article-summary-tile'>{{ article.summary | truncate(140) }}</p>
+		{% else %}
+		<h2>{{ article.title }}</h2>
+		<p class='article-summary-tile'>{{ article.summary | truncate(140) }}</p>
+		{% endif %}
+	</div>
+</a>

@@ -1,0 +1,50 @@
+<div class="agegate">
+	<div class="agegate-country-select">
+		<div class="inner">
+			<a class="agegate-country-toggle" href="#">
+				<span class="fa fa-globe fa-lg" aria-hidden="true"></span>
+			</a>
+		</div>
+		<div class="agegate-country-dropdown-container">
+			<div class="agegate-country-dropdown">
+				<ul>
+					{% for country in countries %}
+						<li>
+							<a href="{{ country.url }}" data-key={{ country.key }}><img class="flag-icon" src="{{ site.theme.uri }}{{ country.flag }}" alt="{{ country.title }} Flag">{{ country.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<h1>Welcome to the world of <span class="yt-logo">[yellow tail]</span></h1>
+		{% include 'partials/image.twig' with {
+			image: TimberImage(options.feature_bottle),
+			size: 'wine_feature',
+			class: 'yt-wine'
+		} %}
+		<form action="/">
+			<div class="form-row">
+				<div class="confirmation-checkbox">
+					<input id="confirm" name="confirm" type="checkbox" hidden />
+					<label for="confirm">I am of legal drinking age in</label>
+				</div>
+				<div class="agegate-selector">
+						<select class="agegate-selector-options" name="country" id="agegate-selector-options">
+							{% include 'partials/agegate-countries.twig' %}
+						</select>
+						<select id="select-width">
+						  <option id="option-width"></option>
+						</select>
+				</div>
+				{# <h2 class="legal-age">my country of residence.</h2> #}
+			</div>
+			<input type="submit" value="Welcome" disabled>
+			<span>Click to continue</span>
+		</form>
+	</div>
+	<span class="disclaimer">
+		Please enjoy our wine responsibly. For information about wine and health and the recognised guidelines for moderate consumption visit <a href="http://www.bewinewise.org.au" target="_blank">www.bewinewise.org.au</a>
+	</span>
+</div>

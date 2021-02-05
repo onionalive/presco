@@ -1,0 +1,34 @@
+{% extends "master.twig" %}
+
+{% block hero %}
+	{% include 'partials/hero-filter.twig' with {
+		title: title,
+		description: description,
+		filters: ''
+	} %}
+{% endblock %}
+
+{% block content %}
+	<div class="stores">
+		{% if options.country == 'usa' %}
+			{% include 'partials/stores/grappos.twig' %}
+		{% else %}
+			{% include 'partials/search.twig' %}
+			<section class='results'>
+				<h3>Stockists in your area:</h3>
+				<div class='tiles'></div>
+				<div class='instructions'>
+					Enter your location above to start your search...
+				</div>
+				<div class='view-more' aria-live="assertive">
+					<a href="#" class='view-more-btn'>
+						View more
+					</a>
+				</div>
+			</section>
+			<section class="contact-form">
+				{% include 'partials/stores/form.twig' %}
+			</section>
+		{% endif %}
+	</div>
+{% endblock %}

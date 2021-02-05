@@ -1,0 +1,18 @@
+{% include 'partials/head.twig' %}
+
+<body {{ function('body_class') }} id="country-{{options.country}}">
+	<p class="skiplinks">
+	    <a href="#content">Skip To Main Content</a>
+	</p>
+	{% include 'partials/header.twig' %}
+
+	<div class="container">
+		{% block hero %}
+		{% endblock %}
+
+		{% block content %}
+		{% endblock %}
+		{% include 'partials/footer.twig' %}
+	</div>
+</body>
+</html>

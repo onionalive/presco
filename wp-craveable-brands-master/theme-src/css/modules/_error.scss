@@ -1,0 +1,91 @@
+.error-404 {
+	height: 60vh;
+	background: $c-purple;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: $c-white;
+	position: relative;
+	min-height: 490px;
+
+	.error-box {
+		width: 100%;
+		@include center-me;
+		text-align: center;
+
+		h2 {
+			font-size: 11rem;
+			margin: 0;
+			line-height: 0;
+
+			@include media($small) {
+				font-size: 6rem;
+			}
+		}
+
+		.logo {
+			display: inline-block;
+			background-image: url('./../img/logos/craveable-brands-logo.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			height: 130px;
+			width: 130px;
+			margin: 0 5px 0 15px;
+
+			@include media($small) {
+				height: 70px;
+				width: 70px;
+				margin: 0 2px 0 7px;
+			}
+		}
+
+		h3 {
+			@include circular-book;
+			text-transform: uppercase;
+			font-size: 1.1rem;
+			margin: 45px 0;
+
+			@include media($small) {
+				font-size: .8rem;
+				margin: 25px 0;
+			}
+		}
+	}
+
+
+	a {
+		@include circular-book;
+		text-transform: uppercase;
+		color: $c-white;
+		font-size: .7rem;
+		text-decoration: none;
+
+		display: inline-block;
+		width: 140px;
+		height: 40px;
+		padding: 0;
+		border: 0;
+		border-radius: 5px;
+
+		background-color: $c-black;
+		text-align: center;
+		line-height: 40px;
+
+		cursor: pointer;
+		outline: 0;
+		transition: background-color 100ms ease-out, color 200ms;
+
+		&:hover,
+		&:focus {
+			background-color: lighten($c-black, 15%);
+			outline: 0;
+		}
+
+		@include media($small) {
+			font-size: .6rem;
+			height: 30px;
+			width: 110px;
+			line-height: 30px;
+		}
+	}
+}

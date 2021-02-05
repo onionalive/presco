@@ -1,0 +1,377 @@
+{
+	"splash": {
+		"maintenance": {
+			"heading": "Sorry",
+			"body": "The app is currently unavailable due to maintenance."
+		}
+	},
+	"hype": {
+		"button": "Let's Get Started",
+		"login": {
+			"copy": "Already have an account?",
+			"link": "Login",
+			"slides": [
+				{
+					"heading": "Free Meal",
+					"body": "Just 'cause you signed up",
+					"image": "https://source.unsplash.com/random/200x200"
+				},
+				{
+					"heading": "Free Food",
+					"body": "Earn one dollar for every dollar spent",
+					"image": "https://source.unsplash.com/random/200x200"
+				},
+				{
+					"heading": "Rewards",
+					"body": "Unlock status tiers and rewards today",
+					"image": "https://source.unsplash.com/random/200x200"
+				}
+			]
+		}
+	},
+	"signUp": {
+		"accountName": {
+			"heading": "Set Up Your Account",
+			"field": "Your name",
+			"fieldTooltip": "Please enter your name",
+			"button": "Next"
+		},
+		"email": {
+			"heading": "Set Up Your Account",
+			"field": "Your email address",
+			"fieldTooltip": "This is not a valid email address",
+			"button": "Next"
+		},
+		"mobileNumber": {
+			"heading": "Set Up Your Account",
+			"body": "Hi [name], can we please get your mobile number?",
+			"field": "Your mobile number",
+			"fieldTooltip": "Mobile number is not valid",
+			"button": "Send Verification SMS",
+			"helper": "We need to verify your mobile number in case we need to reach you!"
+		},
+		"mobileNumberVerification": {
+			"heading": "Set Up Your Account",
+			"body": "We have sent an SMS to [phone] with a link. Please follow that link to continue.",
+			"field": "Enter validation code",
+			"button": "Next"
+		},
+		"mobileNumberVerified": {
+			"heading": "Awesome Sauce!",
+			"body": "Your $5 welcome voucher is on it's way.\nOh but you need to set a password.",
+			"button": "Set My Password"
+		},
+		"password": {
+			"heading": "Set Up Your Account",
+			"field": "Your password",
+			"button": "Next"
+		},
+		"passwordSuccess": {
+			"heading": "You're In!",
+			"body": "If you picked up a card in store add it now...\nOtherwise lets go!",
+			"buttonAdd": "Add My Card",
+			"buttonContinue": "Let's Go!"
+		}
+	},
+	"signIn": {
+		"heading": "Sign In",
+		"username": "Your email or mobile number",
+		"usernameTooltip": "",
+		"password": "Password",
+		"passwordTooltip": "",
+		"button": "Sign In"
+	},
+	"forgetPass": {
+		"heading": "RESET PASSWORD",
+		"username": "Your email",
+		"button": "Next",
+		"success": {
+			"heading": "EMAIL SENT",
+			"body": "An email has been sent to you so you can reset your password.",
+			"button": "DONE"
+		},
+		"error1": "Invalid email address",
+		"error2": "Member not Found",
+		"error3": "Technical Error, please try later",
+	},
+	"onboard": {
+		"button": "I'm Ready",
+		"slides": [
+			{
+				"heading": "Earn Dollars With Each Purchase",
+				"body": "The bigger the purchase the more dollars you get.",
+				"image": ""
+			},
+			{
+				"heading": "Track Your Dollars",
+				"body": "See in-app how many dollars your have earnt and burnt.",
+				"image": ""
+			},
+			{
+				"heading": "Claim Points For Upgrades and Extras",
+				"body": "Scan your Rewards App at the register.",
+				"image": ""
+			},
+			{
+				"heading": "Bonus Offers Will Appear In My Offers",
+				"body": "Like a free meal on us for your birthday!",
+				"image": ""
+			}
+		]
+	},
+	"home": {
+		"scanHelp": "Having trouble scanning? Turn your mobile sideways or tap for card info.",
+		"tierHelp": "To reach [next tier] you need to...",
+		"headingOffers": "Offers",
+		"headingPromotions": "What's New",
+		"orderButton": "Order Online"
+	},
+	"profile": {
+		"unverifiedMobileNumber": {
+			"heading": "Unverified Number",
+			"body": "We noticed your mobile number was not verified. Do you want to update your contact number?"
+		},
+		"mobileNumberVerification1": {
+			"heading": "Verify Mobile Number",
+			"body": "Hi [name], can we get your mobile number?",
+			"button": "Send Verification SMS",
+			"helper": "We need to verify your mobile number in case we need to reach you!"
+		},
+		"mobileNumberVerification2": {
+			"heading": "Verify Mobile Number",
+			"body": "We have sent an SMS to [phone] with your verification link.\nIf you haven't received your SMS you can resend below or update contact details.",
+			"button": "Resend SMS",
+			"helper": "We need to verify your mobile number in case we need to reach you!"
+		},
+		"mobileNumberVerification3": {
+			"heading": "Thanks For Verifying Your Mobile Number",
+			"body": "Your $5 welcome voucher is on it's way.",
+			"helper": "You will use these details to login so ensure you use details where we can reach you."
+		},
+		"unverifiedEmail": {
+			"heading": "Unverified Email",
+			"body": "We noticed your email was not verified. Do you want to update your email address?"
+		},
+		"emailVerification1": {
+			"heading": "Verify Email",
+			"body": "Hi [name], we couldn't verify your email. Please update below.",
+			"field": "Your email address",
+			"fieldTooltop": "This is not a valid email address",
+			"button": "Verify",
+			"helper": "We need to verify your email in case we need to reach you!"
+		},
+		"emailVerification2": {
+			"heading": "Verify Email",
+			"body": "We have sent a verification email to [email].\nIf you haven't received an email you can resend below or update contact details.",
+			"button": "Resend Email",
+			"helper": "We need to verify your email in case we need to reach you!"
+		},
+		"emailVerification3": {
+			"heading": "Email Verified",
+			"body": "Your $5 welcome voucher is on it's way."
+		},
+		"updatePassword1": {
+			"heading": "Update Password",
+			"field": "Enter old password",
+			"button": "Next"
+		},
+		"updatePassword2": {
+			"heading": "Update Password",
+			"field": "Enter new password",
+			"button": "Next"
+		},
+		"updatePassword3": {
+			"heading": "Confirm New Password",
+			"field": "Re-enter new password",
+			"button": "Next"
+		},
+		"updatePassword4": {
+			"heading": "Password Updated",
+			"body": "Your $5 welcome voucher is on it's way.",
+			"button": "Done"
+		},
+		"updatePhone1": {
+			"heading": "Update Phone Number",
+			"body": "Updating your phone number will require it to be re-validated.",
+			"button": "Next"
+		},
+		"updatePhone2": {
+			"heading": "Update Phone Number",
+			"field": "Enter new phone number",
+			"button": "Next"
+		},
+		"updatePhone3": {
+			"heading": "Confirm New Phone Number",
+			"body": "We have sent you an SMS to validate your new phone number.",
+			"button": "Dismiss"
+		},
+		"accountDeletion": {
+			"heading": "Are Your Sure?",
+			"body": "If you delete your account you will lose your points and cards associated with this account."
+		},
+		"deleteAccount1": {
+			"heading": "Please let us know why you want to delete your account",
+			"buttonYes": "OK",
+			"buttonNo": "No"
+		},
+		"deleteAccount2": {
+			"button": "Submit",
+			"helper": "Select as many as you want",
+			"options": [
+				"I don't use this app anymore",
+				"Too many emails",
+				"Tech issues",
+				"Too many apps",
+				"App kept crashing",
+				"Lack of rewards",
+				"Misleading information",
+				"Too much personal info"
+			]
+		},
+		"deleteAccount3": {
+			"heading": "We are sad to see you go",
+			"body": "Although you are leaving us, we still value the good times we had together./nSo here's a free upsize you can use on your next purchase on us.",
+			"buttonYes": "Sure",
+			"buttonNo": "No Thanks"
+		},
+		"deleteAccount4": {
+			"heading": "Break Up Offer",
+			"body1": "Don't forget to screen shot this offer!",
+			"body2": "I'm sure we can still be friends.",
+			"button": "Continue",
+			"offer": ""
+		}
+	},
+	"cards": {
+		"addCard1": {
+			"heading": "Add Your Rewards Card",
+			"image": "",
+			"button": "Next"
+		},
+		"addCard2": {
+			"heading": "Add Your Rewards Card",
+			"body": "Please enable camera access to scan your QR code/Barcode",
+			"error": "We weren't able to access your camera",
+			"button": "Enable Camera Access"
+		},
+		"addCard3": {
+			"heading": "Add Your Rewards Card",
+			"image": "",
+			"button": "Continue"
+		},
+		"addCard4": {
+			"heading": "Add Your Rewards Card",
+			"error": "Having trouble scanning your card?",
+			"errorLink": "Enter manually"
+		},
+		"verifyCard1": {
+			"heading": "Verify Your Card",
+			"button": "Got It"
+		},
+		"verifyCard2": {
+			"heading": "Verify Your Card",
+			"body": "Enter the PIN number found on the backside of your card",
+			"button": "Verify Card",
+			"error": "We weren't able to verify your card. You can always try again in-app."
+		},
+		"verifyPassword1": {
+			"heading": "Password",
+			"field": "Access code or donor password",
+			"body": "If you are merging a card from another account, enter the donor password. If adding a paper card, enter the access code.",
+			"button": "Next",
+			"error": "Access code length must be 4 digits."
+		},
+		"verifyPassword2": {
+			"heading": "Acceptor Password",
+			"field": "Access code or donor password",
+			"body": "Enter the password for the acceptor account",
+			"button": "Add card",
+			"error": "Access code length must be 4 digits."
+		},
+		"manualCard": {
+			"heading": "Add Your Rewards Card",
+			"field": "Your card number",
+			"button": "Add Card"
+		},
+		"margeCard1": {
+			"heading": "This card is already linked to an account. Do you want to merge these accounts?",
+			"body": "You don't get the points but any further points accumulated with this card will be attributed to your account... But the original account needs verify by email to check that this is legit.",
+			"button": "Yes"
+		},
+		"mergeCard2": {
+			"heading": "An email has been sent to the email associated with this card",
+			"button": "Done"
+		},
+		"mergeSuccess": {
+			"heading": "Success!",
+			"body": "Your accounts have been merged! Way to give yourself an extra $[dollars]! Hungry? ",
+			"image": "",
+			"button": "DONE"
+		},
+		"mergeNotConfirmed": {
+			"heading": "Card Merge Not Confirmed",
+			"body": "Do you want us to resend the email?"
+		},
+		"removeCard": {
+			"heading": "Are You Sure?",
+			"body": "You will no longer be able to use this card to acquire points."
+		}
+	},
+	"offers": {
+		"empty": {
+			"heading": "No offers available",
+			"body": "Check back again soon"
+		},
+		"error": {
+			"heading": "Offers failed to load",
+			"body": "We will retry in 40 seconds...",
+			"link": "Retry"
+		}
+	},
+	"tiers": {
+		"Bronze": {
+			"title": "Bronze",
+			"image": "https://via.placeholder.com/60x60",
+			"earnRate": "20:1",
+			"copy": "You are a [tier] member. For every $20 you spend you will earn $1.",
+			"nextTier": "Silver",
+			"nextTierCopy": "To progress to the [nextTier] tier simply spend X dollars in a calendar month."	
+		},
+		"Silver": {
+			"title": "Silver",
+			"image": "https://via.placeholder.com/60x60",
+			"earnRate": "17:1",
+			"copy": "You are a [tier] member. For every $17 you spend you will earn $1.",
+			"nextTier": "Gold",
+			"nextTierCopy": "To progress to the [nextTier] tier simply spend X dollars in a calendar month."	
+		},
+		"Gold": {
+			"title": "Gold",
+			"image": "https://via.placeholder.com/60x60",
+			"earnRate": "15:1",
+			"copy": "You are a [tier] member. For every $15 you spend you will earn $1.",
+			"nextTier": "Platinum",
+			"nextTierCopy": "To progress to the [nextTier] tier simply spend X dollars in a calendar month."	
+		},
+		"Platinum": {
+			"title": "Platinum",
+			"image": "https://via.placeholder.com/60x60",
+			"earnRate": "15:1",
+			"copy": "You are a [tier] member. For every $15 you spend you will earn $1."
+		},
+		"Staff": {
+			"title": "Crew",
+			"image": "https://via.placeholder.com/60x60",
+			"earnRate": "15:1",
+			"copy": "You are a [tier] member. For every $15 you spend you will earn $1."	
+		}
+	},
+	"more": {
+		"items": []
+	},
+	"faqs": {
+		"heading": "Help",
+		"copy": "Frequently Asked Questions",
+		"items": []
+	}
+}

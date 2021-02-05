@@ -1,0 +1,21 @@
+{
+	"strict": "implied",
+	"unused": true,
+	"curly": true,
+	"eqeqeq": true,
+	"futurehostile": true,
+	"esversion": 6,
+	"nonbsp": true,
+	"nonew": true,
+	"undef": true,
+	"globals": {
+		"$": false,
+		"google": false,
+		"require": false,
+		"document": false,
+		"window": false,
+		"module": false,
+		"console": false,
+		"GoogleMapsLoader": false
+	}
+}

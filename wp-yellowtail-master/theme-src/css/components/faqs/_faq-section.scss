@@ -1,0 +1,71 @@
+$faq-section-max-width: 800px;
+
+.faq-collection {
+	overflow: hidden;
+	padding-bottom: 100px;
+
+	.faq-section {
+		max-width: $faq-section-max-width;
+		margin: 0 auto 20px;
+
+		.title {
+			position: relative;
+
+			padding-right: 30px;
+			margin-bottom: 20px;
+
+			h3 {
+				@include font-size(42px, 56px);
+				@include f-themix-normal;
+
+				@include media($mobile) {
+					@include font-size(30px, 36px);
+				}
+			}
+
+			.to-top {
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				width: 30px;
+				height: 100%;
+
+				background-image: url('../img/icons/icon-chevron-up.svg');
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-size: contain;
+
+				cursor: pointer;
+			}
+		}
+
+		.question {
+			margin-bottom: 20px;
+
+			@include font-size(16px, 22px);
+
+			list-style: none;
+
+			h4 {
+				margin-bottom: 5px;
+
+				@include f-themix-bold;
+			}
+
+			.answer {
+				p {
+					a {
+						text-decoration: underline;
+						transition: color 150ms ease-out;
+
+						&:hover,
+						&:focus {
+							color: $c-yt-yellow;
+						}
+					}
+				}
+			}
+		}
+	}
+}

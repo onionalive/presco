@@ -1,0 +1,20 @@
+{% extends "master.njk" %}
+{% set headerImage = home_page.header_image.url %}
+{% set titleWhite = home_page.title_white %}
+{% set titleWhiteTwo = home_page.title_white_two %}
+{% set titleRed = home_page.title_red %}
+
+{% block content %}
+<div class='inner'>
+	<div class="home">
+		<div class="tile-container">
+			{% for article in all_articles %}
+				{% include "partials/article-tile.njk" %}
+			{% endfor %}
+		</div>
+		<div class="load-more">
+			<a href="#">Load More</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

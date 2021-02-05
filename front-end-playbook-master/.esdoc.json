@@ -1,0 +1,15 @@
+{
+	"source": "./src",
+	"destination": "./doc",
+	"manual": {
+		"usage": [
+			"./manual/principles.md",
+			"./manual/style.md",
+			"./manual/motion.md",
+			"./manual/components.md",
+			"./manual/patterns.md",
+			"./manual/communications.md",
+			"./manual/resources.md"
+		]
+	}
+}

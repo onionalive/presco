@@ -1,0 +1,118 @@
+.transactions {
+	background-color: $c-off-white;
+
+	.third-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 97px;
+		background-color: $c-dark-grey;
+		color: $c-off-white;
+
+		@include grid-media($mobile) {
+			height: auto;
+			padding: 10px 0px;
+		}
+
+		span {
+			position: absolute;
+			top: 50%;
+			left: 0;
+
+			@include grid-media($mobile) {
+				top: unset;
+				left: 20px;
+				display: inline-block;
+			}
+		}
+
+		a:hover {
+			color: $c-primary;
+		}
+
+		h1 {
+			@include f-heading-large;
+			font-size: 40px;
+
+			@include grid-media($mobile) {
+				margin-bottom: 0;
+				font-size: 28px;
+			}
+		}
+	}
+
+	.secondary-container {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		&:last-of-type {
+			margin: 80px auto;
+
+			@include grid-media($mobile) {
+				margin: 0 auto;
+			}
+		}
+
+		>div {
+			width: 100%;
+		}
+	}
+
+	.no-transactions {
+		margin-bottom: 30px;
+		text-align: center;
+
+		h3 {
+			font-size: 32px;
+			line-height: 60px;
+		}
+
+		p {
+			line-height: 42px;
+		}
+	}
+
+	.transactions-list {
+		width: 100%;
+	}
+
+	.header-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 20px 80px;
+		background-color: $c-black;
+		color: $c-white;
+		box-sizing: border-box;
+
+		@include grid-media($mobile) {
+			padding: 20px;
+		}
+
+		.align-left,
+		.align-right {
+			p {
+				font-size: 18px;
+				line-height: 22px;
+
+				@include grid-media($mobile) {
+					font-size: 12px;
+					line-height: 16px;
+				}
+			}
+		}
+
+		.align-right {
+			text-align: right;
+		}
+	}
+
+	.button {
+		margin: 40px 0 10px;
+	}
+}

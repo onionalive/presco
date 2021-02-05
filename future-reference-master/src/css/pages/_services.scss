@@ -1,0 +1,186 @@
+.services {
+	margin-top: 140px;
+
+	@include grid-media($tablet) {
+		margin-top: 84px;
+	}
+
+	// Centered Row
+	.row {
+		@include grid-column(8);
+		@include grid-container;
+		@include grid-shift(2);
+
+		@include grid-media($tablet) {
+			@include grid-column(12);
+			@include grid-shift(0);
+		}
+	}
+
+	// Paragraph Font Sizing
+	p,
+	li {
+		color: $c-black;
+		font-size: 1.6rem;
+		line-height: 2.3rem;
+		letter-spacing: -.4px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	ul {
+   list-style-image: url('../img/bullet-2.svg');
+	 padding: 0;
+
+	 li {
+		 margin-left: 15px;
+		 padding-left: 7px;
+	 }
+	}
+
+	// Intro
+	.intro-subtitle {
+		margin-bottom: 18px;
+
+		p {
+			@include f-dinot-bold;
+			font-size: 1.5rem;
+			letter-spacing: -.8px;
+			color: $c-red;
+			display: inline;
+		}
+	}
+
+	.intro-heading {
+		h2 {
+			font-size: 6rem;
+			line-height: 6.7rem;
+			margin-top: 0;
+			letter-spacing: -3.5px;
+			margin-bottom: 140px;
+
+			@include grid-media($tablet) {
+				margin-bottom: 84px;
+			}
+
+			@include grid-media($small-tablet) {
+				margin-bottom: 84px;
+				font-size: 3.2rem;
+				line-height: 3.8rem;
+				letter-spacing: -1.9px;
+			}
+		}
+	}
+
+	// Sections
+	// Section Spacing
+	.section {
+		@include grid-container;
+		margin-bottom: 140px;
+
+		@include grid-media($tablet) {
+			margin-bottom: 84px;
+		}
+	}
+
+	// Section Headings
+	.section {
+		h3 {
+			margin-top: 0;
+			font-size: 4rem;
+			line-height: 4.8rem;
+			letter-spacing: -2.4px;
+
+			@include grid-media($tablet) {
+			margin-bottom: 21px;
+			}
+
+			@include grid-media($small-tablet) {
+				font-size: 2.5rem;
+				letter-spacing: -1.3px;
+				line-height: 3rem;
+			}
+		}
+	}
+
+	// Full Width
+	.full-width {
+		@include grid-column(12);
+		@include grid-container;
+		@include grid-shift(0);
+
+		// Section Content
+		.section-container {
+			@include grid-collapse;
+			@include grid-container;
+
+			.section-image-mobile {
+				display: none;
+				@include grid-column(12);
+
+				@include grid-media($tablet) {
+					display: block;
+					margin-bottom: 42px;
+				}
+			}
+
+			.section-image-container {
+				width: calc(50vw + 40px);
+				margin-left: calc(50% - 50vw);
+				margin-right: calc(50% - 50vw);
+
+				&.-right {
+					float: right;
+				}
+
+				@include grid-media($tablet) {
+					display: none;
+				}
+			}
+
+			.section-image {
+				height: 100%;
+			}
+
+			.section-content  {
+				@include grid-column(4);
+
+				&.-left {
+					@include grid-shift(7);
+
+					@include grid-media($small-desktop) {
+						@include grid-column(4);
+					}
+
+					@include grid-media($tablet) {
+						@include grid-column(10);
+						@include grid-shift(1);
+					}
+
+					@include grid-media($mobile) {
+						@include grid-column(12);
+						@include grid-shift(0);
+					}
+				}
+				&.-right {
+					@include grid-shift(1);
+
+					@include grid-media($small-desktop) {
+						@include grid-column(4);
+					}
+
+					@include grid-media($tablet) {
+						@include grid-column(10);
+						@include grid-shift(1);
+					}
+
+					@include grid-media($mobile) {
+						@include grid-column(12);
+						@include grid-shift(0);
+					}
+				}
+			}
+		}
+	}
+
+}

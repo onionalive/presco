@@ -1,0 +1,11 @@
+// - Breakpoints - //
+$mobile: new-breakpoint(max-width 667px); // Mobile
+$mobile-l: new-breakpoint(max-width 745px); // Mobile Large
+$tablet-l: new-breakpoint(max-width 1024px); // Landscape Tablet
+$tablet-p: new-breakpoint(max-width 768px); // Portrait Tablet
+$laptop-l: new-breakpoint(max-width 1440px); // Laptop large
+$desktop: new-breakpoint(max-width 1730px); // Desktop
+$desktop-l: new-breakpoint(min-width 2560px); // 4k and above
+$hero-l: new-breakpoint(max-height 1080px);
+$hero-m: new-breakpoint(max-height 950px);
+$hero-s: new-breakpoint(max-height 850px);

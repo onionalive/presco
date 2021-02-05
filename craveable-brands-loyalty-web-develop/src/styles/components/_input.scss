@@ -1,0 +1,59 @@
+.input-set {
+	display: block;
+	padding: 0 20px;
+	box-sizing: border-box;
+
+	overflow: hidden;
+
+	.error-message {
+		display: block;
+
+		opacity: 0;
+	}
+
+	.label {
+		display: block;
+
+		margin-bottom: 10px;
+
+		color: $c-white;
+
+		@include f-primary-semibold;
+		font-size: 1.5rem;
+	}
+
+	.input {
+		margin-bottom: 10px;
+
+		border: none;
+		border-bottom: solid 1px $c-grey;
+
+		background-color: transparent;
+		color: $c-white;
+
+		height: 50px;
+		width: 100%;
+
+		@include f-primary-regular;
+		font-size: 1.7rem;
+
+		transition: all 270ms ease-out;
+
+		&:active,
+		&:focus {
+			border-bottom: solid 1px $c-white;
+		}
+
+		&.valid {
+			border: solid 1px $c-green;
+		}
+
+		&.error {
+			border: solid 1px $c-red;
+
+			& + .error-message {
+				opacity: 1;
+			}
+		}
+	}
+}

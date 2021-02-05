@@ -1,0 +1,47 @@
+.common-info-box {
+	position: relative;
+	width: 472px;
+	height: 348px;
+	margin: 0 auto;
+	padding-top: 28px;
+	background-color: $c-off-black;
+	color: $c-white;
+
+	h3 {
+		text-align: center;
+		font-size: 18px;
+	}
+
+	input {
+		width: calc(100% - 60px);
+		margin: 30px;
+		background-color: $c-off-black;
+		color: $c-white;
+		border: 0;
+		border-bottom: 1px solid $c-light-grey;
+
+		@include f-primary-regular;
+		font-size: 18px;
+		line-height: 40px;
+	}
+
+	::-webkit-input-placeholder {
+			color: $c-white;
+	}
+
+	input:focus {
+		outline: 0;
+		border-bottom: 2px solid $c-primary;
+	}
+
+	.button {
+		position: absolute;
+		bottom: 0;
+		height: 60px;
+		width: 100%;
+		margin-bottom: 0;
+
+		font-size: 16px;
+		line-height: 60px;
+	}
+}

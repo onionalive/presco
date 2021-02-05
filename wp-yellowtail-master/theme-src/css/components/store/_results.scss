@@ -1,0 +1,145 @@
+.stores {
+	.results {
+		h3 {
+			display: none;
+			@include f-themix-light;
+			@include font-size(36px, 36px);
+			text-align: center;
+			padding-top: 20px;
+			padding-bottom: 20px;
+
+			@include media($tablet-p) {
+				@include font-size(26px, 26px);
+			}
+		}
+
+		.instructions {
+			@include f-themix-light;
+			@include font-size(18px, 20px);
+			text-align: center;
+			padding: 60px 20px 120px;
+		}
+
+		.tiles {
+			@include outer-container(970px);
+
+			.tile {
+				display: table;
+				width: 100%;
+				min-height: 270px;
+				margin-bottom: 45px;
+				background-color: $c-white;
+				box-shadow: lighten($c-mid-grey, 40%) 1px 2px 3px;
+				opacity: 0;
+
+				.text {
+					display: table;
+					position: relative;
+					float: left;
+					width: 30%;
+					min-height: 270px;
+					height: 100%;
+					padding: 0 25px;
+					background: $c-white;
+
+					@include media($tablet-p) {
+						width: 100%;
+						min-height: 0;
+						padding: 30px 20px;
+					}
+
+					.inner {
+						display: table-cell;
+						vertical-align: middle;
+					}
+
+					h4 {
+						text-transform: uppercase;
+						@include f-themix-bold;
+						@include font-size(18px, 20px);
+						margin-bottom: 22px;
+					}
+
+					.address {
+						color: $c-mid-grey;
+						@include font-size(16px, 16px);
+						margin-bottom: 15px;
+					}
+
+					.distance {
+						color: $c-mid-grey;
+						@include font-size(16px, 16px);
+						margin-bottom: 5px;
+					}
+
+					a {
+						color: $c-mid-grey;
+						@include font-size(16px, 16px);
+						text-decoration: underline;
+						transition: color 150ms ease-out;
+
+						&:hover,
+						&:focus {
+							color: $c-yt-yellow;
+						}
+					}
+				}
+
+				.map {
+					display: block;
+					position: relative;
+					float: right;
+					width: 70%;
+					min-height: 270px;
+
+					img {
+						display: block;
+						width: 100%;
+						height: auto;
+						object-fit: cover;
+					}
+
+					&:hover,
+					&:focus {
+						opacity: 0.8;
+					}
+
+					@include media($tablet-p) {
+						width: 100%;
+						height: auto;
+						min-height: none;
+					}
+				}
+			}
+		}
+
+		.view-more {
+			text-align: center;
+			min-height: 58px;
+			padding-bottom: 40px;
+			display: none;
+
+			.view-more-btn {
+				display: inline-block;
+				padding-bottom: 2px;
+				margin-bottom: 3px;
+				border-bottom: 1px solid $c-black;
+
+				text-align: center;
+				text-transform: uppercase;
+				@include font-size(18px, 18px);
+
+				@include transition(
+					padding $timing-hover,
+					margin $timing-hover
+				);
+
+				&:hover {
+					cursor: pointer;
+					padding-bottom: 5px;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,4 @@
+{
+  "source": "./theme-src/js",
+  "destination": "./doc"
+}

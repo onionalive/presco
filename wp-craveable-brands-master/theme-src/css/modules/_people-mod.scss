@@ -1,0 +1,202 @@
+.people {
+	overflow: hidden;
+
+	.inner {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.people-container {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	h2 {
+		margin-top: 18px;
+	}
+
+	h3 {
+		font-size: 42px;
+		text-align: left;
+	}
+
+	.person {
+		margin-bottom: 20px;
+		position: relative;
+
+		img {
+			height: 185px;
+			width: 185px;
+			border-radius: 100px;
+			margin-bottom: 25px;
+		}
+
+		p {
+			margin: 0;
+			color: $c-black;
+			line-height: 30px;
+			padding: 0 10px;
+			text-align: center;
+
+			&:first-of-type {
+				font-size: 18px;
+				@include circular-bold;
+				@include media(max-width 600px) {
+					font-size: 16px;
+					line-height: 22px;
+				}
+			}
+
+			&:last-of-type {
+				@include circular-book;
+			}
+		}
+
+		&.Board {
+			p {
+				color: $c-white;
+			}
+		}
+	}
+
+	.button {
+		margin: auto;
+		display: block;
+		background-color: transparent;
+		color: $c-black;
+		border: 3px solid $c-black;
+		text-align: center;
+		position: relative;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: background-color .2s linear,
+		color .2s ease-in-out;
+		margin-top: 40px;
+		line-height: 54px;
+
+		@include media($mobile) {
+			border: 2px solid $c-black;
+			line-height: 46px;
+			font-size: 14px;
+			margin-top: 20px;
+		}
+
+		&:hover,
+		&:focus {
+			background-color: $c-black;
+			color: $c-white;
+			cursor: pointer;
+		}
+	}
+
+	&.-single-row {
+		background-color: $c-teal;
+
+		&.Board {
+			h2 {
+				color: $c-white;
+			}
+		}
+
+		.inner-people {
+			display: block;
+			width: 1250px;
+			min-height: 490px;
+			text-align: center;
+			overflow: hidden;
+			z-index: 0;
+
+			@include media($width-1250) {
+				width: 1000px;
+			}
+
+			@include media($width-1000) {
+				width: 100%;
+			}
+
+			@include media($width-900) {
+				padding: 0;
+			}
+
+			@include media($width-750) {
+				max-width: 750px;
+			}
+			@include media($width-500) {
+				max-width: 500px;
+			}
+		}
+
+		.people-container {
+			max-width: 1250px;
+			width: auto;
+			margin: 0 auto;
+			display: flex;
+
+			&:not(.slick-slider) {
+				.person {
+					float: none;
+					text-align: center;
+					display: inline-block;
+					margin: 10px 20px;
+				}
+			}
+
+			@include media($width-1000) {
+				width: 100%;
+				max-width: 750px;
+			}
+
+			@include media($width-900) {
+				display: inline-block;
+				text-align: center;
+			}
+
+			@include media($width-750) {
+				max-width: 750px;
+			}
+
+			@include media($width-500) {
+				max-width: 500px;
+			}
+		}
+
+		.person {
+			float: left;
+			width: 230px;
+			min-height: 375px;
+			text-align: center;
+			vertical-align: top;
+
+			.hover-state {
+				content: '';
+
+				position: absolute;
+				bottom: -10px;
+
+				width: 100%;
+				height: 5px;
+
+
+				background-color: transparent;
+				transition: bottom 150ms linear;
+
+				@include media($small) {
+					display: none;
+				}
+			}
+
+			&.Board {
+				border: 0 solid $c-teal;
+			}
+
+			&.Executives {
+				border: 0 solid $c-black;
+			}
+
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}

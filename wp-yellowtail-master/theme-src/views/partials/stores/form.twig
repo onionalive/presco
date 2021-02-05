@@ -1,0 +1,65 @@
+<div class="inner">
+	<div class="form-messages">
+		<div class="form-container">
+      {{ no_results_copy }}
+		</div>
+	</div>
+	<div class="content">
+		<form action="/" id="stores" class="contact-form">
+			<div class='form-row'>
+				<label for="country">Country</label>
+				<div class="country-selector">
+					<div class="dropdown">
+						<a href="#" class="selected">
+							<span>Select</span>
+							<div class="toggle"></div>
+						</a>
+						<div class="tray">
+							<ul class="options">
+								{% include 'partials/agegate-countries.twig' with { 'tag' : 'li'  } %}
+							</ul>
+						</div>
+					</div>
+					<input type="hidden" name="country" id="country" />
+				</div>
+			</div>
+			<div class="form-row">
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name" required>
+			</div>
+			<div class="form-row">
+				<label for="zip">ZIP/Postal Code</label>
+				<input type="text" name="zip" id="zip" required>
+			</div>
+			<div class="form-row">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" required>
+			</div>
+			<div class='form-row'>
+				<label class="-multiline">Which varietal(s) are you looking for?</label>
+				<div class="varietal-selector">
+					<div class="dropdown">
+						<a href="#" class="selected">
+							<span>Select</span>
+							<div class="toggle"></div>
+						</a>
+						<div class="tray">
+							<button class="clear">Clear All</button>
+							<ul class="options">
+								{% for wine in wines %}
+									<li>
+										<input type="checkbox" name="varietals[]" id="{{ wine.title|slug }}" value="{{ wine.title }}" />
+										<label for="{{ wine.title|slug }}">{{ wine.title }}</label>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row submit-button">
+				<input class="submit" value="submit" type="submit">
+			</div>
+		</form>
+	</div>
+</div>

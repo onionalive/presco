@@ -1,0 +1,590 @@
+.fp-animations {
+	.next,
+	.prev {
+		position: absolute;
+		top: 350px;
+
+		opacity: 1;
+		visibility: visible;
+		z-index: 500;
+		color: $c-white;
+
+		@include font-size(50px, 0);
+
+		@include media($tablet-p) {
+			@include font-size(50px, 0);
+		}
+
+		transition: opacity .5s, visibility .5s, color .2s;
+
+		&:hover,
+		&:focus {
+			color: $c-black;
+			cursor: pointer;
+		}
+
+		&.hide {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	.next {
+		right: 15%;
+
+		@include media($tablet-p) {
+			right: 5%;
+		}
+	}
+
+	.prev {
+		left: 15%;
+
+		@include media($tablet-p) {
+			left: 5%;
+		}
+	}
+
+	> .inner {
+		margin-top: 30px;
+
+		@include media($tablet-p) {
+			margin-top: 0;
+		}
+	}
+
+	.animation-screen {
+		margin-bottom: 20px;
+		min-height: 550px;
+
+		@include media($tablet-p) {
+			min-height: 0;
+		}
+
+		h2,
+		h1 {
+			@include font-size(66px, 75px);
+			font-family: 'brauerneue-black', sans-serif;
+			text-transform: uppercase;
+
+			@include media($tablet-p) {
+				@include font-size(36px, 36px);
+			}
+		}
+
+		.heart-header {
+			height: 49px;
+			width: 55px;
+			display: inline-block;
+			background-image: url('../img/fp-animations/heart.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+		}
+
+		.home-button {
+			padding: 10px 14px;
+			color: $c-white;
+			background-color: $c-dark-grey;
+			border-radius: 0;
+		}
+
+		&.-one,
+		&.-two,
+		&.-three,
+		&.-four {
+			text-align: center;
+
+			p {
+				max-width: 700px;
+			}
+
+			a {
+				margin-bottom: 20px;
+			}
+
+			.large-mobile {
+				@include media($tablet-p) {
+					display: block;
+					@include font-size(66px, 66px);
+				}
+			}
+
+			.yt-mobile {
+				@include media($tablet-p) {
+					@include font-size(45px, 45px);
+				}
+			}
+		}
+
+		&.-two,
+		&.-three,
+		&.-four {
+			display: none;
+		}
+
+		&.-one {
+			h2 {
+				@include media($tablet-p) {
+					width: 270px;
+					margin: 0 auto;
+				}
+			}
+		}
+
+		&.-two {
+			overflow: hidden;
+
+			h2 {
+				@include media($tablet-p) {
+					width: 330px;
+					margin: 0 auto;
+				}
+				@media screen and (max-width: 340px) {
+					width: 290px;
+				}
+			}
+
+			.large-mobile {
+				@include media($tablet-p) {
+					display: block;
+					@include font-size(90px, 90px);
+				}
+			}
+		}
+
+		&.-three {
+			h2 {
+				@include media($tablet-p) {
+					@include font-size(60px);
+				}
+
+				.large-mobile {
+					@include media($tablet-p) {
+						display: inline-block;
+						@include font-size(80px, 80px);
+					}
+				}
+
+				.block-mobile {
+					display: inline-block;
+					@include media($tablet-p) {
+						display: block;
+					}
+				}
+			}
+
+			.heart-word {
+				position: relative;
+
+				&::before,
+				&::after {
+					content: '';
+					position: absolute;
+					top: -15px;
+
+					height: 25px;
+					width: 20px;
+
+					background-image: url('../img/fp-animations/heart.png');
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: contain;
+				}
+
+				&::before {
+					left: -15px;
+					-ms-transform: rotate(-45deg);
+					-webkit-transform: rotate(-45deg);
+					transform: rotate(-45deg);
+				}
+
+				&::after {
+					right: -15px;
+					-ms-transform: rotate(45deg);
+					-webkit-transform: rotate(45deg);
+					transform: rotate(45deg);
+				}
+
+				@include media($tablet-p) {
+					@include font-size(96px, 96px);
+				}
+			}
+		}
+
+		&.-four {
+			width: 100%;
+
+			h2 {
+				@include media($tablet-p) {
+					@include font-size(60px, 60px);
+				}
+			}
+
+			.inner {
+				margin: 0 auto;
+			}
+
+			p {
+				max-width: 100%;
+				margin: 0 auto;
+				margin-bottom: 30px;
+			}
+
+			a {
+				margin-bottom: 40px;
+			}
+
+			.spacer {
+				display: block;
+				margin: 0 auto;
+				width: auto;
+				height: 350px;
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.roo {
+				margin: 0 auto -20px;
+				width: 150px;
+				height: 125px;
+				background: transparent url('../img/fp-animations/sprite-roo2.png') left center;
+
+				@keyframes play-anim {
+					0% { background-position: 0% 50%; }
+					100% { background-position: 0% -50%; }
+				}
+
+				&.-play {
+					animation: play-anim 1s steps(24) infinite;
+					-webkit-animation: play-anim 1s steps(24) infinite;
+					-moz-animation: play-anim 1s steps(24) infinite;
+					-o-animation: play-anim 1s steps(24) infinite;
+				}
+			}
+		}
+	}
+
+	.screenSelector {
+		border-bottom: 1px solid $c-white;
+
+		cursor: pointer;
+
+		@include media($mobile) {
+			margin: 0 10%;
+		}
+
+		& div {
+			display: inline-block;
+			margin: 0 auto 10px;
+			height: 10px;
+			width: 10px;
+			border: 1px solid $c-white;
+			border-radius: 50%;
+
+			@include media($tablet-p) {
+				height: 40px;
+				width: 40px;
+				margin: 0 10px 5px;
+			}
+
+			&:hover,
+			&:focus {
+				background-color: $c-white;
+			}
+
+			&.-active {
+				background-color: $c-white;
+			}
+		}
+	}
+
+	.animationOne,
+	.animationTwo,
+	.animationThree,
+	.animationFour {
+		display: flex;
+		position: relative;
+		align-content: flex-start;
+
+		.bottle {
+			position: relative;
+			left: 1000px;
+
+			width: 102px;
+			opacity: 0;
+
+			z-index: 10;
+
+			@include media($tablet-p) {
+				width: 45px;
+				height: 150px;
+			}
+
+			&.-blah {
+				height: 300px;
+				background-image: url('../img/fp-animations/blah-bottle.png');
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: contain;
+
+				@include media($tablet-p) {
+					height: auto;
+				}
+			}
+		}
+	}
+
+	.animationOne {
+		justify-content: space-around;
+
+		@include media($tablet-p) {
+			height: 150px;
+			margin-top: 20px;
+		}
+	}
+
+	.animationTwo {
+		justify-content: space-around;
+		width: 85%;
+		margin: 0 auto;
+		padding-top: 40px;
+
+		@include media($tablet-p) {
+			width: 100%;
+		}
+
+
+		.bottle {
+			&.-middle {
+				z-index: 100;
+				height: 300px;
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: contain;
+
+				@include media($tablet-p) {
+					height: 157px;
+				}
+			}
+		}
+
+		.particle {
+			position: absolute;
+			z-index: -100;
+
+			height: 5px;
+			width: 5px;
+			border-radius: 50%;
+			left: 50%;
+			bottom: 0;
+			right: 50%;
+			opacity: 0;
+		}
+	}
+
+	.animationThree {
+		height: 440px;
+		width: 90%;
+		margin: 0 auto;
+
+		@include media($tablet-p) {
+			height: 200px;
+		}
+
+		.heart-svg {
+			right: 0;
+			left: 0;
+			position: absolute;
+
+			height: auto;
+			margin: 0 auto;
+
+			opacity: 0;
+		}
+
+		.heart {
+			left: 37px;
+			height: 27px;
+			width: 30px;
+
+			position: absolute;
+			background-image: url('../img/fp-animations/heart.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+
+			opacity: 0;
+
+			transition: opacity .15s;
+
+			// becuase idk how code and I dont want to add these breakpoints
+			// to the breakpoints file when this is the only place
+			// they will get used. :'(
+			@media screen and (max-width: 1200px) {
+				left: -28px;
+			}
+			@media screen and (max-width: 900px) {
+				left: -50px;
+			}
+			@include media($tablet-p) {
+				left: 16%;
+			}
+			@media screen and (max-width: 450px) {
+				left: -5%;
+			}
+			@media screen and (max-width: 425px) {
+				left: 2%;
+			}
+			@media screen and (max-width: 375px) {
+				left: -3%;
+			}
+			@media screen and (max-width: 340px) {
+				left: -11%;
+			}
+		}
+
+		.bottle  {
+			position: absolute;
+			right: 0;
+			left: 0;
+
+			height: 440px;
+			width: 140px;
+			margin: 0 auto;
+			opacity: 1;
+
+			@include media($tablet-p) {
+				height: 200px;
+				width: 65px;
+			}
+		}
+	}
+
+	.animationFour {
+		display: none;
+		position: absolute;
+		width: 3000px;
+		left: 50%;
+		margin-left: -1610px;
+		white-space: nowrap;
+
+		.bottle {
+			right: 0;
+			margin-right: 40px;
+			display: inline-block;
+			opacity: 1;
+
+			&.-top {
+				left: 40px;
+				margin: 0 10px;
+				height: 350px;
+				width: 145px;
+
+				background-size: 120%;
+				background-position: center top;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+
+	.tiles {
+		margin: 40px auto;
+
+		&::after {
+			position: absolute;
+			width: 0;
+			height: 0;
+			overflow: hidden;
+			z-index: -1;
+			content: url('../img/fp-animations/heart.png');
+		}
+
+		.tile {
+			position: relative;
+			display: inline-block;
+			height: 230px;
+			width: 350px;
+			border-radius: 8px;
+			background-color: $c-light-grey;
+			margin-right: 10px;
+			text-align: left;
+
+			@include media($tablet-p) {
+				margin: 15px auto;
+			}
+			@media screen and (max-width: 340px) {
+				width: 300px;
+			}
+
+			img {
+				float: left;
+				border-radius: 8px;
+				height: 100%;
+				width: 100px;
+				background-color: $c-light-grey;
+			}
+
+			h2,
+			p,
+			a {
+				float: left;
+				width: 240px;
+				padding-top: 10px;
+				padding-left: 10px;
+			}
+
+			h2 {
+				margin-top: 10px;
+				@include f-brauer-black;
+				text-transform: uppercase;
+				@include font-size(36px, 36px);
+
+				@media screen and (max-width: 340px) {
+					width: 200px;
+				}
+			}
+
+			p {
+				@include f-themix-normal;
+				@include font-size(14px, 21px);
+				margin-bottom: 5px;
+				height: 80px;
+
+				@media screen and (max-width: 340px) {
+					width: 200px;
+				}
+			}
+
+			a {
+				position: absolute;
+				bottom: 15%;
+				right: 25%;
+
+				width: 148px;
+				border-radius: 3px;
+				padding: 7px 0;
+				margin-left: 10px;
+				margin-top: 10px;
+
+				background-color: $c-mid-grey;
+				color: $c-white;
+
+				text-align: center;
+				@include f-brauer-black;
+				@include font-size(16px, 19px);
+				text-transform: uppercase;
+
+				transition: background-color .2s, color .2s;
+
+				@media screen and (max-width: 340px) {
+					margin-top: 0;
+				}
+
+				&:hover {
+					background-color: $c-black;
+				}
+			}
+		}
+	}
+}

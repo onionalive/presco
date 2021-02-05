@@ -1,0 +1,162 @@
+body,
+html {
+	@include reset-box-model;
+
+	width: 100%;
+}
+
+body {
+	min-height: 100%;
+
+	&.no-scroll {
+		overflow: hidden;
+		position: fixed;
+	}
+}
+
+.container {
+	overflow: hidden;
+
+	> * {
+		&:first-child {
+			padding-top: $header-height-desktop;
+
+			@include media($mobile) {
+				padding-top: $header-height-mobile;
+			}
+		}
+	}
+
+	> .hero {
+		padding-top: $header-height-desktop + 30px;
+
+		@include media($mobile) {
+			padding-top: $header-height-mobile + 20px;
+		}
+	}
+}
+
+header,
+footer {
+	.inner {
+		@include outer-container;
+		width: 90%;
+	}
+}
+
+section {
+	> .inner {
+		@include outer-container;
+		display: block;
+		width: 90%;
+		padding: $header-height-desktop 0;
+
+		@include media($mobile) {
+			padding: $header-height-mobile 0;
+		}
+
+		.half {
+			@include span-columns(5);
+
+			@include media($mobile) {
+				@include span-columns(12);
+			}
+
+			&:first-child {
+				@include shift(1);
+
+				@include media($tablet-l) {
+					@include span-columns(6);
+					@include shift(0);
+				}
+
+				@include media($mobile) {
+					@include shift(0);
+					@include span-columns(12);
+				}
+			}
+
+			&.-frames {
+				@include span-columns(6);
+				@include shift(0);
+
+				@include media($mobile) {
+					@include span-columns(12);
+				}
+			}
+		}
+	}
+}
+
+&.-roo {
+	position: relative;
+	z-index: 1;
+
+	overflow: hidden;
+
+	&::before,
+	&::after {
+		content: '';
+
+		position: absolute;
+
+		display: none;
+		width: 243px;
+		height: 234px;
+
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: 100% 100%;
+	}
+
+	> * {
+		position: relative;
+		z-index: 2;
+	}
+
+	&.-left {
+		&::before {
+			left: -150px;
+
+			display: inline-block;
+
+			@include background-image('roo/roo-left');
+		}
+	}
+
+	&.-right {
+		&::after {
+			right: -150px;
+
+			display: inline-block;
+
+			@include background-image('roo/roo-right');
+		}
+	}
+
+	&.-top {
+		&::before,
+		&::after {
+			top: 50px;
+
+			@include media($mobile) {
+				top: 88px;
+			}
+		}
+	}
+
+	&.-mid {
+		&::before,
+		&::after {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	&.-bottom {
+		&::before,
+		&::after {
+			bottom: 0;
+		}
+	}
+}

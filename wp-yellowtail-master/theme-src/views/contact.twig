@@ -1,0 +1,73 @@
+{% extends "master.twig" %}
+
+{% block hero %}
+	{% include 'partials/hero-filter.twig' with {
+		title: 'Contact Us'
+	} %}
+{% endblock %}
+
+{% block content %}
+	<div class="contact -roo -right -top">
+		<div class="inner">
+			<div class="content" id="content">
+				<h2>Please check out our <a href="{{ site.url }}/faqs" aria-label="Frequently Asked Questions - select this link to navigate to our frequently asked questions page and see if we have answered your question before you send one in">FAQs page</a> before sending in your question, we may have already answered&nbsp;it.</h2>
+				<h2>For all media enquiries please contact <a href="mailto:media@casellafamilybrands.com" aria-label="Email address media@casellafamilybrands.com - select to open up a page to send an email to this address">media@casellafamilybrands.com</a></h2>
+				<form action="/" id="contact" class="contact-form">
+					<div class="form-row">
+						<label for="name">Name</label>
+						<input type="text" name="name" id="name"
+						aria-label="Name text field - enter your name as part of the contact us form" required>
+					</div>
+
+					<div class='form-row'>
+						<label for="country">Country</label>
+						<div class="country-selector">
+							<div class="dropdown">
+								<a href="#" class="selected">
+									<span>Select</span>
+									<div class="toggle"></div>
+								</a>
+								<div class="tray">
+									<ul class="options">
+									{% include 'partials/agegate-countries.twig' with { 'tag' : 'li'  } %}
+								</ul>
+								</div>
+							</div>
+							<input type="hidden" name="country" id="country" value='' required/>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<label for="zip">ZIP/Postal Code</label>
+						<input type="text" name="zip" id="zip"
+						aria-label="ZIP/Postal Code text field - enter your ZIP/Postal Code as part of the contact us form" required>
+					</div>
+					<div class="form-row">
+						<label for="email">E-mail</label>
+						<input type="email" name="email" id="email"
+						aria-label="Email text field - enter your email address as part of the contact us form" required>
+					</div>
+					<div class="form-row">
+						<label for="message">Your Message</label>
+						<textarea name="message" id="message"
+						aria-label="Message text field - enter your message as part of the contact us form" required></textarea>
+					</div>
+					<div class="form-row lot-form">
+						<label for="lot">Lot Number</label>
+						<input type="text" name="lot" id="lot" placeholder='L00000 00:00 L0' value=''
+						aria-label="Lot Number Field - enter your Lot Number as part of the contact us form">
+						<p class='lot-number'>{{ page.lot_number_help_link }}</p>
+						<div class='lot-number-tooltip'>
+							<p>
+								{{ page.lot_number_tooltip_text }}
+							</p>
+						</div>
+					</div>
+					<div class="form-row submit-button">
+						<input class='submit' value="submit" type="submit">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

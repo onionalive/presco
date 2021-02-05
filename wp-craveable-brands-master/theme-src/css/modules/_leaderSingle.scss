@@ -1,0 +1,183 @@
+.leader-section {
+
+	padding-top: 0;
+
+	.back-button {
+		.inner {
+			a {
+				&:hover,
+				&:focus {
+					color: $c-teal;
+				}
+			}
+		}
+	}
+
+	.leader {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		@include media($desktop-small) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	.lhs {
+		@include span-columns(9);
+		@include media($desktop-small) {
+			@include span-columns(8);
+		}
+
+		@include media($tablet) {
+			@include span-columns(12);
+		}
+
+		.titles {
+			@include span-columns(4);
+
+			> div {
+				margin-bottom: 20px;
+			}
+		}
+
+		.description {
+			@include span-columns(8);
+			padding: 0 10px;
+
+			@include media($medium) {
+				padding: 0;
+			}
+
+			@include media($tablet) {
+				margin-top: 25px;
+			}
+
+			p {
+				&:first-of-type {
+					margin-top: 0;
+				}
+			}
+		}
+
+		.titles,
+		.description {
+			@include media($medium) {
+				@include span-columns(12);
+			}
+		}
+	}
+
+	.image {
+		height: 335px;
+		width: auto;
+		@include span-columns(3);
+
+		@include media($desktop-small) {
+			height: auto;
+			@include span-columns(4);
+		}
+
+		@include media($small) {
+			height: 435px;
+			width: auto;
+		}
+
+		> img {
+			width: 100%;
+			height: auto;
+			border-radius: 300px;
+		}
+
+		&.-mobile {
+			display: none;
+			margin-bottom: 20px;
+
+			@include media($tablet) {
+				display: block;
+				height: 185px;
+				width: 185px;
+				border-radius: 100px;
+			}
+		}
+
+		&.-desktop {
+			@include media($tablet) {
+				display: none;
+			}
+		}
+	}
+
+	.titles {
+		h1 {
+			margin: 0;
+			margin-bottom: 5px;
+		}
+
+		span {
+			color: $c-light-grey;
+			display: inline-block;
+		}
+
+		.company {
+			margin-bottom: 10px;
+		}
+	}
+
+	.description {
+		@include media($desktop-small) {
+			order: 3;
+		}
+	}
+
+	.linkedin-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 185px;
+		margin-top: 5px;
+		padding: 10px;
+		border-radius: 3px;
+
+		background-color: $c-linkedin-blue;
+
+		text-decoration: none;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 15px;
+		color: $c-white;
+
+		transition: background-color .2s ease;
+
+		&:hover,
+		&:focus {
+			background-color: lighten($c-linkedin-blue, 10%);
+		}
+
+		.fa-linkedin-square {
+			font-size: 25px;
+			margin-right: 10px;
+		}
+	}
+}
+
+.our-leaders {
+	&.single {
+		h2 {
+			color: $c-white;
+		}
+
+		.person {
+			p {
+				color: $c-white;
+			}
+
+			&.our-people {
+				min-height: 315px;
+				text-align: center;
+			}
+		}
+	}
+}

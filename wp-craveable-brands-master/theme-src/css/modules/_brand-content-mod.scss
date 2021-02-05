@@ -1,0 +1,106 @@
+section {
+	&.brand-content-mod {
+
+		padding-top: 0;
+
+		.details-links-container {
+			display: inline-block;
+		}
+
+		.ceo {
+			float: right;
+			display: flex;
+			flex-direction: column;
+
+			@include media($mobile) {
+				width: 175px;
+				float: none;
+				margin: 0 auto;
+			}
+
+			img {
+				height: 175px;
+				width: 175px;
+				margin-top: 18px;
+				border-radius: 100px;
+				display: block;
+				margin: 0 auto;
+				@include media($mobile) {
+					margin-top: 40px;
+				}
+
+				@include media($small) {
+					height: 135px;
+					width: 135px;
+				}
+			}
+
+			.ceo-title-text {
+				text-align: center;
+				font-size: 16px;
+				margin-top: 10px;
+			}
+
+			h3 {
+				text-align: center;
+				font-size: 18px;
+				margin-bottom: 0;
+			}
+
+			a {
+				&:hover,
+				&:focus {
+					color: $c-black;
+				}
+			}
+
+		}
+
+		.brand-content {
+			p {
+				&:first-of-type {
+					margin-top: 0;
+
+					@include media($mobile) {
+						margin-top: 18px;
+					}
+				}
+			}
+		}
+
+		.logo-restaurant {
+			width: 200px;
+			height: auto;
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		hr {
+			margin-bottom: 25px;
+		}
+
+		.link-div {
+			display: block;
+			margin-top: 0;
+		}
+
+		a {
+			@include circular-bold;
+			color: $c-black;
+			font-size: 15px;
+			text-decoration: none;
+			display: inline-block;
+
+			transition: color .15s linear;
+
+			&:visited {
+				color: $c-black;
+			}
+
+			&:hover,
+			&:focus {
+				color: $c-purple;
+			}
+		}
+	}
+}

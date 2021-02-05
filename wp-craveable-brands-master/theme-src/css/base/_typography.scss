@@ -1,0 +1,100 @@
+@font-face {
+	font-family: 'Circular-Book';
+
+	src: url('../fonts/lineto-circular-book.eot'),
+	url('../fonts/lineto-circular-book.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lineto-circular-book.woff2') format('woff2'),
+	url('../fonts/lineto-circular-book.woff') format('woff');
+
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Circular-Bold';
+	src: url('../fonts/lineto-circular-bold.eot'),
+	url('../fonts/lineto-circular-bold.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lineto-circular-bold.woff2') format('woff2'),
+	url('../fonts/lineto-circular-bold.woff') format('woff');
+
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin circular-bold {
+	font: {
+		family: 'Circular-Bold', sans-serif;
+	}
+}
+
+@mixin circular-book {
+	font: {
+		family: 'Circular-Book', sans-serif;
+	}
+}
+
+// Base Fonts
+
+html,
+body {
+	@include circular-book;
+	font-size: 18px;
+	line-height: 1.7em;
+}
+
+h1 {
+	@include circular-bold;
+	font-size: 44px;
+	line-height: 1.1em;
+}
+
+h2 {
+	@include circular-bold;
+	font-size: 38px;
+	line-height: 1.1em;
+
+	@include media($small) {
+		font-size: 1.9rem;
+	}
+}
+
+h3 {
+	@include circular-bold;
+	font-size: 22px;
+	line-height: 1.1em;
+}
+
+h4 {
+	@include circular-bold;
+	font-size: 13px;
+	line-height: 1.1em;
+}
+
+p {
+	@include circular-book;
+	font-size: 18px;
+	line-height: 1.7em;
+	margin-bottom: 0;
+}
+
+a {
+	@include circular-book;
+	font-size: 18px;
+	line-height: 1.7em;
+}
+
+span {
+	@include circular-book;
+	font-size: 18px;
+	line-height: 1.7em;
+}
+
+button {
+	@include circular-book;
+	font-size: 18px;
+}
+
+strong,
+b {
+	@include circular-bold;
+}

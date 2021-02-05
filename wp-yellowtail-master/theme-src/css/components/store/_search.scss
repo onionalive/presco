@@ -1,0 +1,96 @@
+.stores {
+	position: relative;
+
+	background: $c-light-grey;
+
+	.search-container {
+		.inner {
+			> div {
+				@include span-columns(7);
+				@include shift(2.5);
+
+				@include media($tablet-l) {
+					@include shift(1);
+					@include span-columns(10);
+				}
+			}
+		}
+
+		.text {
+
+			@include span-columns(4);
+
+			text-align: right;
+			text-transform: uppercase;
+			@include f-brauer-black;
+			@include font-size(20px, 40px);
+
+			@include media($tablet-l) {
+				@include span-columns(12);
+				text-align: center;
+			}
+		}
+
+		.form,
+		.search-form,
+		.store-form {
+			@include span-columns(8);
+
+			@include media($tablet-l) {
+				text-align: center;
+				@include span-columns(12);
+			}
+
+			input {
+				@include span-columns(8);
+				@include omega(1);
+				float: left;
+				height: 40px;
+				border: 0;
+				outline: 0;
+				padding: 5px;
+				padding-left: 16px;
+				@include font-size(16px, 40px);
+
+				@include media($tablet-l) {
+					width: calc(100% - 100px);
+				}
+
+				&:focus {
+					outline: 1px dotted $c-dark-grey-alt;
+					outline: 5px auto -webkit-focus-ring-color;
+				}
+			}
+
+			.submit,
+			.search-submit {
+				@include span-columns(4);
+				height: 40px;
+				border-style: solid;
+				border-color: $c-yt-yellow;
+				border-left-width: 10px;
+				overflow: hidden;
+
+				text-indent: 10px;
+				text-transform: uppercase;
+				@include f-brauer-black;
+				@include font-size(18px);
+
+				background-color: $c-yt-yellow;
+				background-size: 17px;
+				background-repeat: no-repeat;
+				background-position: left center;
+				@include background-image('icons/arrow');
+
+				@include media($tablet-l) {
+					width: 100px;
+				}
+
+				&:focus {
+					outline: 1px dotted $c-dark-grey-alt;
+					outline: 5px auto -webkit-focus-ring-color;
+				}
+			}
+		}
+	}
+}

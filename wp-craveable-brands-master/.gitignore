@@ -1,0 +1,12 @@
+/vendor/*
+/wp/*
+/wp-content/*
+.htaccess
+.env
+.ftppass
+/bower_components/
+/node_modules/
+*.sublime-project
+*.sublime-workspace
+.gulp-sftp-cache-staging
+yarn-error.log

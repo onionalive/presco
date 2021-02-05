@@ -1,0 +1,178 @@
+.home {
+
+	.loggedin {
+		padding: 60px 0;
+
+		@include grid-media ($mobile) {
+			padding: 25px 0;
+		}
+	}
+
+	.home-divider {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 52px;
+		margin: 40px 0;
+		background-color: $c-black;
+		color: $c-white;
+		text-align: center;
+
+		a {
+			@include f-primary-bold;
+			font-size: 12px;
+			text-decoration: underline;
+
+			&:hover,
+			&:focus {
+				color: $c-primary;
+			}
+		}
+	}
+
+	.landing-page {
+		width: 100%;
+	}
+
+	.home-carousel {
+		width: 100%;
+		height: 750px;
+		background-color: $c-off-black;
+		color: $c-white;
+
+		@include grid-media($mobile) {
+			height: 520px;
+		}
+
+		.secondary-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+
+			img {
+				width: 285px;
+				height: auto;
+				margin-bottom: 70px;
+
+				@include grid-media($mobile) {
+					width: 172px;
+					margin-bottom: 50px;
+				}
+			}
+		}
+
+		.copy {
+			margin-bottom: 60px;
+			font-size: 25px;
+			line-height: 46px;
+
+			@include grid-media($mobile) {
+				margin: 0 70px 60px;
+				text-align: center;
+				font-size: 18px;
+				line-height: 26px;
+			}
+		}
+
+		.login-text {
+			@include f-primary-regular;
+			font-size: 14px;
+
+			@include grid-media($mobile) {
+				font-size: 16px;
+				line-height: 30px;
+				text-decoration: underline;
+			}
+
+			a {
+				text-decoration: underline;
+
+				@include grid-media($mobile) {
+					display: block;
+					text-align: center;
+				}
+			}
+		}
+
+		.button {
+			width: 277px;
+			margin-bottom: 20px;
+			font-size: 16px;
+
+			@include grid-media($mobile) {
+				width: 192px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	.home-overview {
+		height: 650px;
+		background-color: $c-dark-grey;
+		color: $c-white;
+
+		@include grid-media($mobile) {
+			height: auto;
+		}
+
+		.secondary-container {
+			display: flex;
+			// justify-content: center;
+			align-items: center;
+			height: 100%;
+
+			@include grid-media($mobile) {
+				justify-content: center;
+				margin: 0 auto;
+				padding: 80px 0;
+			}
+		}
+
+		.offers-teaser,
+		.status-teaser,
+		.promos-teaser {
+			@include grid-column(4);
+
+			@include grid-media($mobile) {
+				float: unset;
+				width: 100%;
+				max-width: 300px;
+				margin: 0 auto 60px;
+			}
+
+			h3 {
+				@include f-heading-large;
+				font-size: 40px;
+				line-height: 46px;
+
+				@include grid-media($mobile) {
+					font-size: 36px;
+				}
+			}
+
+			p {
+				font-size: 22px;
+				line-height: 37px;
+
+				@include grid-media($mobile) {
+					font-size: 18px;
+				}
+			}
+
+			.tile,
+			.image-container {
+				margin: 0;
+				margin-bottom: 30px;
+			}
+		}
+
+		.promos-teaser {
+			@include grid-media($mobile) {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

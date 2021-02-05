@@ -1,0 +1,58 @@
+{% extends "master.twig" %}
+
+{% block hero %}
+	{% include 'partials/hero-filter.twig' with {
+		title: title,
+		description: description
+	} %}
+{% endblock %}
+
+{% block content %}
+	<div class="faqs">
+		<section class="fields">
+			<div class="inner">
+				<div class="grid sections">
+					{% for section in faqs.get_field('sections') %}
+						<div class="section">
+							<div class="item" data-section="{{section.title|slug}}">
+								{% include 'partials/image.twig' with {
+									image: TimberImage(section.image),
+									size: 'faqs_grid'
+								} %}
+								<h3>{{ section.title }}</h3>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+		<section class="faq-collection -roo -right -top">
+			<div class="inner">
+			{% for section in faqs.get_field('sections') %}
+				<div class="faq-section" data-section="{{section.title|slug}}">
+					<div class="title">
+						<h3>
+							{{ section.title }}
+						</h3>
+						<div class="to-top"></div>
+					</div>
+					{% for question in section.questions %}
+						<div class="question">
+							<h4>{{ question.question }}</h4>
+							<div class="answer">
+								{{ question.answer }}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% endfor %}
+			</div>
+		</section>
+		<section>
+			<div class="faqs-contact">
+				<h3 class="question">Still got a question?</h3>
+				<a class="contact" href="{{ site.url }}/contact/" aria-label="Still got a question? Head to the contact us page by selecting this link">Contact us</a>
+			</div>
+		</section>
+	</div>
+{% endblock %}

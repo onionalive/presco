@@ -1,0 +1,22 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "globals": {
+        "__dirname": true,
+        "$": true,
+        "google": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-unused-vars": "warn",
+        "linebreak-style": "off",
+        "no-console": "off",
+        "no-restricted-syntax": [
+            2,
+            "WithStatement"
+        ],
+        "multiline-ternary": "off"
+    }
+}

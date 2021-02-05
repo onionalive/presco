@@ -1,0 +1,81 @@
+.modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-color: $c-black;
+	opacity: 0;
+
+	transition: opacity $a-desktop-enter ease-out;
+
+	// Hover just for testing purposes;
+	&.-visible {
+		opacity: 0.8;
+	}
+
+	> .content {
+		position: relative;
+
+		width: 576px;
+		height: 662px;
+
+		background-color: $c-white;
+	}
+
+	.close {
+		position: absolute;
+		right: 0;
+		top: -40px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+			> p {
+				color: darken($c-white, 10%);
+				border-color: darken($c-white, 30%);
+			}
+
+			> button {
+				transform: rotate(-180deg);
+			}
+		}
+
+		> p {
+			margin: 0 10px 0 0;
+			color: $c-white;
+
+			font-size: 1.6rem;
+			@include f-opensans-semibold;
+
+			border-bottom: solid 2px $c-white;
+
+			transition: all $a-desktop-enter ease-out;
+		}
+
+		> button {
+			border: 0;
+
+			line-height: normal;
+			overflow: visible;
+			padding: 0;
+
+			width: 30px;
+			height: 30px;
+
+			background-color: transparent;
+			background-image: $i-close;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 20px 20px;
+
+			font-size: 2rem;
+
+			transition: transform $a-desktop-enter ease-out;
+		}
+	}
+}

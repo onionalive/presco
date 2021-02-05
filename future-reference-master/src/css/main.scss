@@ -1,0 +1,26 @@
+// Grid settings
+$max-width: 1236px;
+
+$neat-grid: (
+  columns: 12,
+  gutter: 18px,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr
+);
+
+@import 'normalize';
+@import 'bourbon';
+@import 'neat';
+@import 'font-awesome';
+
+@import 'slick.scss';
+
+
+// Variables
+@import 'base/*';
+
+// Components
+@import 'components/*';
+
+// Pages
+@import 'pages/*';

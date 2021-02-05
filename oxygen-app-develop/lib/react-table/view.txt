@@ -1,0 +1,48 @@
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { Text, View, ListView } from 'react-native';
+import Colours from '../../styles/colours';
+import Layout from '../../styles/layout';   
+import Typography from '../../styles/typography';
+import axios from 'axios';
+import cellTarget from '../cell/cellTarget';
+
+class target extends Component {
+
+	componentWillMount() {
+		const ds = new ListView.DataSource({
+			rowHasChanged: (r1, r2) => r1 !== r2
+		});
+
+		this.dataSource = ds.cloneWithRows(this.props.tableData);
+	}
+
+	renderRow(item) {
+		return <ListItem item={ item } />;
+	}
+  
+	render() {
+
+		const { textStyle, initStyle } = styles;
+		const { flexCenter } = Layout;
+
+		return (
+			<ListView
+				dataSource={this.dataSource}
+				renderRow={this.renderRow}
+				style={{flex: 1}}
+			/>
+		);
+	}
+}
+
+const styles = {
+	textStyle: {
+		fontSize: 20
+	},
+	initStyle: {
+		height: 100
+	}
+};
+
+export default target;

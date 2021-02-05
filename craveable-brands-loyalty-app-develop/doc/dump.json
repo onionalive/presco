@@ -1,0 +1,3260 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "name": "app/app.js",
+    "content": "import React from 'react';\nimport { View, Text } from 'react-native';\nimport { Provider } from 'react-redux';\nimport { createStore, applyMiddleware } from 'redux';\nimport reducers from './reducers';\nimport ReduxThunk from 'redux-thunk';\nimport Router from './router';\n\n/**\n * Import the routes from router/, wrap \n * in the Redux Store and then export the app\n * out to the entry files for each iOS and\n * Android app\n */\nconst App = () => {\n\tconst store = createStore(reducers, {}, applyMiddleware(ReduxThunk));\n\treturn (\n\t\t<Provider store={store}>\n\t\t\t<Router />\n\t\t</Provider>\n\t);\n}\n\nexport default App;",
+    "static": true,
+    "longname": "app/app.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 1,
+    "kind": "function",
+    "name": "App",
+    "memberof": "app/app.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/app.js~App",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/app.js",
+    "importStyle": "App",
+    "description": "Import the routes from router/, wrap \nin the Redux Store and then export the app\nout to the entry files for each iOS and\nAndroid app",
+    "lineNumber": 15,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 2,
+    "kind": "file",
+    "name": "app/common/Tranxactor.js",
+    "content": "import axios from 'axios';\nimport Types from './types';\n\n/**\n * Tranxactor class handles all functionality\n * for Tranxactor - refer to their API for\n * more info.\n *\n * http://docs.transactorapiv22.apiary.io/\n */\nexport default class Tranxactor {\n\tstatic get userDetailsProxy() {\n\t\treturn {\n\t\t\tset: function(obj, prop, value) {\n\t\t\t\tconst props = PropTypes;\n\n\t\t\t\tif (!Object.keys(props).includes(prop)) {\n\t\t\t\t\tthrow new TypeError(`${prop} is not an allowed property for a user.`);\n\t\t\t\t}\n\n\t\t\t\tif (typeof value !== props[prop]) {\n\t\t\t\t\tthrow new TypeError(`${prop} is of type ${typeof value} and not of type ${props[prop]}`);\n\t\t\t\t}\n\n\t\t\t\t// The default behavior to store the value\n\t\t\t\tobj[prop] = value;\n\n\t\t\t\t// Indicate success\n\t\t\t\treturn true;\n\t\t\t}\n\t\t}\n\t}\n\n\t/**\n\t * Test to ensure class works and common\n\t * classes used in the web app can also\n\t * import and destructure.\n\t * \n\t * @static\n\t * @return {string} Success message\n\t */\n\tstatic initTest() {\n\t\treturn 'Success';\n\t}\n\n\t/**\n\t * Fetch token to use for Auth reqs\n\t * \n\t * @static\n\t * @param  {object} data Axios POST req data\n\t * @return {object}      Return data or error to be handled gracefully\n\t * @memberof Tranxactor\n\t */\n\tstatic getToken(data) {\n\t\ttry {\n\t\t\treturn axios.post(`https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/tokens`, {\n\t\t\t\theaders: { 'Content-Type': 'application/json' }\n\t\t\t}, data)\n\t\t\t\t.then(res => res)\n\t\t\t\t.catch(err => err);\n\t\t} catch(err) {\n\t\t\tconsole.log(err);\n\t\t\treturn err;\n\t\t}\n\t}\n\n\tstatic getTokenSuccess(data) {\n\n\t}\n\n\tstatic getTokenError(data) {\n\n\t}\n\n\t/**\n\t * Fetch User details from\n\t * \n\t * @static\n\t * @param  {string} memberId User ID\n\t * @return {object}      Return data or error to be handled gracefully\n\t * @memberof Tranxactor\n\t */\n\tstatic getUserDetails(memberId) {\n\t\ttry {\n\t\t\treturn axios.get(`https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members/${memberId}?expand=transactions`)\n\t\t\t\t.then(res => res)\n\t\t\t\t.catch(err => err);\n\t\t} catch(err) {\n\t\t\tconsole.log(err);\n\t\t\treturn err;\n\t\t}\n\t}\n\n\t/**\n\t * GET req for transaction list\n\t * \n\t * @static\n\t * @param  {string} memberId Member ID\n\t * @return {object}          Request response\n\t * @memberof Tranxactor\n\t */\n\tstatic getTransactionList(memberId) {\n\t\ttry {\n\t\t\treturn axios.get(`https://tr4ns2.tr4ns.com/TransactorAPI-SpringBootQSRH/api/2/transactions?page=1&pageSize=10&member=${memberId}`)\n\t\t\t\t.then(res => res)\n\t\t\t\t.catch(err => err);\n\t\t} catch(err) {\n\t\t\tconsole.log(err);\n\t\t\treturn err;\n\t\t}\n\t}\n\n\t/**\n\t * PUT req update a user's details\n\t * \n\t * @static\n\t * @param  {string} memberId User ID to update\n\t * @param  {object} data Data object to update their details\n\t * @return {object}      Return response from request\n\t * @memberof Tranxactor\n\t */\n\tstatic updateUserDetails(memberId, data) {\n\t\ttry {\n\t\t\treturn axios.put(`https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members/${memberId}?returnBody=true`, {\n\t\t\t\theaders: { 'Content-Type': 'application/json' }\n\t\t\t}, data)\n\t\t\t\t.then(res => res)\n\t\t\t\t.catch(err => err);\n\t\t} catch(err) {\n\t\t\tconsole.log(err);\n\t\t\treturn err;\n\t\t}\n\t}\n\n\t/**\n\t * PUT req update a user password\n\t * \n\t * @static\n\t * @param {string} tokenId\tReset token required to update user details\n\t * @param {any} data\tData object containing 'emailAddress' and 'password'\n\t * @returns {object}      Return response from request\n\t * @memberof Tranxactor\n\t */\n\tstatic updateUserPassword(tokenId, data) {\n\t\ttry {\n\t\t\treturn axios.put(`https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/resetToken/${tokenId}`, {\n\t\t\t\theaders: { 'Content-Type': 'application/json' }\n\t\t\t}, data)\n\t\t\t\t.then(res => res)\n\t\t\t\t.catch(err => err);\n\t\t} catch(err) {\n\t\t\tconsole.log(err);\n\t\t\treturn err;\n\t\t}\n\t}\n\n}\n\nconst PropTypes = {\n\tfirstName: Types.string,\n\tmiddleName: Types.string,\n\tlastName: Types.string\n};\n",
+    "static": true,
+    "longname": "app/common/Tranxactor.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 3,
+    "kind": "class",
+    "name": "Tranxactor",
+    "memberof": "app/common/Tranxactor.js",
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/common/Tranxactor.js",
+    "importStyle": "Tranxactor",
+    "description": "Tranxactor class handles all functionality\nfor Tranxactor - refer to their API for\nmore info.\n\nhttp://docs.transactorapiv22.apiary.io/",
+    "lineNumber": 11,
+    "interface": false
+  },
+  {
+    "__docId__": 4,
+    "kind": "get",
+    "name": "userDetailsProxy",
+    "memberof": "app/common/Tranxactor.js~Tranxactor",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor.userDetailsProxy",
+    "access": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"set\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 5,
+    "kind": "method",
+    "name": "initTest",
+    "memberof": "app/common/Tranxactor.js~Tranxactor",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor.initTest",
+    "access": null,
+    "description": "Test to ensure class works and common\nclasses used in the web app can also\nimport and destructure.",
+    "lineNumber": 42,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "Success message"
+    }
+  },
+  {
+    "__docId__": 6,
+    "kind": "method",
+    "name": "getToken",
+    "memberof": "app/common/Tranxactor.js~Tranxactor",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor.getToken",
+    "access": null,
+    "description": "Fetch token to use for Auth reqs",
+    "lineNumber": 54,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "Axios POST req data"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "Return data or error to be handled gracefully"
+    }
+  },
+  {
+    "__docId__": 7,
+    "kind": "method",
+    "name": "getTokenSuccess",
+    "memberof": "app/common/Tranxactor.js~Tranxactor",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor.getTokenSuccess",
+    "access": null,
+    "description": null,
+    "lineNumber": 67,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 8,
+    "kind": "method",
+    "name": "getTokenError",
+    "memberof": "app/common/Tranxactor.js~Tranxactor",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor.getTokenError",
+    "access": null,
+    "description": null,
+    "lineNumber": 71,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 9,
+    "kind": "method",
+    "name": "getUserDetails",
+    "memberof": "app/common/Tranxactor.js~Tranxactor",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor.getUserDetails",
+    "access": null,
+    "description": "Fetch User details from",
+    "lineNumber": 83,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "memberId",
+        "description": "User ID"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "Return data or error to be handled gracefully"
+    }
+  },
+  {
+    "__docId__": 10,
+    "kind": "method",
+    "name": "getTransactionList",
+    "memberof": "app/common/Tranxactor.js~Tranxactor",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor.getTransactionList",
+    "access": null,
+    "description": "GET req for transaction list",
+    "lineNumber": 102,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "memberId",
+        "description": "Member ID"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "Request response"
+    }
+  },
+  {
+    "__docId__": 11,
+    "kind": "method",
+    "name": "updateUserDetails",
+    "memberof": "app/common/Tranxactor.js~Tranxactor",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor.updateUserDetails",
+    "access": null,
+    "description": "PUT req update a user's details",
+    "lineNumber": 122,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "memberId",
+        "description": "User ID to update"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "Data object to update their details"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "Return response from request"
+    }
+  },
+  {
+    "__docId__": 12,
+    "kind": "method",
+    "name": "updateUserPassword",
+    "memberof": "app/common/Tranxactor.js~Tranxactor",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/common/Tranxactor.js~Tranxactor.updateUserPassword",
+    "access": null,
+    "description": "PUT req update a user password",
+    "lineNumber": 144,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object}      Return response from request"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tokenId",
+        "description": "Reset token required to update user details"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "Data object containing 'emailAddress' and 'password'"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "Return response from request"
+    }
+  },
+  {
+    "__docId__": 13,
+    "kind": "variable",
+    "name": "PropTypes",
+    "memberof": "app/common/Tranxactor.js",
+    "static": true,
+    "longname": "app/common/Tranxactor.js~PropTypes",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/common/Tranxactor.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 159,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"firstName\": *, \"middleName\": *, \"lastName\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 14,
+    "kind": "file",
+    "name": "app/common/index.js",
+    "content": "/**\n * Use this as a barrel for common funcs for the Web\n */\nexport { default as Tranxactor } from './Tranxactor';\n\n",
+    "static": true,
+    "longname": "app/common/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 15,
+    "kind": "file",
+    "name": "app/common/types.js",
+    "content": "export default {\n\tundefined: 'undefined',\n\tboolean: 'boolean',\n\tnumber: 'number',\n\tstring: 'string',\n\tsymbol: 'symbol',\n\tfunction: 'function',\n\tobject: 'object'\n};\n",
+    "static": true,
+    "longname": "app/common/types.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 16,
+    "kind": "file",
+    "name": "app/components/alt/Alt.js",
+    "content": "import {connect} from 'react-redux';\nimport { bindActionCreators } from 'redux';\nimport Alt from './AltView';\n\n// action creators\n// import {} from './nameReducer'\n\nfunction mapStateToProps(state) {\n\treturn {\n\t\texample: state.stateTarget,\n\t};\n}\n\n// const mapStateToProps = state => {\n// \tconsole.log(state);\n// };\n\n// uncomment to match actions to props\n// add function name as second argument to export\n\n// function mapDispatchToProps(dispatch) {\n//\n// \t\treturn bindActionCreators({\n//\t\t\tselectBook: selectBook\n//\t\t}, dispatch);\n//\n// }\n\n// add imported action creators below to the {}\nexport default connect(mapStateToProps, {})(Alt);",
+    "static": true,
+    "longname": "app/components/alt/Alt.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 17,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/components/alt/Alt.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/components/alt/Alt.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/alt/Alt.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"example\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 18,
+    "kind": "file",
+    "name": "app/components/common/Header.js",
+    "content": "import React, { Component } from 'react';\nimport { Text, View, TouchableHighlight, Image } from 'react-native';\n\n/**\n * Top bar common component - this may be used or replaced by\n * the default React Navigation settings.\n * \n * @class Header\n * @extends {Component}\n */\nclass Header extends Component {\n\t/**\n\t * Render Header\n\t * \n\t * @returns Component\n\t * @memberof Header\n\t */\n\trender() {\n\t\tconst { textStyle, viewStyle, flex, left, dummy } = styles;\n\n\t\treturn (\n\t\t\t<View style={[viewStyle]}>\n\t\t\t</View>\n\t\t);\n\t}\n};\n\n/**\n * Styling for the Header\n */\nconst styles = {\n\ttextStyle: {\n\t\tfontSize: 20\n\t},\n\tviewStyle: {\n\t\tbackgroundColor: '#DDD',\n\t\theight: 62,\n\t\tpaddingTop: 25,\n\t\tpaddingLeft: 20,\n\t\tpaddingRight: 20,\n\t\televation: 2,\n\t\tzIndex: 10,\n\t\tflexDirection: 'row',\n\t\tjustifyContent: 'space-between'\n\t},\n\tleft: {\n\t\twidth: 31, \n\t\theight: 30,\n\t\tresizeMode: 'contain'\n\t},\n\tdummy: {\n\t\twidth: 31, \n\t\theight: 30\n\t},\n\tflex: {\n\t\tflexDirection: 'row',\n\t\talignItems: 'center',\n\t\tjustifyContent: 'center',\n\t\tzIndex: 10\n\t},\n};\n\nexport default Header;",
+    "static": true,
+    "longname": "app/components/common/Header.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 19,
+    "kind": "variable",
+    "name": "styles",
+    "memberof": "app/components/common/Header.js",
+    "static": true,
+    "longname": "app/components/common/Header.js~styles",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/common/Header.js",
+    "importStyle": null,
+    "description": "Styling for the Header",
+    "lineNumber": 31,
+    "type": {
+      "types": [
+        "{\"textStyle\": *, \"viewStyle\": *, \"left\": *, \"dummy\": *, \"flex\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 20,
+    "kind": "class",
+    "name": "Header",
+    "memberof": "app/components/common/Header.js",
+    "static": true,
+    "longname": "app/components/common/Header.js~Header",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/components/common/Header.js",
+    "importStyle": "Header",
+    "description": "Top bar common component - this may be used or replaced by\nthe default React Navigation settings.",
+    "lineNumber": 11,
+    "unknown": [
+      {
+        "tagName": "@class",
+        "tagValue": "Header"
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "Component"
+    ]
+  },
+  {
+    "__docId__": 21,
+    "kind": "method",
+    "name": "render",
+    "memberof": "app/components/common/Header.js~Header",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "app/components/common/Header.js~Header#render",
+    "access": null,
+    "description": "Render Header",
+    "lineNumber": 18,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "Component"
+      }
+    ],
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "Component"
+    }
+  },
+  {
+    "__docId__": 22,
+    "kind": "file",
+    "name": "app/components/deleteview/DeleteView.js",
+    "content": "import {connect} from 'react-redux';\nimport { bindActionCreators } from 'redux';\nimport DeleteView from './DeleteViewView';\n\n// action creators\n// import {} from './nameReducer'\n\nfunction mapStateToProps(state) {\n\n\treturn {\n\t\texample: state.stateTarget,\n\t};\n\n}\n\n// const mapStateToProps = state => {\n// \tconsole.log(state);\n// };\n\n// uncomment to match actions to props\n// add function name as second argument to export\n\n// function mapDispatchToProps(dispatch) {\n//\n// \t\treturn bindActionCreators({\n//\t\t\tselectBook: selectBook\n//\t\t}, dispatch);\n//\n// }\n\n// add imported action creators below to the {}\nexport default connect(mapStateToProps, {})(DeleteView);",
+    "static": true,
+    "longname": "app/components/deleteview/DeleteView.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 23,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/components/deleteview/DeleteView.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/components/deleteview/DeleteView.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/deleteview/DeleteView.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"example\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 24,
+    "kind": "file",
+    "name": "app/components/home/Home.js",
+    "content": "import {connect} from 'react-redux';\nimport { bindActionCreators } from 'redux';\nimport HomeView from './HomeView';\n\n// action creators\n// import {} from './nameReducer'\n\nfunction mapStateToProps(state) {\n\n\treturn {\n\t\texample: state.HomeReducer.init,\n\t};\n\n}\n\n// const mapStateToProps = state => {\n// \tconsole.log(state);\n// };\n\n// uncomment to match actions to props\n// add function name as second argument to export\n\n// function mapDispatchToProps(dispatch) {\n//\n// \t\treturn bindActionCreators({\n//\t\t\tselectBook: selectBook\n//\t\t}, dispatch);\n//\n// }\n\n// add imported action creators below to the {}\nexport default connect(mapStateToProps, {})(HomeView);\n",
+    "static": true,
+    "longname": "app/components/home/Home.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 25,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/components/home/Home.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/components/home/Home.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/home/Home.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"example\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 26,
+    "kind": "file",
+    "name": "app/components/home/Home.styles.js",
+    "content": "/**\n * Export component styles\n */\nimport Colours from '../../styles/Colours';\n\nexport const Styles = {\n\tcontainer: {\n\t\tbackgroundColor: Colours.black\n\t},\n\tscrollView: {\n\t\tpaddingTop: 30,\n\t\tbackgroundColor: Colours.black\n\t}\n};",
+    "static": true,
+    "longname": "app/components/home/Home.styles.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 27,
+    "kind": "variable",
+    "name": "Styles",
+    "memberof": "app/components/home/Home.styles.js",
+    "static": true,
+    "longname": "app/components/home/Home.styles.js~Styles",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/components/home/Home.styles.js",
+    "importStyle": "{Styles}",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"container\": *, \"scrollView\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 28,
+    "kind": "file",
+    "name": "app/components/home/Home.test.js",
+    "content": "import React from 'react';\nimport ReactNative, { View, Text, StyleSheet } from 'react-native';\nimport { shallow } from 'enzyme';\nimport { expect } from 'chai';\n// import Home from './Home';\n\n// REDUX IMPORTS \nimport { Provider } from 'react-redux';\nimport { createStore, applyMiddleware } from 'redux';\nimport reducers from '../../../test/reducers';\nimport ReduxThunk from 'redux-thunk';\n\nconst store = createStore(reducers, {}, applyMiddleware(ReduxThunk));\n\nexport default HomeTest = () => { \n\treturn ( \n\t\t<View> \n\t\t\t<Text>enzyme</Text> \n\t\t\t<Text>rules</Text> \n\t\t</View> \n\t); \n};\n\n// export default HomeTest = () => {\n// \treturn (\n// \t\t<Provider store={store}>\n// \t\t\t<Home />\n// \t\t</Provider>\n// \t);\n// };\n\ndescribe('<Home />', () => {\n\tit('should render one View', () => {\n\t\tconst wrapper = shallow(<HomeTest />);\n\t\texpect(wrapper.find(View)).to.have.length(1);\n\t});\n});",
+    "static": true,
+    "longname": "app/components/home/Home.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 29,
+    "kind": "variable",
+    "name": "store",
+    "memberof": "app/components/home/Home.test.js",
+    "static": true,
+    "longname": "app/components/home/Home.test.js~store",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/home/Home.test.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 30,
+    "kind": "variable",
+    "name": "HomeTest",
+    "memberof": "app/components/home/Home.test.js",
+    "static": true,
+    "longname": "app/components/home/Home.test.js~HomeTest",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/components/home/Home.test.js",
+    "importStyle": "HomeTest",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 31,
+    "kind": "file",
+    "name": "app/components/landscape/Landscape.js",
+    "content": "import {connect} from 'react-redux';\nimport { bindActionCreators } from 'redux';\nimport Landscape from './LandscapeView';\n\n// action creators\n// import {} from './nameReducer'\n\nfunction mapStateToProps(state) {\n\n\treturn {\n\t\texample: state.stateTarget,\n\t};\n\n}\n\n// const mapStateToProps = state => {\n// \tconsole.log(state);\n// };\n\n// uncomment to match actions to props\n// add function name as second argument to export\n\n// function mapDispatchToProps(dispatch) {\n//\n// \t\treturn bindActionCreators({\n//\t\t\tselectBook: selectBook\n//\t\t}, dispatch);\n//\n// }\n\n// add imported action creators below to the {}\nexport default connect(mapStateToProps, {})(Landscape);",
+    "static": true,
+    "longname": "app/components/landscape/Landscape.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 32,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/components/landscape/Landscape.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/components/landscape/Landscape.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/landscape/Landscape.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"example\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 33,
+    "kind": "file",
+    "name": "app/components/landscape/Landscape.styles.js",
+    "content": "import Dimensions from 'Dimensions';\n\nexport default mainStyles = {\n\tcontainer: {\n\t\tbackgroundColor: '#000'\n\t},\n};",
+    "static": true,
+    "longname": "app/components/landscape/Landscape.styles.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 34,
+    "kind": "variable",
+    "name": "mainStyles",
+    "memberof": "app/components/landscape/Landscape.styles.js",
+    "static": true,
+    "longname": "app/components/landscape/Landscape.styles.js~mainStyles",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/components/landscape/Landscape.styles.js",
+    "importStyle": "mainStyles",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 35,
+    "kind": "file",
+    "name": "app/components/landscape/Landscape.test.js",
+    "content": "import React, { View, Text, StyleSheet } from 'react-native';\nimport { shallow } from 'enzyme';\nimport { expect } from 'chai';\nimport LandscapeView from '../app/components/lower/LandscapeView';\n\n//export default LandscapeView = () => {\n//\treturn (\n//\t\t<View>\n//\t\t\t<Text>enzyme</Text>\n//\t\t\t<Text>rules</Text>\n//\t\t</View>\n//\t);\n//};\n\ndescribe('<LandscapeView />', () => {\n\tit('should render one View', () => {\n\t\tconst wrapper = shallow(<LandscapeView />);\n\t\t\texpect(wrapper.find(View)).to.have.length(1);\n\t});\n});",
+    "static": true,
+    "longname": "app/components/landscape/Landscape.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 36,
+    "kind": "file",
+    "name": "app/components/more/More.js",
+    "content": "import {connect} from 'react-redux';\nimport { bindActionCreators } from 'redux';\nimport More from './MoreView';\n\n// action creators\n// import {} from './nameReducer'\n\nfunction mapStateToProps(state) {\n\n\treturn {\n\t\texample: state.stateTarget,\n\t};\n\n}\n\n// const mapStateToProps = state => {\n// \tconsole.log(state);\n// };\n\n// uncomment to match actions to props\n// add function name as second argument to export\n\n// function mapDispatchToProps(dispatch) {\n//\n// \t\treturn bindActionCreators({\n//\t\t\tselectBook: selectBook\n//\t\t}, dispatch);\n//\n// }\n\n// add imported action creators below to the {}\nexport default connect(mapStateToProps, {})(More);",
+    "static": true,
+    "longname": "app/components/more/More.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 37,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/components/more/More.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/components/more/More.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/more/More.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"example\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 38,
+    "kind": "file",
+    "name": "app/components/more/More.styles.js",
+    "content": "import Colours from '../../styles/Colours';\n\nexport default mainStyles = {\n\tcontainer: {\n\t\tbackgroundColor: '#000'\n\t},\n};",
+    "static": true,
+    "longname": "app/components/more/More.styles.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 39,
+    "kind": "variable",
+    "name": "mainStyles",
+    "memberof": "app/components/more/More.styles.js",
+    "static": true,
+    "longname": "app/components/more/More.styles.js~mainStyles",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/components/more/More.styles.js",
+    "importStyle": "mainStyles",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 40,
+    "kind": "file",
+    "name": "app/components/more/More.test.js",
+    "content": "import React, { View, Text, StyleSheet } from 'react-native';\nimport { shallow } from 'enzyme';\nimport { expect } from 'chai';\nimport MoreView from '../app/components/lower/OffersView';\n\n//export default OffersView = () => {\n//\treturn (\n//\t\t<View>\n//\t\t\t<Text>enzyme</Text>\n//\t\t\t<Text>rules</Text>\n//\t\t</View>\n//\t);\n//};\n\ndescribe('<MoreView />', () => {\n\tit('should render one View', () => {\n\t\tconst wrapper = shallow(<MoreView />);\n\t\t\texpect(wrapper.find(View)).to.have.length(1);\n\t});\n});",
+    "static": true,
+    "longname": "app/components/more/More.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 41,
+    "kind": "file",
+    "name": "app/components/offerdetail/OfferDetail.js",
+    "content": "import {connect} from 'react-redux';\nimport { bindActionCreators } from 'redux';\nimport OfferDetail from './OfferDetailView';\n\n// action creators\n// import {} from './nameReducer'\n\nfunction mapStateToProps(state) {\n\n\treturn {\n\t\texample: state.stateTarget,\n\t};\n\n}\n\n// const mapStateToProps = state => {\n// \tconsole.log(state);\n// };\n\n// uncomment to match actions to props\n// add function name as second argument to export\n\n// function mapDispatchToProps(dispatch) {\n//\n// \t\treturn bindActionCreators({\n//\t\t\tselectBook: selectBook\n//\t\t}, dispatch);\n//\n// }\n\n// add imported action creators below to the {}\nexport default connect(mapStateToProps, {})(OfferDetail);",
+    "static": true,
+    "longname": "app/components/offerdetail/OfferDetail.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 42,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/components/offerdetail/OfferDetail.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/components/offerdetail/OfferDetail.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/offerdetail/OfferDetail.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"example\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 43,
+    "kind": "file",
+    "name": "app/components/offerdetail/OfferDetail.styles.js",
+    "content": "import Dimensions from 'Dimensions';\n\nexport default mainStyles = {\n\tcontainer: {\n\t\tbackgroundColor: '#000'\n\t},\n};",
+    "static": true,
+    "longname": "app/components/offerdetail/OfferDetail.styles.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 44,
+    "kind": "variable",
+    "name": "mainStyles",
+    "memberof": "app/components/offerdetail/OfferDetail.styles.js",
+    "static": true,
+    "longname": "app/components/offerdetail/OfferDetail.styles.js~mainStyles",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/components/offerdetail/OfferDetail.styles.js",
+    "importStyle": "mainStyles",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 45,
+    "kind": "file",
+    "name": "app/components/offerdetail/OfferDetail.test.js",
+    "content": "import React, { View, Text, StyleSheet } from 'react-native';\nimport { shallow } from 'enzyme';\nimport { expect } from 'chai';\nimport OfferDetailView from '../app/components/lower/OfferDetailView';\n\n//export default OfferDetailView = () => {\n//\treturn (\n//\t\t<View>\n//\t\t\t<Text>enzyme</Text>\n//\t\t\t<Text>rules</Text>\n//\t\t</View>\n//\t);\n//};\n\ndescribe('<OfferDetailView />', () => {\n\tit('should render one View', () => {\n\t\tconst wrapper = shallow(<OfferDetailView />);\n\t\t\texpect(wrapper.find(View)).to.have.length(1);\n\t});\n});",
+    "static": true,
+    "longname": "app/components/offerdetail/OfferDetail.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 46,
+    "kind": "file",
+    "name": "app/components/offers/Offers.js",
+    "content": "import {connect} from 'react-redux';\nimport { bindActionCreators } from 'redux';\nimport Offers from './OffersView';\n\n// action creators\n// import {} from './nameReducer'\n\nfunction mapStateToProps(state) {\n\n\treturn {\n\t\texample: state.stateTarget,\n\t};\n\n}\n\n// const mapStateToProps = state => {\n// \tconsole.log(state);\n// };\n\n// uncomment to match actions to props\n// add function name as second argument to export\n\n// function mapDispatchToProps(dispatch) {\n//\n// \t\treturn bindActionCreators({\n//\t\t\tselectBook: selectBook\n//\t\t}, dispatch);\n//\n// }\n\n// add imported action creators below to the {}\nexport default connect(mapStateToProps, {})(Offers);",
+    "static": true,
+    "longname": "app/components/offers/Offers.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 47,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/components/offers/Offers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/components/offers/Offers.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/offers/Offers.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"example\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "app/components/offers/Offers.styles.js",
+    "content": "import Colours from '../../styles/Colours';\n\nexport default mainStyles = {\n\tcontainer: {\n\t\tbackgroundColor: '#000'\n\t},\n};",
+    "static": true,
+    "longname": "app/components/offers/Offers.styles.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "variable",
+    "name": "mainStyles",
+    "memberof": "app/components/offers/Offers.styles.js",
+    "static": true,
+    "longname": "app/components/offers/Offers.styles.js~mainStyles",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/components/offers/Offers.styles.js",
+    "importStyle": "mainStyles",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 50,
+    "kind": "file",
+    "name": "app/components/offers/Offers.test.js",
+    "content": "import React, { View, Text, StyleSheet } from 'react-native';\nimport { shallow } from 'enzyme';\nimport { expect } from 'chai';\nimport OffersView from '../app/components/lower/OffersView';\n\n//export default OffersView = () => {\n//\treturn (\n//\t\t<View>\n//\t\t\t<Text>enzyme</Text>\n//\t\t\t<Text>rules</Text>\n//\t\t</View>\n//\t);\n//};\n\ndescribe('<OffersView />', () => {\n\tit('should render one View', () => {\n\t\tconst wrapper = shallow(<OffersView />);\n\t\t\texpect(wrapper.find(View)).to.have.length(1);\n\t});\n});",
+    "static": true,
+    "longname": "app/components/offers/Offers.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 51,
+    "kind": "file",
+    "name": "app/components/profile/Profile.js",
+    "content": "import {connect} from 'react-redux';\nimport { bindActionCreators } from 'redux';\nimport Profile from './ProfileView';\n\n// action creators\n// import {} from './nameReducer'\n\nfunction mapStateToProps(state) {\n\n\treturn {\n\t\texample: state.stateTarget,\n\t};\n\n}\n\n// const mapStateToProps = state => {\n// \tconsole.log(state);\n// };\n\n// uncomment to match actions to props\n// add function name as second argument to export\n\n// function mapDispatchToProps(dispatch) {\n//\n// \t\treturn bindActionCreators({\n//\t\t\tselectBook: selectBook\n//\t\t}, dispatch);\n//\n// }\n\n// add imported action creators below to the {}\nexport default connect(mapStateToProps, {})(Profile);",
+    "static": true,
+    "longname": "app/components/profile/Profile.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 52,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/components/profile/Profile.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/components/profile/Profile.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/profile/Profile.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"example\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
+    "name": "app/components/profile/Profile.styles.js",
+    "content": "import Colours from '../../styles/Colours';\n\nexport default mainStyles = {\n\tcontainer: {\n\t\tbackgroundColor: '#000'\n\t},\n};",
+    "static": true,
+    "longname": "app/components/profile/Profile.styles.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 54,
+    "kind": "variable",
+    "name": "mainStyles",
+    "memberof": "app/components/profile/Profile.styles.js",
+    "static": true,
+    "longname": "app/components/profile/Profile.styles.js~mainStyles",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/components/profile/Profile.styles.js",
+    "importStyle": "mainStyles",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 55,
+    "kind": "file",
+    "name": "app/components/profile/Profile.test.js",
+    "content": "import React, { View, Text, StyleSheet } from 'react-native';\nimport { shallow } from 'enzyme';\nimport { expect } from 'chai';\nimport ProfileView from '../app/components/lower/ProfileView';\n\n//export default ProfileView = () => {\n//\treturn (\n//\t\t<View>\n//\t\t\t<Text>enzyme</Text>\n//\t\t\t<Text>rules</Text>\n//\t\t</View>\n//\t);\n//};\n\ndescribe('<ProfileView />', () => {\n\tit('should render one View', () => {\n\t\tconst wrapper = shallow(<ProfileView />);\n\t\t\texpect(wrapper.find(View)).to.have.length(1);\n\t});\n});",
+    "static": true,
+    "longname": "app/components/profile/Profile.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 56,
+    "kind": "file",
+    "name": "app/components/swipercontainer/SwiperContainer.js",
+    "content": "import {connect} from 'react-redux';\nimport { bindActionCreators } from 'redux';\nimport SwiperContainer from './SwiperContainerView';\n\n// action creators\n// import {} from './nameReducer'\n\nfunction mapStateToProps(state) {\n\n\treturn {\n\t\titems: state.SwiperContainerReducer.items,\n\t};\n\n}\n\n// const mapStateToProps = state => {\n// \tconsole.log(state);\n// };\n\n// uncomment to match actions to props\n// add function name as second argument to export\n\n// function mapDispatchToProps(dispatch) {\n//\n// \t\treturn bindActionCreators({\n//\t\t\tselectBook: selectBook\n//\t\t}, dispatch);\n//\n// }\n\n// add imported action creators below to the {}\nexport default connect(mapStateToProps, {})(SwiperContainer);",
+    "static": true,
+    "longname": "app/components/swipercontainer/SwiperContainer.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/components/swipercontainer/SwiperContainer.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/components/swipercontainer/SwiperContainer.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/components/swipercontainer/SwiperContainer.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"items\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "file",
+    "name": "app/components/swipercontainer/SwiperContainer.styles.js",
+    "content": "import Dimensions from 'Dimensions';\n\nexport default mainStyles = {\n\tcontainer: {\n\t\tbackgroundColor: '#000'\n\t},\n\titem: {\n\t\tbackgroundColor: '#000', \n\t\theight: 140, \n\t\tmarginTop: 20, \n\t\tmarginLeft: 20, \n\t\tmarginRight: 20\n\t}\n};",
+    "static": true,
+    "longname": "app/components/swipercontainer/SwiperContainer.styles.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 59,
+    "kind": "variable",
+    "name": "mainStyles",
+    "memberof": "app/components/swipercontainer/SwiperContainer.styles.js",
+    "static": true,
+    "longname": "app/components/swipercontainer/SwiperContainer.styles.js~mainStyles",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/components/swipercontainer/SwiperContainer.styles.js",
+    "importStyle": "mainStyles",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 60,
+    "kind": "file",
+    "name": "app/components/swipercontainer/SwiperContainer.test.js",
+    "content": "import React, { View, Text, StyleSheet } from 'react-native';\nimport { shallow } from 'enzyme';\nimport { expect } from 'chai';\nimport SwiperContainerView from '../app/components/lower/SwiperContainerView';\n\n//export default SwiperContainerView = () => {\n//\treturn (\n//\t\t<View>\n//\t\t\t<Text>enzyme</Text>\n//\t\t\t<Text>rules</Text>\n//\t\t</View>\n//\t);\n//};\n\ndescribe('<SwiperContainerView />', () => {\n\tit('should render one View', () => {\n\t\tconst wrapper = shallow(<SwiperContainerView />);\n\t\t\texpect(wrapper.find(View)).to.have.length(1);\n\t});\n});",
+    "static": true,
+    "longname": "app/components/swipercontainer/SwiperContainer.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 61,
+    "kind": "file",
+    "name": "app/reducers.js",
+    "content": "import { combineReducers } from 'redux';\n\n/* reducer-import */\nimport { DeleteViewReducer } from './components/deleteview/DeleteViewReducer';\nimport { OfferDetailReducer } from './components/offerdetail/OfferDetailReducer';\nimport { LandscapeReducer } from './components/landscape/LandscapeReducer';\nimport { SwiperContainerReducer } from './components/swipercontainer/SwiperContainerReducer';\nimport { MoreReducer } from './components/more/MoreReducer';\nimport { OffersReducer } from './components/offers/OffersReducer';\nimport { ProfileReducer } from './components/profile/ProfileReducer';\nimport { HomeReducer } from './components/home/HomeReducer';\nimport { AltReducer } from './components/alt/AltReducer';\n\n/* navigation-reducers */\nimport NavigatorTabOne from './router/tabone/TabOneNavigation';\nimport NavigatorTabTwo from './router/tabtwo/TabTwoNavigation';\nimport NavigatorTabThree from './router/tabthree/TabThreeNavigation';\nimport NavigatorTabFour from './router/tabfour/TabFourNavigation';\nimport TabBar from './router/tabbar/TabBarNavigation';\nimport TransNav from './router/transitionrtl/TransitionNavigation';\nimport AppNav from './router/appnav/AppNavigation';\n\nexport default combineReducers({\n\t/* reducer-name */\n\tDeleteViewReducer,\n\tOfferDetailReducer,\n\tLandscapeReducer,\n\tSwiperContainerReducer,\n\tMoreReducer,\n\tOffersReducer,\n\tProfileReducer,\n\tHomeReducer,\n\tAltReducer,\n\tappNav: (state,action) => AppNav.router.getStateForAction(action,state),\n\ttransNav: (state,action) => TransNav.router.getStateForAction(action,state),\n\ttabBar: (state,action) => TabBar.router.getStateForAction(action,state),\n\ttabBar: (state,action) => TabBar.router.getStateForAction(action,state),\n\ttabOne: (state,action) => NavigatorTabOne.router.getStateForAction(action,state),\n\ttabTwo: (state,action) => NavigatorTabTwo.router.getStateForAction(action,state),\n\ttabThree: (state,action) => NavigatorTabThree.router.getStateForAction(action,state),\n\ttabFour: (state,action) => NavigatorTabFour.router.getStateForAction(action,state)\n});\n",
+    "static": true,
+    "longname": "app/reducers.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 62,
+    "kind": "file",
+    "name": "app/router/appnav/AppNavigation.js",
+    "content": "\nimport { StackNavigator } from 'react-navigation';\n\n// Tab-Navigators\nimport TabBar from '../tabbar/TabBarNavigation';\n// import OfferDetail from 'app/components/offerdetail/OfferDetail';\n// import DeleteView from 'app/components/offerdetail/DeleteView';\nimport TransitionNav from '../transitionrtl/TransitionNavigation';\n\nconst routeConfiguration = {\n    TabBar: { screen: TabBar },\n    TransitionNav: { screen: TransitionNav }\n};\n\n// going to disable the header for now\nconst stackNavigatorConfiguration = {\n    headerMode: 'none',\n    initialRouteName: 'TabBar',\n    mode: 'modal'\n};\n  \nexport default StackNavigator(routeConfiguration,stackNavigatorConfiguration);",
+    "static": true,
+    "longname": "app/router/appnav/AppNavigation.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 63,
+    "kind": "variable",
+    "name": "routeConfiguration",
+    "memberof": "app/router/appnav/AppNavigation.js",
+    "static": true,
+    "longname": "app/router/appnav/AppNavigation.js~routeConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/appnav/AppNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"TabBar\": *, \"TransitionNav\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "variable",
+    "name": "stackNavigatorConfiguration",
+    "memberof": "app/router/appnav/AppNavigation.js",
+    "static": true,
+    "longname": "app/router/appnav/AppNavigation.js~stackNavigatorConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/appnav/AppNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"headerMode\": string, \"initialRouteName\": string, \"mode\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "file",
+    "name": "app/router/tabbar/TabBarNavigation.js",
+    "content": "/**\n * Navigation configuration\n */\n\nimport { TabNavigator, TabBarBottom } from 'react-navigation';\n// Tab-Navigators\nimport TabOneNavigation from '../tabone/TabOneNavigation';\nimport TabTwoNavigation from '../tabtwo/TabTwoNavigation';\nimport TabThreeNavigation from '../tabthree/TabThreeNavigation';\nimport TabFourNavigation from '../tabfour/TabFourNavigation';\nconst routeConfiguration = {\n  Home: { screen: TabOneNavigation },\n  Profile: { screen: TabTwoNavigation },\n  Offers: { screen: TabThreeNavigation },\n  More: { screen: TabFourNavigation },\n}\nconst tabBarConfiguration = {\n  //...other configs\n  tabBarOptions:{\n    // tint color is passed to text and icons (if enabled) on the tab bar\n    activeTintColor: '#222',\n    inactiveTintColor: '#fff',\n    // background color is for the tab component\n    activeBackgroundColor: '#fff',\n    inactiveBackgroundColor: '#222'\n  },\n  swipeEnabled: true,\n  tabBarPosition: 'bottom',\n  tabBarComponent: TabBarBottom\n}\nexport default TabNavigator(routeConfiguration,tabBarConfiguration);\n",
+    "static": true,
+    "longname": "app/router/tabbar/TabBarNavigation.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 66,
+    "kind": "variable",
+    "name": "routeConfiguration",
+    "memberof": "app/router/tabbar/TabBarNavigation.js",
+    "static": true,
+    "longname": "app/router/tabbar/TabBarNavigation.js~routeConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabbar/TabBarNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"Home\": *, \"Profile\": *, \"Offers\": *, \"More\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "variable",
+    "name": "tabBarConfiguration",
+    "memberof": "app/router/tabbar/TabBarNavigation.js",
+    "static": true,
+    "longname": "app/router/tabbar/TabBarNavigation.js~tabBarConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabbar/TabBarNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"tabBarOptions\": *, \"swipeEnabled\": boolean, \"tabBarPosition\": string, \"tabBarComponent\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "file",
+    "name": "app/router/tabbar/index.js",
+    "content": "// React\nimport React from 'react';\n// Navigation\nimport { addNavigationHelpers } from 'react-navigation';\nimport NavigatorTabFour from './TabFourNavigation';\n\n// Redux\nimport { connect } from 'react-redux';\n\nconst mapStateToProps = (state) => {\n\treturn {\n\t\tnavigationState: state.tabBar,\n\t}\n}\n\nclass TabBar extends Component {\n\trender() {\n        return (\n            <TabBar\n                navigation={\n                    addNavigationHelpers({\n                        dispatch: dispatch,\n                        state: navigationState\n                    })\n                }\n                />\n        );\n\t}\n}\nexport default connect(mapStateToProps)(TabBar)",
+    "static": true,
+    "longname": "app/router/tabbar/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 69,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/router/tabbar/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/router/tabbar/index.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabbar/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"navigationState\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "class",
+    "name": "TabBar",
+    "memberof": "app/router/tabbar/index.js",
+    "static": true,
+    "longname": "app/router/tabbar/index.js~TabBar",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabbar/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "Component"
+    ]
+  },
+  {
+    "__docId__": 71,
+    "kind": "method",
+    "name": "render",
+    "memberof": "app/router/tabbar/index.js~TabBar",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "app/router/tabbar/index.js~TabBar#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "file",
+    "name": "app/router/tabfour/TabFourNavigation.js",
+    "content": "/**\n * Navigation configuration\n */\n\nimport { StackNavigator } from 'react-navigation'\n// Screens\nimport More from '../../components/more/More';\nimport TabFourScreenTwo from '../../components/alt/Alt';\n\nconst routeConfiguration = {\n  More: { screen: More },\n  TabFourScreenTwo: { screen: TabFourScreenTwo },\n}\n// going to disable the header for now\nconst stackNavigatorConfiguration = {\n  headerMode: 'none',\n  initialRouteName: 'More'\n}\n\nexport default StackNavigator(routeConfiguration,stackNavigatorConfiguration);",
+    "static": true,
+    "longname": "app/router/tabfour/TabFourNavigation.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 73,
+    "kind": "variable",
+    "name": "routeConfiguration",
+    "memberof": "app/router/tabfour/TabFourNavigation.js",
+    "static": true,
+    "longname": "app/router/tabfour/TabFourNavigation.js~routeConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabfour/TabFourNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"More\": *, \"TabFourScreenTwo\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "variable",
+    "name": "stackNavigatorConfiguration",
+    "memberof": "app/router/tabfour/TabFourNavigation.js",
+    "static": true,
+    "longname": "app/router/tabfour/TabFourNavigation.js~stackNavigatorConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabfour/TabFourNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"headerMode\": string, \"initialRouteName\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 75,
+    "kind": "file",
+    "name": "app/router/tabfour/index.js",
+    "content": "// React\nimport React from 'react'\n// Navigation\nimport { addNavigationHelpers } from 'react-navigation'\nimport NavigatorTabFour from './TabFourNavigation'\n// Redux\nimport { connect } from 'react-redux'\nconst mapStateToProps = (state) => {\n    return {\n        navigationState: state.tabTwo\n    }\n}\nclass TabThreeNavigation extends React.Component {\nrender(){\n    const { navigationState, dispatch } = this.props\n    return (\n      <NavigatorTabFour\n        navigation={\n          addNavigationHelpers({\n            dispatch: dispatch,\n            state: navigationState\n          })\n        }\n      />\n    )\n  }\n}\nexport default connect(mapStateToProps)(TabFourNavigation)",
+    "static": true,
+    "longname": "app/router/tabfour/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 76,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/router/tabfour/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/router/tabfour/index.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabfour/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"navigationState\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "class",
+    "name": "TabThreeNavigation",
+    "memberof": "app/router/tabfour/index.js",
+    "static": true,
+    "longname": "app/router/tabfour/index.js~TabThreeNavigation",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabfour/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "render",
+    "memberof": "app/router/tabfour/index.js~TabThreeNavigation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "app/router/tabfour/index.js~TabThreeNavigation#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "file",
+    "name": "app/router/tabone/TabOneNavigation.js",
+    "content": "/**\n * Navigation configuration\n */\n\nimport { StackNavigator } from 'react-navigation'\n// Screens\nimport TabOneScreenOne from '../../components/home/Home';\nimport TabOneScreenTwo from '../../components/alt/Alt';\n\nconst routeConfiguration = {\n  TabOneScreenOne: { screen: TabOneScreenOne },\n  TabOneScreenTwo: { screen: TabOneScreenTwo },\n}\n// going to disable the header for now\nconst stackNavigatorConfiguration = {\n  headerMode: 'none',\n  initialRouteName: 'TabOneScreenOne'\n}\n\nexport default StackNavigator(routeConfiguration,stackNavigatorConfiguration);",
+    "static": true,
+    "longname": "app/router/tabone/TabOneNavigation.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 80,
+    "kind": "variable",
+    "name": "routeConfiguration",
+    "memberof": "app/router/tabone/TabOneNavigation.js",
+    "static": true,
+    "longname": "app/router/tabone/TabOneNavigation.js~routeConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabone/TabOneNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"TabOneScreenOne\": *, \"TabOneScreenTwo\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "variable",
+    "name": "stackNavigatorConfiguration",
+    "memberof": "app/router/tabone/TabOneNavigation.js",
+    "static": true,
+    "longname": "app/router/tabone/TabOneNavigation.js~stackNavigatorConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabone/TabOneNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"headerMode\": string, \"initialRouteName\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "file",
+    "name": "app/router/tabone/index.js",
+    "content": "// React\nimport React from 'react'\n// Navigation\nimport { addNavigationHelpers } from 'react-navigation'\nimport NavigatorTabOne from './TabOneNavigation'\n// Redux\nimport { connect } from 'react-redux'\nconst mapStateToProps = (state) => {\n    return {\n        navigationState: state.tabOne\n    }\n}\nclass TabOneNavigation extends React.Component {\nrender(){\n    const { navigationState, dispatch } = this.props\n    return (\n      <NavigatorTabOne\n        navigation={\n          addNavigationHelpers({\n            dispatch: dispatch,\n            state: navigationState\n          })\n        }\n      />\n    )\n  }\n}\nexport default connect(mapStateToProps)(TabOneNavigation)",
+    "static": true,
+    "longname": "app/router/tabone/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 83,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/router/tabone/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/router/tabone/index.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabone/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"navigationState\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "class",
+    "name": "TabOneNavigation",
+    "memberof": "app/router/tabone/index.js",
+    "static": true,
+    "longname": "app/router/tabone/index.js~TabOneNavigation",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabone/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "render",
+    "memberof": "app/router/tabone/index.js~TabOneNavigation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "app/router/tabone/index.js~TabOneNavigation#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 86,
+    "kind": "file",
+    "name": "app/router/tabthree/TabThreeNavigation.js",
+    "content": "/**\n * Navigation configuration\n */\n\nimport { StackNavigator } from 'react-navigation'\n// Screens\nimport Offers from '../../components/offers/Offers';\nimport TabThreeScreenTwo from '../../components/alt/Alt';\n\nconst routeConfiguration = {\n  Offers: { screen: Offers },\n  TabThreeScreenTwo: { screen: TabThreeScreenTwo },\n}\n// going to disable the header for now\nconst stackNavigatorConfiguration = {\n  headerMode: 'none',\n  initialRouteName: 'Offers'\n}\n\nexport default StackNavigator(routeConfiguration,stackNavigatorConfiguration);",
+    "static": true,
+    "longname": "app/router/tabthree/TabThreeNavigation.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 87,
+    "kind": "variable",
+    "name": "routeConfiguration",
+    "memberof": "app/router/tabthree/TabThreeNavigation.js",
+    "static": true,
+    "longname": "app/router/tabthree/TabThreeNavigation.js~routeConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabthree/TabThreeNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"Offers\": *, \"TabThreeScreenTwo\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 88,
+    "kind": "variable",
+    "name": "stackNavigatorConfiguration",
+    "memberof": "app/router/tabthree/TabThreeNavigation.js",
+    "static": true,
+    "longname": "app/router/tabthree/TabThreeNavigation.js~stackNavigatorConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabthree/TabThreeNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"headerMode\": string, \"initialRouteName\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 89,
+    "kind": "file",
+    "name": "app/router/tabthree/index.js",
+    "content": "// React\nimport React from 'react'\n// Navigation\nimport { addNavigationHelpers } from 'react-navigation'\nimport NavigatorTabThree from './TabThreeNavigation'\n// Redux\nimport { connect } from 'react-redux'\nconst mapStateToProps = (state) => {\n    return {\n        navigationState: state.tabTwo\n    }\n}\nclass TabThreeNavigation extends React.Component {\nrender(){\n    const { navigationState, dispatch } = this.props\n    return (\n      <NavigatorTabThree\n        navigation={\n          addNavigationHelpers({\n            dispatch: dispatch,\n            state: navigationState\n          })\n        }\n      />\n    )\n  }\n}\nexport default connect(mapStateToProps)(TabThreeNavigation)",
+    "static": true,
+    "longname": "app/router/tabthree/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 90,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/router/tabthree/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/router/tabthree/index.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabthree/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"navigationState\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 91,
+    "kind": "class",
+    "name": "TabThreeNavigation",
+    "memberof": "app/router/tabthree/index.js",
+    "static": true,
+    "longname": "app/router/tabthree/index.js~TabThreeNavigation",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabthree/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 92,
+    "kind": "method",
+    "name": "render",
+    "memberof": "app/router/tabthree/index.js~TabThreeNavigation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "app/router/tabthree/index.js~TabThreeNavigation#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "file",
+    "name": "app/router/tabtwo/TabTwoNavigation.js",
+    "content": "/**\n * Navigation configuration\n */\n\nimport { StackNavigator } from 'react-navigation'\n// Screens\nimport Profile from '../../components/profile/Profile';\nimport TabTwoScreenTwo from '../../components/alt/Alt';\n\nconst routeConfiguration = {\n  Profile: { screen: Profile },\n  TabTwoScreenTwo: { screen: TabTwoScreenTwo },\n}\n// going to disable the header for now\nconst stackNavigatorConfiguration = {\n  headerMode: 'none',\n  initialRouteName: 'Profile'\n}\n\nexport default StackNavigator(routeConfiguration,stackNavigatorConfiguration);",
+    "static": true,
+    "longname": "app/router/tabtwo/TabTwoNavigation.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 94,
+    "kind": "variable",
+    "name": "routeConfiguration",
+    "memberof": "app/router/tabtwo/TabTwoNavigation.js",
+    "static": true,
+    "longname": "app/router/tabtwo/TabTwoNavigation.js~routeConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabtwo/TabTwoNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"Profile\": *, \"TabTwoScreenTwo\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "variable",
+    "name": "stackNavigatorConfiguration",
+    "memberof": "app/router/tabtwo/TabTwoNavigation.js",
+    "static": true,
+    "longname": "app/router/tabtwo/TabTwoNavigation.js~stackNavigatorConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabtwo/TabTwoNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"headerMode\": string, \"initialRouteName\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "file",
+    "name": "app/router/tabtwo/index.js",
+    "content": "// React\nimport React from 'react'\n// Navigation\nimport { addNavigationHelpers } from 'react-navigation'\nimport NavigatorTabTwo from './TabTwoNavigation'\n// Redux\nimport { connect } from 'react-redux'\nconst mapStateToProps = (state) => {\n    return {\n        navigationState: state.tabTwo\n    }\n}\nclass TabTwoNavigation extends React.Component {\nrender(){\n    const { navigationState, dispatch } = this.props\n    return (\n      <NavigatorTabTwo\n        navigation={\n          addNavigationHelpers({\n            dispatch: dispatch,\n            state: navigationState\n          })\n        }\n      />\n    )\n  }\n}\nexport default connect(mapStateToProps)(TabTwoNavigation)",
+    "static": true,
+    "longname": "app/router/tabtwo/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 97,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/router/tabtwo/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/router/tabtwo/index.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabtwo/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"navigationState\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "class",
+    "name": "TabTwoNavigation",
+    "memberof": "app/router/tabtwo/index.js",
+    "static": true,
+    "longname": "app/router/tabtwo/index.js~TabTwoNavigation",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/tabtwo/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 99,
+    "kind": "method",
+    "name": "render",
+    "memberof": "app/router/tabtwo/index.js~TabTwoNavigation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "app/router/tabtwo/index.js~TabTwoNavigation#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "file",
+    "name": "app/router/transitionrtl/TransitionNavigation.js",
+    "content": "\nimport { StackNavigator } from 'react-navigation';\nimport CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';\n\n// Tab-Navigators\nimport OfferDetail from 'app/components/offerdetail/OfferDetail';\nimport DeleteView from 'app/components/deleteview/DeleteView';\n\nconst routeConfiguration = {\n    DeleteView: { screen: DeleteView },\n    OfferDetail: { screen: OfferDetail }\n};\n\n// going to disable the header for now\nconst stackNavigatorConfiguration = {\n    headerMode: 'none',\n    initialRouteName: 'OfferDetail',\n    transitionConfig: ()=> {\n        return { screenInterpolator: CardStackStyleInterpolator.forHorizontal}\n    }\n};\n  \nexport default StackNavigator(routeConfiguration,stackNavigatorConfiguration);",
+    "static": true,
+    "longname": "app/router/transitionrtl/TransitionNavigation.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 101,
+    "kind": "variable",
+    "name": "routeConfiguration",
+    "memberof": "app/router/transitionrtl/TransitionNavigation.js",
+    "static": true,
+    "longname": "app/router/transitionrtl/TransitionNavigation.js~routeConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/transitionrtl/TransitionNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"DeleteView\": *, \"OfferDetail\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 102,
+    "kind": "variable",
+    "name": "stackNavigatorConfiguration",
+    "memberof": "app/router/transitionrtl/TransitionNavigation.js",
+    "static": true,
+    "longname": "app/router/transitionrtl/TransitionNavigation.js~stackNavigatorConfiguration",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/transitionrtl/TransitionNavigation.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"headerMode\": string, \"initialRouteName\": string, \"transitionConfig\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 103,
+    "kind": "file",
+    "name": "app/router/transitionrtl/index.js",
+    "content": "transitionConfig: ()=> {\n    return {screenInterpolator: CardStackStyleInterpolator.forHorizontal}\n    }// React\nimport React from 'react'\n// Navigation\nimport { addNavigationHelpers } from 'react-navigation'\nimport TransitionNavigation from './TransitionNavigation'\n// Redux\nimport { connect } from 'react-redux'\nconst mapStateToProps = (state) => {\n    return {\n        navigationState: state.transNav\n    }\n}\nclass TransitionNav extends React.Component {\nrender(){\n    const { navigationState, dispatch } = this.props\n    return (\n      <TransitionNavigation\n        navigation={\n          addNavigationHelpers({\n            dispatch: dispatch,\n            state: navigationState\n          })\n        }\n      />\n    )\n  }\n}\nexport default connect(mapStateToProps)(TransitionNav);",
+    "static": true,
+    "longname": "app/router/transitionrtl/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 104,
+    "kind": "function",
+    "name": "mapStateToProps",
+    "memberof": "app/router/transitionrtl/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "app/router/transitionrtl/index.js~mapStateToProps",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/transitionrtl/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"navigationState\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 105,
+    "kind": "class",
+    "name": "TransitionNav",
+    "memberof": "app/router/transitionrtl/index.js",
+    "static": true,
+    "longname": "app/router/transitionrtl/index.js~TransitionNav",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/router/transitionrtl/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 106,
+    "kind": "method",
+    "name": "render",
+    "memberof": "app/router/transitionrtl/index.js~TransitionNav",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "app/router/transitionrtl/index.js~TransitionNav#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 107,
+    "kind": "file",
+    "name": "app/styles/Fonts.js",
+    "content": "import { Platform } from 'react-native';\n\n/**\n * Base settings\n */\n\nconst weight = {\n    ExtraBold: '800',\n    Bold: '700',\n    SemiBold: '600',\n    Light: '300',\n    Normal: '400'\n}\n\nconst styles = {\n    Normal: 'normal',\n    Italic: 'italic'\n}\n\n/**\n * Oporto Fonts\n */\nconst fBrawls                       = 'Brawls Typeface Rough';\nconst fBrawlsRough                  = 'BrawlsTypeface';\nconst fNewcastle                    = 'Newcastle';\nconst fNewcastleRusty               = 'Newcastle-Basic-Rusty';\nconst fCynthoSlabPro                = 'Cyntho Slab Pro';\nconst fCynthoSlabProRegular         = 'CynthoSlabPro-Regular';\nconst fCynthoSlabProBold            = 'CynthoSlabPro-Bold';\nconst fCynthoSlabProExtraLight      = 'CynthoSlabPro-Medium';\n\n/**\n * Currently iOS only\n */\nconst oporto = {\n    ios: {\n        fPrimary: {\n            fontFamily: fNewcastle,\n            fontSize: 30,\n            fontWeight: weight.Normal\n        },\n        fHeadingLarge: {\n            fontFamily: fBrawls,\n            fontSize: 36,\n            fontWeight: weight.Normal\n        },\n        fHeadingMedium: {\n            fontFamily: fBrawls,\n            fontSize: 20,\n            fontWeight: weight.Normal\n        },\n        fHeadingSmall: {\n            fontFamily: fBrawls,\n            fontSize: 16,\n            fontWeight: weight.Normal\n        },\n        fBodyText: {\n            fontFamily: fCynthoSlabPro,\n            fontSize: 16,\n            fontWeight: weight.Normal\n        },\n        fButtonText: {\n            fontFamily: fBrawls,\n            fontSize: 12,\n            fontWeight: weight.Normal\n        },\n        fInputFieldText: {\n            fontFamily: fCynthoSlabPro,\n            fontSize: 16,\n            fontWeight: weight.Normal\n        },\n        fUtility: {\n            fontFamily: fCynthoSlabPro,\n            fontSize: 12,\n            fontWeight: weight.Normal\n        }\n    },\n    android: {\n        fPrimary: {\n            fontFamily: fNewcastleRusty,\n            fontSize: 30\n        },\n        fHeadingLarge: {\n            fontFamily: fBrawlsRough,\n            fontSize: 36\n        },\n        fHeadingMedium: {\n            fontFamily: fBrawlsRough,\n            fontSize: 20\n        },\n        fHeadingSmall: {\n            fontFamily: fBrawlsRough,\n            fontSize: 16\n        },\n        fBodyText: {\n            fontFamily: fCynthoSlabProRegular,\n            fontSize: 16\n        },\n        fButtonText: {\n            fontFamily: fBrawlsRough,\n            fontSize: 12\n        },\n        fInputFieldText: {\n            fontFamily: fCynthoSlabProRegular,\n            fontSize: 16\n        },\n        fUtility: {\n            fontFamily: fCynthoSlabProRegular,\n            fontSize: 12\n        }\n    }\n}\n\n/**\n * Red Rooster Fonts\n */\n\n// const redrooster = {\n// \tfPrimary: cRedRoosterRed\n// }\n\nlet theme;\nswitch(process.env.THEME) {\n    case 'oporto':\n        if (Platform.OS === 'ios') {\n            theme = oporto.ios;\n        } else {\n            console.log(oporto.android);\n            theme = oporto.android;\n        }\n\t\tbreak;\n\tcase 'redrooster':\n\t\ttheme = redrooster;\n\t\tbreak;\n\tdefault:\n\t\tthrow new Error('Failed to get the theme. Please ensure you run the correct npm script for the theme.');\n}\n\n// // iOS\n// {\n//     fontFamily: 'OpenSans',\n//     fontWeight: '600',\n//     fontStyle: 'italic'\n//   }\n\n//   // Android\n//   {\n//     fontFamily: 'OpenSans-SemiBoldItalic'\n//   }\n\nexport default Fonts = theme;\n",
+    "static": true,
+    "longname": "app/styles/Fonts.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 108,
+    "kind": "variable",
+    "name": "weight",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~weight",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": "Base settings",
+    "lineNumber": 7,
+    "type": {
+      "types": [
+        "{\"ExtraBold\": string, \"Bold\": string, \"SemiBold\": string, \"Light\": string, \"Normal\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 109,
+    "kind": "variable",
+    "name": "styles",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~styles",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"Normal\": string, \"Italic\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 110,
+    "kind": "variable",
+    "name": "fBrawls",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~fBrawls",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": "Oporto Fonts",
+    "lineNumber": 23,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 111,
+    "kind": "variable",
+    "name": "fBrawlsRough",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~fBrawlsRough",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 112,
+    "kind": "variable",
+    "name": "fNewcastle",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~fNewcastle",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 113,
+    "kind": "variable",
+    "name": "fNewcastleRusty",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~fNewcastleRusty",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 114,
+    "kind": "variable",
+    "name": "fCynthoSlabPro",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~fCynthoSlabPro",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 115,
+    "kind": "variable",
+    "name": "fCynthoSlabProRegular",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~fCynthoSlabProRegular",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 116,
+    "kind": "variable",
+    "name": "fCynthoSlabProBold",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~fCynthoSlabProBold",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 117,
+    "kind": "variable",
+    "name": "fCynthoSlabProExtraLight",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~fCynthoSlabProExtraLight",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 118,
+    "kind": "variable",
+    "name": "oporto",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~oporto",
+    "access": null,
+    "export": false,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": null,
+    "description": "Currently iOS only",
+    "lineNumber": 35,
+    "type": {
+      "types": [
+        "{\"ios\": *, \"android\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 119,
+    "kind": "variable",
+    "name": "Fonts",
+    "memberof": "app/styles/Fonts.js",
+    "static": true,
+    "longname": "app/styles/Fonts.js~Fonts",
+    "access": null,
+    "export": true,
+    "importPath": "craveable-brands-loyalty-app/app/styles/Fonts.js",
+    "importStyle": "Fonts",
+    "description": null,
+    "lineNumber": 151,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 121,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 122,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 123,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 124,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 125,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 126,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 127,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 128,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 129,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 130,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 131,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 132,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 133,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 134,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 135,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 136,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 137,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 138,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 139,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 140,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 141,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 142,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 143,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 144,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 145,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 146,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 147,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 148,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 149,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 150,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 151,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 152,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 153,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 154,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 155,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 156,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 157,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 158,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 159,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 160,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 161,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 162,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 163,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 164,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 165,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 166,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 167,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "lineNumber": 193,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 169,
+    "kind": "external",
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 170,
+    "kind": "external",
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 171,
+    "kind": "external",
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 172,
+    "kind": "external",
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 173,
+    "kind": "external",
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 174,
+    "kind": "external",
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 175,
+    "kind": "external",
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 176,
+    "kind": "external",
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "lineNumber": 34,
+    "builtinExternal": true
+  }
+]

@@ -1,0 +1,32 @@
+// data-import
+import TableData from './Stub.json';
+
+// Set the initial state
+let initialState = {
+	initState: TableData,
+}
+
+// Actions
+const SELECT = 'Table/SELECT'
+
+// Action Creators 
+export const selectAction = (actionId) => {
+	return {
+		type: SELECT,
+		payload: actionId
+	};
+};
+
+// Export a reducer function for each piece of different application state
+export const TableReducer = (state = initialState.initState, action) => {
+	
+	console.log(action);
+	switch(action.type) {
+		case SELECT:
+			return action.payload;
+		default:
+			return state;
+	}
+
+	return state;
+}

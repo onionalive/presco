@@ -1,0 +1,93 @@
+.wine {
+	.store {
+		background-color: $c-yt-yellow;
+
+		.inner {
+			padding: 90px 0;
+
+			@include media($tablet-l) {
+				padding: 50px 0;
+			}
+		}
+
+		.search-container {
+			@include span-columns(5);
+			@include shift(3.5);
+
+			@include media($tablet-l) {
+				@include shift(1);
+				@include span-columns(10);
+			}
+
+			h2 {
+				margin-bottom: 30px;
+				text-transform: uppercase;
+				text-align: center;
+				@include f-brauer-black;
+				@include font-size(42px);
+
+				@include media($mobile) {
+					@include font-size(38px);
+					text-align: center;
+				}
+			}
+
+			form {
+				position: relative;
+
+				.icon {
+					position: absolute;
+					height: 17px;
+					width: 14px;
+					top: 12px;
+					left: 10px;
+					@include background-image('icons/location');
+				}
+
+				input {
+					float: left;
+					height: 40px;
+					width: 70%;
+					border: 0;
+					outline: 0;
+					padding: 5px;
+					@include font-size(16px);
+
+					@include media($tablet-p) {
+						text-align: center;
+						@include span-columns(12);
+					}
+
+					&[type='text'] {
+						padding-left: 30px;
+					}
+
+					&[type='submit'] {
+						width: 30%;
+						color: $c-black;
+						text-transform: uppercase;
+						background-color: $c-yt-yellow;
+						border: 1px solid $c-white;
+						@include f-brauer-black;
+
+						transition: background-color 150ms ease-out;
+
+						@include media($tablet-p) {
+							@include span-columns(12);
+						}
+
+						&:hover,
+						&:focus {
+							background-color: darken($c-yt-yellow, 5%);
+						}
+					}
+
+					&:focus {
+						outline: 1px dotted $c-dark-grey-alt;
+						outline: 5px auto -webkit-focus-ring-color;
+					}
+				}
+			}
+		}
+	}
+}

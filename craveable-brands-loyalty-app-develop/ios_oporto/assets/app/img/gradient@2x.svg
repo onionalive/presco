@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="1780px" viewBox="0 0 375 1780" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>gradient@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="1.6800861%" x2="50%" y2="97.1161511%" id="linearGradient-1">
+            <stop stop-color="#FD6D00" offset="0%"></stop>
+            <stop stop-color="#FFF600" offset="33.0357143%"></stop>
+            <stop stop-color="#F4EECA" offset="66.8287628%"></stop>
+            <stop stop-color="#FF7E00" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="gradient" fill="url(#linearGradient-1)">
+            <rect id="Gradient-rectangle-Copy" transform="translate(188.500000, 895.500000) rotate(-180.000000) translate(-188.500000, -895.500000) " x="-21" y="-18" width="419" height="1827"></rect>
+        </g>
+    </g>
+</svg>

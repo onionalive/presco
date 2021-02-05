@@ -1,0 +1,89 @@
+{
+  "coverage": "45.45%",
+  "expectCount": 22,
+  "actualCount": 10,
+  "files": {
+    "app/app.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "app/styles/Fonts.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        151
+      ]
+    },
+    "app/components/common/Header.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "app/components/home/Home.test.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        15
+      ]
+    },
+    "app/components/home/Home.styles.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        6
+      ]
+    },
+    "app/common/Tranxactor.js": {
+      "expectCount": 10,
+      "actualCount": 7,
+      "undocumentLines": [
+        71,
+        67,
+        12
+      ]
+    },
+    "app/components/profile/Profile.styles.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "app/components/swipercontainer/SwiperContainer.styles.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "app/components/landscape/Landscape.styles.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "app/components/more/More.styles.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "app/components/offerdetail/OfferDetail.styles.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "app/components/offers/Offers.styles.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    }
+  }
+}

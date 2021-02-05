@@ -1,0 +1,48 @@
+<section class='feature' style="background-color:{{ wine.colour_picker }};">
+	<div class="inner">
+		<div class='left'>
+			<h1>
+				{{ wine.tagline }}
+				<span>{{ wine.title }}</span>
+			</h1>
+		</div>
+		<div class='product'>
+			{% include 'partials/image.twig' with {
+				image: TimberImage(wine.get_thumbnail),
+				class: 'bottle-image',
+				size: 'wine_feature'
+			} %}
+			{% include 'partials/image.twig' with {
+				image: TimberImage(wine.get_field('flavours_image')),
+				class: 'ingredients-image',
+				size: 'ingredients_feature'
+			} %}
+		</div>
+		<div class="left">
+			<div class='properties component'>
+				<div class='row'>
+					<p class="description">{{ wine.introductory_paragraph }}</p>
+
+					{% set flavour = 'Flavour' %}
+					<h3 class="tasting-note-label">{{ flavour|checkSpelling }}</h3>
+					<p class="tasting-note-copy">
+						{{ wine.flavours }}
+					</p>
+				</div>
+				<div class='row'>
+					<h3 class="tasting-note-label">Enjoy</h3>
+					<p class="tasting-note-copy">
+						{{ wine.serve_with }}
+					</p>
+				</div>
+				{% if wine.pdf %}
+					<div class='download'>
+						<a href='{{ wine.get_field('pdf').url }}' aria-label="Select to Download Full Tasting Notes (PDF)" download>
+							Download Full Tasting Notes (PDF)
+						</a>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>

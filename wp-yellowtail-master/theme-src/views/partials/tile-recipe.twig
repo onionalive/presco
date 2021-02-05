@@ -1,0 +1,24 @@
+<div class="tile recipe-tile" style="background-color:{{ tile.get_field('wines').colour_picker }}" {{ tile|filterAttributes }}>
+	<a class='tile-link' aria-label='{{ tile.title }} - select to show full recipe on another page' href='{{ tile.slug }}'>
+		{% include 'partials/image.twig' with {
+			image: TimberImage(tile.get_thumbnail),
+			size: 'recipe_grid',
+			class: 'recipe-tile-img'
+		} %}
+		<div class='inner'>
+			<div class='text'>
+				<h2>
+					{{ tile.title }}
+				</h2>
+				<div class='description recipe-description'>
+					{{ tile.introductory_paragraph_short }}
+				</div>
+			</div>
+			<div class='cta recipe-cta'>
+				<div class='button recipe-button'>
+					Full recipe
+				</div>
+			</div>
+		</div>
+	</a>
+</div>

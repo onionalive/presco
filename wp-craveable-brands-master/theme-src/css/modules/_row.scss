@@ -1,0 +1,22 @@
+section {
+	&.row {
+
+		h2 {
+			margin-top: 5px;
+		}
+
+		p {
+			margin-bottom: 15px;
+			margin-top: 0;
+		}
+
+		.quote-text {
+			padding-right: 25px;
+		}
+
+		.quote-cite {
+			margin-top: -20px;
+			color: $c-light-grey;
+		}
+	}
+}

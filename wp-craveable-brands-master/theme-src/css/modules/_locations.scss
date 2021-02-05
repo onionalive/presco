@@ -1,0 +1,31 @@
+.locations {
+
+	.inner {
+		border-top: 2px solid $c-black;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+
+		max-width: 950px;
+
+		.location {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+
+			width: 171px;
+			margin: 10px 30px;
+		}
+
+		.state {
+			font-size: 22px;
+			font-weight: bold;
+			line-height: 32px;
+		}
+
+		.address {
+			width: 100%;
+		}
+	}
+}

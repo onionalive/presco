@@ -1,0 +1,12 @@
+[
+	{
+		"link": "Home",
+		"href": "/",
+		"key": 1
+	},
+	{
+		"link": "Example",
+		"href": "/example",
+		"key": 2
+	}
+]

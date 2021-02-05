@@ -1,0 +1,14 @@
+<section class="two-image">
+	<div class="one skew">
+		{% include 'partials/image.twig' with {
+			image: image_one
+		} %}
+		<p class="caption">{{ image_one.caption }}</p>
+	</div>
+	<div class="two skew">
+		{% include 'partials/image.twig' with {
+			image: image_two
+		} %}
+		<p class="caption">{{ image_two.caption }}</p>
+	</div>
+</section>

@@ -1,0 +1,14 @@
+{
+	"source": "./app",
+	"destination": "./doc",
+	"manual": {
+		"usage": [
+			"./manual/help.md",
+			"./manual/notes.md"
+		]
+	},
+	"plugins": [
+		{"name": "esdoc-standard-plugin"},
+		{"name": "esdoc-react-plugin"}
+	  ]
+}

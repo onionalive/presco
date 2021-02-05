@@ -1,0 +1,112 @@
+{% extends "master.twig" %}
+
+{% block content %}
+	<section class="big-game-ready">
+		<div class="inner">
+			<div class="content">
+				<h1 class="bigtext">
+					<span>We believe...</span>
+				</h1>
+				<div class="bg-images">
+					<img class="bg-img yt-guy" src="{{ TimberImage(page.get_field('intro_guy_photo')).src }}" alt="" />
+					<img class="bg-img yt-roo" src="{{ TimberImage(page.get_field('intro_roo_photo')).src }}" alt="" />
+				</div>
+				<div class="copy">
+					<p>At [yellow tail], we believe in fun. To help spread this message, we’ve created a new campaign featuring our first ever spokesperson – Yellow Tail Guy – and his sidekick Roo, who believe wine should be fun and accessible to everyone. Scroll down to check out our new commercial and meet this dynamic duo!</p>
+					<p>Scroll down to check out our new commercial!</p>
+				</div>
+				<img class="lets-yellow-tail" src="{{ site.theme.link }}/img/big-game/lets-yellow-tail.png" alt="Let's Yellow Tail">
+				<div class="connect-with-us">
+					<h2>Connect With Us</h2>
+					<ul>
+						<li>
+							<a href="https://www.facebook.com/yellowtailus/">
+								<span class="fa fa-facebook" aria-hidden="true"></span> Facebook
+							</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/yellowtailwine">
+								<span class="fa fa-twitter" aria-hidden="true"></span> Twitter
+							</a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/yellowtailwineusa/">
+								<span class="fa fa-instagram" aria-hidden="true"></span> Instagram
+							</a>
+						</li>
+						<li>
+							<a href="https://www.youtube.com/yellowtailwineusa">
+								<span class="fa fa-youtube" aria-hidden="true"></span> Youtube
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="big-commercial">
+		<div class="inner">
+			<div class="content">
+				<h1 class="bigtext">
+					<span>Here it is!</span>
+					<span class="bigtext-exempt bg-strike">our new</span>
+					<span>commercial!</span>
+				</h1>
+				<div class="bg-images">
+					<img class="bg-img yt-guy" src="{{ TimberImage(page.get_field('big_commercial_guy')).src }}" alt="">
+					<img class="bg-img yt-roo" src="{{ TimberImage(page.get_field('big_commercial_roo')).src }}" alt="">
+				</div>
+				<div class="video-container">
+					<iframe src='https://www.youtube.com/embed/nMA8CyRimZo?modestbranding=1&amp;rel=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>
+				</div>
+				<div class="video-container -vignettes">
+					<div class="single-video">
+						<iframe src='https://www.youtube.com/embed/sAcpXRLu3sM?modestbranding=1&amp;rel=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>
+					</div>
+					<div class="single-video -vignettes">
+						<iframe src='https://www.youtube.com/embed/hxIVvYhgzp0?modestbranding=1&amp;rel=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="behind-the-scenes">
+		<div class="inner">
+			<div class="cell">
+				<div class="content">
+					<h2 class="bigtext">
+						<span>Behind The Scenes</span>
+						<span>With Yellow Tail Guy &amp; Roo</span>
+					</h2>
+					<p>Enjoy a behind-the-scenes look at the making of our new campaign!</p>
+					{% set gallery = page.get_field('gallery') %}
+					<div id="gallery" class="gallery-module">
+						<div class="selected-image">
+							<figure>
+								<img src="{{ TimberImage(gallery|first)|resize(0,718) }}" alt="">
+							</figure>
+							<div class="timer"></div>
+						</div>
+						<ul class="images">
+						{% for _image in gallery %}
+							{% set image = TimberImage(_image) %}
+							<li {{ loop.first ? 'class="-selected"' }}>
+								<a href="{{ image|resize(0,718) }}">
+									<img src="{{ image|resize(210,140,'center') }}" alt="">
+								</a>
+							</li>
+						{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bg-images">
+			<img class="bg-img yt-guy" src="{{ TimberImage(page.get_field('bts_guy_photo')).src }}" alt="" />
+			<img class="bg-img yt-roo" src="{{ TimberImage(page.get_field('bts_roo_photo')).src }}" alt="" />
+		</div>
+	</section>
+
+{% endblock %}

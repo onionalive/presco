@@ -1,0 +1,71 @@
+{% extends "master.twig" %}
+
+{% block content %}
+	<section class="recipe {% if varietal %}{{ varietal.slug }}{% endif %}" {% if wine %} style="background-color:{{ wine.colour_picker }};" {% endif %}>
+		<div class="inner">
+			<div class="lhs">
+				<h1 class="recipe-title">
+					{{ recipe.title }}
+				</h1>
+				{% include 'partials/image.twig' with {
+					image: TimberImage(recipe.get_thumbnail),
+					size: 'recipe_full',
+					class: 'recipe-img'
+				} %}
+			</div>
+				<div class="rhs" {% if wine %} style="background-color:{{ wine.colour_picker|darkenColour }};" {% endif %}>
+				<p class="recipe-intro">
+					{{ recipe.introductory_paragraph_long }}
+				</p>
+				<div class='row'>
+					<h3>
+						Ingredients
+					</h3>
+					<div class='ingredients'>
+						<ul>
+						{% for ingredients in recipe.get_field('ingredients') %}
+							<li class='ingredient'>{{ ingredients.ingredient }}</li>
+						{% endfor %}
+						</ul>
+					</div>
+				</div>
+				<div class='row'>
+					<h3>
+						Preparation
+					</h3>
+					<div class='steps'>
+						<ol>
+						{% for preparation in recipe.get_field('steps') %}
+							<li class='step'>{{ preparation.step }}</li>
+						{% endfor %}
+						</ol>
+					</div>
+				</div>
+				{% if wine %}
+					<div class='row'>
+						<h3 class='uses'>This recipe uses:</h3>
+						<a href="{{ site.url }}/wine/{{ wine.slug }}" class='img-container'>
+							{% include 'partials/image.twig' with {
+								image: TimberImage(wine.get_thumbnail),
+								size: 'wine_grid'
+							} %}
+						</a>
+						<div class='wine'>
+							<a href="{{ site.url }}/wine/{{ wine.slug }}" tabindex="0" aria-label="This recipe uses {{ wine.post_title }} - select to vist the {{ wine.post_title }} wine page">
+								<h3>
+									{{ wine.post_title }}
+								</h3>
+							</a>
+							<p>
+								{{ wine.tagline }}
+							</p>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+	<section class="more-recipes" {% if wine %} style="background-color:{{ wine.colour_picker|darkenColour }};" {% endif %}>
+		<a href="{{ site.url }}/recipes/">Browse more recipes</a>
+	</section>
+{% endblock %}

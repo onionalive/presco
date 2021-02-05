@@ -1,0 +1,90 @@
+// Brand Colours
+$c-black: #000;
+$c-off-black: #333;
+$c-yt-yellow: #fac323;
+$c-yt-yellow-light: #ffe44a;
+$c-yt-dark-yellow: #e8b620;
+$c-yt-vdark-yellow: #e3ab02;
+$c-dark-grey: #222;
+$c-dark-grey-alt: #212121;
+$c-mid-grey: #666;
+$c-light-grey: #f7f7f7;
+$c-white: #fff;
+$c-yt-blue: #0098c7;
+$c-yt-vdark-blue: #0098c7;
+$c-yt-green: #1a997b;
+$c-yt-magenta: #d70c7a;
+$c-yt-dark-magenta: #c70c73;
+$c-yt-orange: #e47e1a;
+$c-yt-dark-orange: #d17417;
+
+$c-yt-yellow-rgba-light: rgba(255, 228, 74, .9);
+$c-yt-yellow-rgba-dark: rgba(252, 198, 35, .9);
+
+$c-yt-blue-rgba-light: rgba(49, 207, 255, 1);
+$c-yt-blue-rgba-dark: rgba(0, 152, 199, 1);
+
+$c-yt-orange-rgba-light: rgba(228, 126, 26, .9);
+$c-yt-orange-rgba-dark: rgba(228, 126, 26, .9);
+
+$c-white-rgba: rgba(255, 255, 255, 0);
+$c-white-rgba100: rgba(255, 255, 255, 1);
+$c-blue-rgba: rgba(88, 88, 88, 0.3);
+
+// Backgrounds
+$c-background-image: $c-yt-yellow;
+$c-footer-background: $c-dark-grey;
+$c-newsletter-background: $c-yt-yellow;
+$c-wheretobuy-background: $c-yt-yellow;
+$c-overlay-nav-background: $c-yt-yellow;
+$c-faq-categories-background: $c-light-grey;
+$c-contact-form-background: $c-light-grey; // Buttons
+$c-default-button-background: $c-yt-yellow;
+$c-default-button-background-hover: shade($c-default-button-background, 2);
+$c-default-button-text: $c-dark-grey;
+$c-default-button-background-inverted: $c-dark-grey;
+$c-default-button-text-inverted: $c-white;
+$c-default-button-background-light: $c-mid-grey;
+$c-default-button-text-light: $c-light-grey; // Menu Bar
+$c-menu-bar: $c-white;
+$c-menu-bar-inverted: $c-dark-grey;
+$c-header-bar-border: $c-yt-yellow; // Sections
+$c-section-background: $c-white;
+$c-section-background-alt: $c-light-grey;
+$c-section-title: $c-dark-grey;
+$c-section-text: $c-mid-grey;
+$c-section-overlay-text: $c-white; // Footer
+$c-footer-link: $c-white;
+$c-footer-link-hover: shade($c-footer-link, 2);
+$c-footer-copyright: $c-white; // Forms
+$c-form-input-background: $c-white;
+$c-newsletter-field-focus: shade($c-white, 2); // General Typography
+$c-h1: $c-white;
+$c-h2-inverted: $c-white; // Overlay Nav
+$c-overlay-nav-link: $c-dark-grey;
+$c-wheretobuy-text: $c-yt-yellow; // Main image
+$c-divider: $c-yt-yellow; // Filters
+$c-filter-label: $c-dark-grey;
+$c-filter-border: $c-yt-yellow;
+$c-filter-dropdown-background: $c-white;
+$c-filter-clear-background: shade($c-white, 2);
+$c-filter-downarrow-background: $c-yt-yellow; // Results
+$c-result-tag: $c-mid-grey;
+$c-result-background: $c-white;
+$c-result-shadow: rgba(160, 160, 160, .5); // Wine
+$c-tasting-notes-background: $c-light-grey;
+$c-tasting-notes-label: $c-dark-grey;
+$c-tasting-notes-value: $c-mid-grey;
+$c-wine-description: $c-mid-grey; // Tooltip
+$c-tooltip-background: $c-dark-grey;
+$c-tooltip-text: $c-light-grey; // Our Philosophy
+$c-tagline-text: $c-mid-grey;
+
+// rgba colours
+$c-black-20: 		rgba(0, 0, 0, .2);
+$c-black-50:		rgba(0, 0, 0, .5);
+$c-black-85:		rgba(0, 0, 0, .85);
+$c-white-80: 		rgba(255, 255, 255, .8);
+
+$c-form-error: #f00;
+$c-form-error-light: #fdd;

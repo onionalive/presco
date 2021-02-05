@@ -1,0 +1,41 @@
+{% extends "master.njk" %}
+{% set headerImage = home_page.header_image.url %}
+{% set pageTitle = "Page Not Found" %}
+
+{% block content %}
+<header class="hero-image page-not-found">
+	<div class="filtered-image" style="background-image: url({{ headerImage }}w=1440&fm=jpg)"></div>
+	<div class="gradient-nav"></div>
+	<nav class='inner'>
+		<div class="nav-bar">
+			<a href="/">
+				<img class="logo-text nav-logo" src="/img/fr_logo_white.png" alt="Future Reference">
+				<img class="logo-mobile nav-logo" src="/img/fr_logo_mobile.png" alt="Future Reference">
+			</a>
+			<ul class="nav-list-desktop">
+				<li><a class="index-page" href="/">Home</a></li>
+				<li><a href="/services">Services</a></li>
+				<li><a href="/about-us">About Us</a></li>
+				<li><a class="smooth-scroll" href="#footer">Contact</a></li>
+			</ul>
+			<button class="mobile-indicator">
+				<span class="label">Toggle menu</span>
+				<span class="bar"></span>
+			</button>
+			<div class="mobile-nav">
+				<ul class="nav-list-mobile">
+					<li><a class="index-page" href="/">Home</a></li>
+					<li><a href="/services">Services</a></li>
+					<li><a href="/about-us">About Us</a></li>
+					<li><a class="smooth-scroll contact-mob-link" href="#footer">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="page-not-found-content">
+			<h2>404</h2>
+			<h3>Page Not Found</h3>
+			<a class="index-page" href="/">Return To Home</a>
+		</div>
+	</nav>
+</header>
+{% endblock %}

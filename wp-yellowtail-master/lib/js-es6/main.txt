@@ -1,0 +1,5 @@
+
+	if ($('.classTarget').length) {
+		const varTarget = new instanceTarget();
+		varTarget.init();
+	}

@@ -1,0 +1,4 @@
+Bluedot Point SDK iOS v1.9.6 Release Notes
+----------------------------------------
+Defect fixes:
+General minor defect fixes

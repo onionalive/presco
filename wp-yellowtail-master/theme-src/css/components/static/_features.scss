@@ -1,0 +1,41 @@
+.static-content {
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	li,
+	ol {
+		padding: 10px 0;
+	}
+
+	h2 {
+		@include f-brauer-bold;
+		@include font-size(55px, 60px);
+		text-transform: uppercase;
+
+	}
+
+	h3 {
+		padding: 20px 0;
+		@include f-themix-normal;
+		@include font-size(42px);
+	}
+
+	a {
+		padding: 10px 0;
+		color: $c-mid-grey;
+		line-height: 1.375em;
+		text-decoration: underline;
+
+	}
+
+	p {
+		color: $c-dark-grey;
+		@include font-size(16px, 22px);
+	}
+}

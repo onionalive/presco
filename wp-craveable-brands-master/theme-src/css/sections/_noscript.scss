@@ -1,0 +1,45 @@
+.noscript-page {
+
+	.noscript-content {
+		background-color: $c-purple;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		padding: 20px;
+		text-align: center;
+		color: $c-white;
+
+		.cb-image {
+			content: '';
+			background-image: url('./../img/logos/craveablelogo.png');
+			height: 200px;
+			width: 200px;
+			background-repeat: no-repeat;
+			background-size: contain;
+			display: inline-block;
+			position: relative;
+			margin-bottom: 50px;
+		}
+
+		.enable-copy {
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		.contact-copy {
+			display: block;
+
+			a {
+				transition: color .15s linear;
+				color: $c-white;
+
+				&:hover,
+				&:focus {
+					color: $c-light-grey;
+				}
+			}
+		}
+	}
+}

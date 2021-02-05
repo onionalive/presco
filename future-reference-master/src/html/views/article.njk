@@ -1,0 +1,79 @@
+{% extends "master.njk" %}
+{% set headerImage = 'https://www.datocms-assets.com' + header_image.value.path + '?' %}
+{% set metaTitle = title %}
+{% set metaDescription = summary %}
+{% set metaImage = (headerImage + 'w=1200&h=630&fit=crop&fm=jpg') | safe %}
+
+{% block content %}
+<div class='article'>
+	<div class='inner'>
+		<div class='article-header'>
+			<div class="article-type-box">
+				<p class='article-type'>{{ article_type }}</p>
+			</div>
+			{% if author %}
+				<p class='author'>by {{ author}}</p>
+			{% endif %}
+		</div>
+
+		<h2>{{ title }}</h2>
+		{% if sub_title %}
+			<h3 class='subtitle'>
+				{{ sub_title }}
+			</h3>
+		{% endif %}
+
+		{% if left_box_copy %}
+		<div class="challenge-outcome-div">
+			<div class="box -left">
+				<p class="box-heading">{{ left_box_heading}}</p>
+				<p>
+					{% markdown %}
+					{{ left_box_copy}}
+					{% endmarkdown %}
+				</p>
+			</div>
+			{% endif %}
+			{% if right_box_copy %}
+			<div class="box -right">
+				<p class="box-heading">{{ right_box_heading}}</p>
+				{% markdown %}
+				{{ right_box_copy}}
+				{% endmarkdown %}
+			</div>
+		</div>
+		{% endif %}
+
+		{% for item in content %}
+
+			{% if item.itemType == 'copy' %}
+				<div class='copy'>
+					{% markdown %}
+					{{ item.copy }}
+					{% endmarkdown %}
+				</div>
+			{% elseif item.itemType == 'image' %}
+
+				{% if item.fullWidth %}
+					<div class='full-width-container'>
+						<div class='full-width' style="background-image: url({{ item.image.url }}w=1440&fm=jpg)"></div>
+					</div>
+				{% else %}
+					<img class='inner-width' src='{{ item.image.url }}w=1080&fm=jpg' alt="{{ item.image.alt }}">
+					{% if item.caption %}
+					<p class="image-caption">{{ item.caption }}</p>
+					{% endif%}
+				{% endif %}
+
+			{% elseif item.itemType == 'quote' %}
+				<blockquote>
+					{{ item.quote }}
+				</blockquote>
+			{% endif %}
+
+		{% endfor%}
+		<div class='line'></div>
+	</div>
+</div>
+
+{% endblock %}

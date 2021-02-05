@@ -1,0 +1,47 @@
+.option {
+	position: relative;
+	display: block;
+
+	margin-bottom: 10px;
+
+	.radio,
+	.checkbox {
+		opacity: 0;
+		width: 0;
+		height: 0;
+
+		&:checked + .toggle {
+			background-color: $c-blue;
+			border-color: $c-blue;
+
+			background-image: $i-checkmark;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 12px 9px;
+		}
+	}
+
+	.toggle {
+		display: inline-block;
+
+		margin-right: 10px;
+		vertical-align: middle;
+
+		width: 22px;
+		height: 22px;
+
+		border-radius: 50%;
+
+		background-color: $c-white;
+		border: solid 1px $c-grey;
+	}
+
+	.label {
+		position: absolute;
+		left: 0;
+		padding-left: 34px;
+
+	    font-size: 1.7rem;
+	    line-height: 24px;
+	}
+}

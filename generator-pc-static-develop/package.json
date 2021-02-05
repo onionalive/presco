@@ -1,0 +1,46 @@
+{
+  "name": "generator-static",
+  "version": "1.0.0",
+  "description": "A very PC static site yeoman generator",
+  "license": "MIT",
+  "private": true,
+  "main": "app/index.js",
+  "repository": "presentcompany/generator-pc-static",
+  "author": {
+    "name": "Present Company",
+    "email": "",
+    "url": "https://github.com/presentcompany"
+  },
+  "scripts": {
+    "react": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "test": "mocha --compilers js:babel-core/register --recursive test/*.mocha.js",
+    "test:watch": "npm run test -- --watch"
+  },
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "chalk": "^1.0.0",
+    "gulp-shell": "^0.6.3",
+    "lodash.debounce": "^4.0.8",
+    "path": "^0.11.14",
+    "validator": "^7.0.0",
+    "yeoman-generator": "^1.0.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-preset-env": "^1.3.2",
+    "gulp": "^3.6.0",
+    "gulp-jshint": "^1.10.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "jshint-stylish": "^1.0.1",
+    "mocha": "*",
+    "yeoman-assert": "^3.0.0",
+    "yeoman-test": "^1.6.0"
+  }
+}

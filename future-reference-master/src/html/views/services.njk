@@ -1,0 +1,146 @@
+{% extends "master.njk" %}
+{% set headerImage = service_page.header_image.url %}
+{% set titleWhite = service_page.title_white %}
+{% set titleRed = service_page.title_red %}
+{% set metaImage = (headerImage + 'w=1200&h=630&fit=crop&fm=jpg') | safe %}
+
+{% set metaTitle = "Our Services" %}
+{% set metaDescription = service_page.intro_heading %}
+
+{% block content %}
+<div class='services'>
+	<div class="inner">
+
+		<!-- Intro Section -->
+		{% if intro.subtitle %}
+		<div class="intro">
+			<div class="row">
+				<div class="intro-subtitle">
+					<p>{{ service_page.subtitle | safe }}</p>
+				</div>
+			</div>
+			{% endif %}
+
+			<div class="row">
+				<div class="intro-heading">
+					<h2>{{ service_page.intro_heading | safe }}</h2>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section One / Left -->
+		<div class="section">
+			<div class="row full-width">
+				<div class="section-container">
+
+					<div class='section-image-mobile aspect-ratio four-three' style="background-image:url({{ service_page.section_one_image.url }}fm=jpg)">
+						<div class="aspect-content"></div>
+					</div>
+
+					<div class="section-content -left">
+						<h3 class="section-heading">{{ service_page.section_one_heading | safe }}</h3>
+						{% if service_page.section_one_subheading %}
+							<h4 class="section-subheading">{{ service_page.section_one_subheading | safe }}</h4>
+						{% endif %}
+						<div class="section-copy">
+							{{ service_page.section_one_copy | safe }}
+						</div>
+					</div>
+
+					<div class="section-image-container -left">
+						<div class='section-image aspect-ratio sixteen-nine' style="background-image:url({{ service_page.section_one_image.url }}fm=jpg)">
+							<div class="aspect-content"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section Two / right -->
+		<div class="section">
+			<div class="row full-width">
+				<div class="section-container">
+
+					<div class='section-image-mobile aspect-ratio four-three' style="background-image:url({{ service_page.section_two_image.url }}fm=jpg)">
+						<div class="aspect-content"></div>
+					</div>
+
+					<div class="section-content -right">
+						<h3 class="section-heading">{{ service_page.section_two_heading | safe }}</h3>
+						{% if service_page.section_two_subheading %}
+							<h4 class="section-subheading">{{ service_page.section_two_subheading | safe }}</h4>
+						{% endif %}
+						<div class="section-copy">
+							{{ service_page.section_two_copy | safe }}
+						</div>
+					</div>
+
+					<div class="section-image-container -right">
+						<div class='section-image aspect-ratio sixteen-nine' style="background-image:url({{ service_page.section_two_image.url }}fm=jpg)">
+							<div class="aspect-content"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section Three / Left -->
+		<div class="section">
+			<div class="row full-width">
+				<div class="section-container">
+
+					<div class='section-image-mobile aspect-ratio four-three' style="background-image:url({{ service_page.section_three_image.url }}fm=jpg)">
+						<div class="aspect-content"></div>
+					</div>
+
+					<div class="section-content -left">
+						<h3 class="section-heading">{{ service_page.section_three_heading | safe }}</h3>
+						{% if service_page.section_three_subheading %}
+							<h4 class="section-subheading">{{ service_page.section_three_subheading | safe }}</h4>
+						{% endif %}
+						<div class="section-copy">
+							{{ service_page.section_three_copy | safe }}
+						</div>
+					</div>
+
+					<div class="section-image-container -left">
+						<div class='section-image aspect-ratio sixteen-nine' style="background-image:url({{ service_page.section_three_image.url }}fm=jpg)">
+							<div class="aspect-content"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section Four / right -->
+		<div class="section">
+			<div class="row full-width">
+				<div class="section-container">
+
+					<div class='section-image-mobile aspect-ratio four-three' style="background-image:url({{ service_page.section_four_image.url }}fm=jpg)">
+						<div class="aspect-content"></div>
+					</div>
+
+					<div class="section-content -right">
+						<h3 class="section-heading">{{ service_page.section_four_heading | safe }}</h3>
+						{% if service_page.section_four_subheading %}
+							<h4 class="section-subheading">{{ service_page.section_four_subheading | safe }}</h4>
+						{% endif %}
+						<div class="section-copy">
+							{{ service_page.section_four_copy | safe }}
+						</div>
+					</div>
+
+					<div class="section-image-container -right">
+						<div class='section-image aspect-ratio sixteen-nine' style="background-image:url({{ service_page.section_four_image.url }}fm=jpg)">
+							<div class="aspect-content"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

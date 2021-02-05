@@ -1,0 +1,57 @@
+{
+  "name": "OxygenHomeLoans",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "mocha --require react-native-mock/mock --compilers js:babel-core/register --recursive test/*.js",
+    "mocha:stamp_duty": "mocha --require react-native-mock/mock --compilers js:babel-core/register test/stamp_duty.js --watch src/helpers/stampDuty.js",
+    "class": "./lib/react-module.sh",
+    "basic": "./lib/react-basic.sh",
+    "table": "./lib/react-table.sh",
+    "gen": "./lib/gen-full.sh"
+  },
+  "dependencies": {
+    "axios": "^0.15.2",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "babel-register": "^6.18.0",
+    "chalk": "^2.0.1",
+    "entities": "^1.1.1",
+    "react": "^16.0.0-alpha.6",
+    "react-addons-pure-render-mixin": "15.5.2",
+    "react-dom": "^15.5.4",
+    "react-native": "^0.43.0",
+    "react-native-lock": "github:futurice/react-native-lock#feature/customizedTheme",
+    "react-native-page-control": "^1.0.7",
+    "react-native-pagecontrol": "^2.0.0",
+    "react-native-router-flux": "^3.38.0",
+    "react-native-swiper": "^1.5.4",
+    "react-native-vector-icons": "^4.0.1",
+    "react-navigation": "git+https://github.com/react-community/react-navigation.git#7edd9a7",
+    "react-redux": "^4.4.8",
+    "react-static-container": "^1.0.1",
+    "redux": "^3.4.0",
+    "redux-logger": "^2.6.1",
+    "redux-loop": "^2.1.0",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.1.0",
+    "whatwg-fetch": "^1.1.1"
+  },
+  "jest": {
+    "preset": "jest-react-native"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.2",
+    "babel-jest": "16.0.0",
+    "babel-preset-react-native": "1.9.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.6.0",
+    "jest": "16.0.2",
+    "jest-react-native": "16.1.0",
+    "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.3.2",
+    "react-native-mock": "^0.2.7",
+    "react-test-renderer": "15.3.2"
+  }
+}

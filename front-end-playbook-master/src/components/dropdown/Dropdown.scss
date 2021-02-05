@@ -1,0 +1,64 @@
+.dropdown {
+	.select {
+		padding: 24px 20px 20px 20px;
+		white-space: pre-wrap;
+
+		background-color: $c-white;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 18px auto;
+		border: 0.8px solid $c-light-grey;
+		border-radius: 0px;
+
+		width: 100%;
+		text-overflow: ellipsis;
+
+		font-size: 1.7rem;
+
+		appearance: none;
+	}
+
+	.label {
+		text-align: left;
+		margin-bottom: 20px;
+
+		font-size: 1.5rem;
+	}
+
+	.container {
+		position: relative;
+		display: block;
+
+		margin-bottom: 10px;
+
+		&:last-of-type {
+			margin-bottom: 20px;
+		}
+
+		&.error {
+			border: 1px solid $c-red;
+		}
+
+		&.valid {
+			border: 1px solid $c-green;
+		}
+	}
+
+	.icon {
+		position: absolute;
+		pointer-events: none;
+
+		top: 0;
+		right: 0;
+		display: block;
+		background-color: $c-grey;
+
+		background-image: $i-caret-down;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 10px 5px;
+
+		width: 65px;
+		height: 65px;
+	}
+}

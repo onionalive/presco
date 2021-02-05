@@ -1,0 +1,148 @@
+{% extends "master.njk" %}
+{% set headerImage = about_page.header_image.url %}
+{% set titleWhite = about_page.title_white %}
+{% set titleRed = about_page.title_red %}
+{% set metaImage = (headerImage + 'w=1200&h=630&fit=crop&fm=jpg') | safe %}
+
+{% set metaTitle = "About Us" %}
+{% set metaDescription = about_page.intro_heading %}
+
+{% block content %}
+<div class='about-us'>
+	<div class="inner">
+
+		<!-- Intro Section -->
+		<div class="intro">
+			{% if intro.subtitle %}
+			<div class="row">
+				<div class="intro-subtitle">
+					<p>{{ about_page.subtitle | safe }}</p>
+				</div>
+			</div>
+			{% endif %}
+
+			<div class="row">
+				<div class="intro-heading">
+					<h2>{{ about_page.intro_heading | safe }}</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="intro-container">
+					<div class='intro-image-mobile aspect-ratio four-three' style="background-image:url({{ about_page.intro_image.url }}fm=jpg)">
+						<div class="aspect-content"></div>
+					</div>
+					<div class="intro-text">
+						{{ about_page.intro_text | safe }}
+					</div>
+					<div class='intro-image aspect-ratio sixteen-nine' style="background-image:url({{ about_page.intro_image.url }}fm=jpg)">
+						<div class="aspect-content"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section Two -->
+		<div class="section-two">
+			<div class="row">
+				<div class="section-two-heading">
+					<h3>{{ about_page.section_two_heading | safe }}</h3>
+				</div>
+			</div>
+
+			<div class="row full-width">
+				<div class="section-two-gallery">
+					{% for image in about_page.section_two_gallery %}
+						<div class='section-two-image aspect-ratio sixteen-nine' style="background-image:url({{ image.url }}fm=jpg)">
+							<div class="aspect-content">
+								{% if image.title %}
+								<h3>{{ image.title | safe }}</h3>
+								{% endif %}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+		<!-- Section Three -->
+		<div class="section-three">
+			<div class="row">
+				<div class="section-three-heading">
+					<h3>{{ about_page.section_three_heading | safe }}</h3>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="section-three-container">
+					<div class='section-three-image-mobile aspect-ratio four-three' style="background-image:url({{ about_page.section_three_image_left.url }}fm=jpg)">
+						<div class="aspect-content"></div>
+					</div>
+					<div class="section-three-box">
+						<div class='section-three-image aspect-ratio four-three' style="background-image:url({{ about_page.section_three_image_left.url }}fm=jpg)">
+							<div class="aspect-content"></div>
+						</div>
+						<div class="section-three-subheading">
+							<h4>{{ about_page.section_three_subheading_left | safe }}</h4>
+						</div>
+						<div class="section-three-copy">
+							{{ about_page.section_three_copy_left | safe }}
+						</div>
+					</div>
+				</div>
+
+				<div class="section-three-container">
+					<div class='section-three-image-mobile aspect-ratio four-three' style="background-image:url({{ about_page.section_three_image_right.url }}fm=jpg)">
+						<div class="aspect-content"></div>
+					</div>
+					<div class="section-three-box">
+						<div class='section-three-image aspect-ratio four-three' style="background-image:url({{ about_page.section_three_image_right.url }}fm=jpg)">
+							<div class="aspect-content"></div>
+						</div>
+						<div class="section-three-subheading">
+							<h4>{{ about_page.section_three_subheading_right | safe }}</h4>
+						</div>
+						<div class="section-three-copy">
+							{{ about_page.section_three_copy_right | safe }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section Four -->
+		<div class="section-four">
+			<div class="row">
+				<div class="section-four-heading">
+					<h3>{{ about_page.section_four_heading | safe }}</h3>
+				</div>
+			</div>
+
+			<div class="row full-width">
+				<div class="section-four-gallery">
+					{% for image in about_page.section_four_gallery %}
+						<div class='section-four-image aspect-ratio one-one' style="background-image:url({{ image.url }}fm=jpg)">
+							<div class="aspect-content">
+								{% if image.title %}
+								<h3>{{ image.title | safe }}</h3>
+								{% endif %}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+		<!-- Invite -->
+		<div class="invite">
+			<div class="row">
+				<div class="invite-text">
+					<h3>{{ about_page.invite_text | safe }}</h3>
+				</div>
+				<a class="main-cta" href='mailto:hello@futurereference.com.au'>Join Us</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

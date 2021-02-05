@@ -1,0 +1,32 @@
+.skiplinks {
+	padding: 0;
+	margin: 0;
+
+	a {
+		position: absolute;
+		left: -1000px;
+		z-index: 200;
+
+		margin: 0;
+		padding: 15px;
+
+		background: $c-white;
+
+		@include f-themix-bold;
+		font-size: 200%;
+		text-decoration: none;
+
+		&:active,
+		&:focus,
+		&:hover {
+			top: 0;
+			left: 0;
+
+			display: inline;
+
+			background: $c-black;
+
+			color: $c-white;
+		}
+	}
+}

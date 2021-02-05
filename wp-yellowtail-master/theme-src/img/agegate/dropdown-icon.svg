@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>caret-down - FontAwesome</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Age-Gate---Desktop" transform="translate(-782.000000, -703.000000)" fill="#000000">
+            <g id="Group-5" transform="translate(443.000000, 690.000000)">
+                <g id="Group-4" transform="translate(0.000000, 1.000000)">
+                    <g id="Group-2" transform="translate(223.000000, 4.000000)">
+                        <path d="M127.759425,8.71428571 C127.759425,8.90773906 127.688741,9.0751481 127.547371,9.21651786 L122.547371,14.2165179 C122.406001,14.3578876 122.238592,14.4285714 122.045139,14.4285714 C121.851685,14.4285714 121.684276,14.3578876 121.542907,14.2165179 L116.542907,9.21651786 C116.401537,9.0751481 116.330853,8.90773906 116.330853,8.71428571 C116.330853,8.52083237 116.401537,8.35342333 116.542907,8.21205357 C116.684276,8.07068382 116.851685,8 117.045139,8 L127.045139,8 C127.238592,8 127.406001,8.07068382 127.547371,8.21205357 C127.688741,8.35342333 127.759425,8.52083237 127.759425,8.71428571 L127.759425,8.71428571 Z" id="caret-down---FontAwesome"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,453 @@
+.page-template-page-home {
+
+	&#country-usa {
+		h1 {
+			@include f-themix-normal;
+		}
+
+	}
+
+	&#country-international {
+		h1 {
+			@include f-brauer-bold;
+		}
+	}
+
+	section {
+		position: relative;
+
+		min-height: 750px;
+
+		@include media($mobile) {
+			height: auto;
+		}
+
+		&.one {
+			padding-bottom: 0;
+
+			min-height: 690px;
+
+			background-color: $c-yt-yellow;
+			overflow: hidden;
+
+			text-align: center;
+
+			@include media($mobile) {
+				display: block;
+				padding-top: $header-height-mobile + 40px;
+				padding-bottom: 40px;
+				height: 100%;
+			}
+
+			&::before {
+				background: radial-gradient(
+					ellipse at 50% 50%,
+					$c-yt-yellow-rgba-light 10%,
+					$c-yt-yellow-rgba-dark 50%,
+					$c-yt-yellow-rgba-dark 100%
+				);
+				content: '';
+				display: block;
+				height: 100%;
+				position: absolute;
+				z-index: 0;
+				top: 0;
+				left: 0;
+				width: 100%;
+				opacity: .8;
+			}
+
+			> .inner {
+				padding: 0;
+
+				.cell {
+					.content {
+						width: 70%;
+
+						@include media($tablet-l) {
+							width: 80%;
+						}
+
+						@include media($mobile) {
+							width: 90%;
+						}
+
+						h1 {
+							margin-bottom: 10px;
+
+							@include font-size(26px)
+							letter-spacing: -0.3px;
+							color: $c-black;
+
+							@include media($hero-l) {
+								@include font-size(22px);
+							}
+
+							@include media($hero-m) {
+								@include font-size(20px);
+							}
+
+							@include media($hero-s) {
+								font-size: 2.4vh;
+							}
+
+							.yt-logo {
+								@include hide-text;
+								display: block;
+								height: 3em;
+								margin: 1em auto 0;
+								@include background-image('../img/brand/logo-yellowtail');
+								background-size: contain;
+								background-repeat: no-repeat;
+								background-position: 50% 50%;
+
+								@include media($mobile) {
+									width: 90%;
+									height: auto;
+								}
+
+								@include media($hero-s) {
+									height: 2.6em;
+								}
+							}
+						}
+
+						.yt-wine {
+							display: block;
+							height: 420px;
+							margin: 0 auto 20px;
+
+							@include media($mobile) {
+								height: 300px;
+							}
+
+							@include media($hero-l) {
+								height: 350px;
+							}
+
+							@include media($hero-m) {
+								height: 320px;
+							}
+
+							@include media($hero-s) {
+								height: 32vh;
+							}
+						}
+
+						.welcome {
+							margin-bottom: 20px;
+
+							@include media($mobile) {
+								text-align: center;
+							}
+
+							p {
+								margin-bottom: 10px;
+
+								@include media($hero-l) {
+									@include font-size(17px, 24px);
+								}
+
+								@include media($hero-m) {
+									@include font-size(16px, 22px);
+								}
+
+								&:last-child {
+									margin-bottom: 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.two {
+			color: $c-white;
+			background-color: $c-yt-blue-rgba-light;
+
+			.-fun {
+				display: none;
+				width: 90%;
+				padding-bottom: 90% * (677 / 585);
+				margin: 0 auto;
+
+				&.-mobile {
+					.sprite {
+						animation: none;
+
+						@include media($mobile) {
+							animation: play-anim 1200ms steps(9) infinite;
+						}
+					}
+				}
+
+				.sprite {
+					animation: play-anim 1200ms steps(9) infinite;
+				}
+			}
+
+			.bigtext {
+				padding-top: 16vh;
+
+				@include media($tablet-l) {
+					padding-top: 6vh;
+				}
+
+				@include media($mobile) {
+					padding-top: 0;
+				}
+			}
+		}
+
+		&.three {
+			background-color: $c-yt-yellow;
+
+			.-choice {
+				display: none;
+				width: 100%;
+				padding-bottom: 100% * (269 / 580);
+			}
+		}
+
+		&.four {
+			color: $c-white;
+			background-color: $c-yt-blue-rgba-light;
+
+			.-pour {
+				display: none;
+				width: 90%;
+				padding-bottom: 90% * (455 / 585);
+				margin-left: 10%;
+
+				&.-mobile {
+					.sprite {
+						animation: none;
+
+						@include media($mobile) {
+							animation: play-anim 0.5s steps(11) infinite;
+						}
+					}
+				}
+
+				.sprite {
+					animation: play-anim 0.5s steps(11) infinite;
+				}
+			}
+		}
+
+		&.five {
+			background-color: $c-yt-yellow;
+
+			text-align: center;
+
+			.inner {
+				h2 {
+					margin-bottom: 60px;
+
+					@include f-brauer-black
+					@include font-size(50px);
+					letter-spacing: -0.2px;
+					text-transform: uppercase;
+				}
+
+				.roo-photo-container {
+					display: block;
+					@include outer-container(100%);
+					margin-bottom: 60px;
+				}
+
+				p {
+					width: 50%;
+					margin-left: auto;
+					margin-right: auto;
+
+					@include media($mobile) {
+						width: 90%;
+					}
+				}
+			}
+		}
+
+		&.blue {
+			&::before {
+				background: radial-gradient(
+					ellipse at 70% 25%,
+					$c-yt-blue-rgba-light 10%,
+					$c-yt-blue-rgba-dark 50%,
+					$c-yt-blue-rgba-dark 100%
+				);
+				content: '';
+				display: block;
+				height: 100%;
+				position: absolute;
+				z-index: 0;
+				top: 0;
+				left: 0;
+				width: 100%;
+				opacity: .8;
+			}
+		}
+
+		&.orange {
+			&::before {
+				background: radial-gradient(
+					ellipse at 70% 25%,
+					$c-yt-orange-rgba-light 10%,
+					$c-yt-orange-rgba-dark 50%,
+					$c-yt-orange-rgba-dark 100%
+				);
+				content: '';
+				display: block;
+				height: 100%;
+				position: absolute;
+				z-index: 0;
+				top: 0;
+				left: 0;
+				width: 100%;
+				opacity: .8;
+			}
+		}
+
+		&.yellow {
+			&::before {
+				background: radial-gradient(
+					ellipse at 30% 25%,
+					$c-yt-yellow-rgba-light 10%,
+					$c-yt-yellow-rgba-dark 30%,
+					$c-yt-yellow-rgba-dark 100%
+				);
+				content: '';
+				display: block;
+				height: 100%;
+				position: absolute;
+				z-index: 0;
+				top: 0;
+				left: 0;
+				width: 100%;
+				opacity: .8;
+			}
+		}
+
+		> .inner {
+			position: relative;
+			display: table;
+			min-height: 520px;
+			height: 100%;
+			z-index: 1;
+
+			@include media($mobile) {
+				display: block;
+				width: 100%;
+			}
+
+			@include media($hero-l) {
+
+				@include media($mobile) {
+					padding-top: 40px;
+					display: block;
+					width: 100%;
+				}
+			}
+
+			.cell {
+				display: table-cell;
+				vertical-align: middle;
+
+				@include media($mobile) {
+					display: block;
+					width: 100%;
+				}
+
+				.content {
+					@include outer-container(100%);
+
+					@include media($mobile) {
+						width: 90%;
+					}
+
+					.bigtext {
+						width: 80%;
+						margin-bottom: 30px;
+
+						@include f-brauer-black;
+						text-transform: uppercase;
+
+						@include media($mobile) {
+							margin: 0 auto 30px;
+						}
+
+						span {
+							line-height: 0.85em;
+
+							.strikeout {
+								position: relative;
+
+								&::after {
+									content: '';
+
+									position: absolute;
+									top: 50%;
+									left: 0;
+
+									width: 100%;
+									height: 5%;
+
+									background-color: $c-white;
+								}
+							}
+						}
+					}
+
+					p {
+						margin: 0 auto 30px;
+						max-width: 60%;
+
+						@include f-themix-normal;
+						@include font-size(18px, 28px);
+
+						@include media($tablet-p) {
+							margin: 20px auto;
+							@include font-size(14px, 23px);
+						}
+
+						&.header-sub-copy {
+							@include f-themix-normal;
+							@include font-size(18px, 28px);
+							margin: 0 auto;
+							margin-bottom: 30px;
+							max-width: 80%;
+						}
+					}
+				}
+
+				.-mobile {
+					display: none;
+
+					@include media($mobile) {
+						display: block;
+						margin-bottom: 30px;
+					}
+				}
+
+				.-desktop {
+					display: block;
+
+					@include media($mobile) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.bigtext {
+		@include media($mobile) {
+			margin: 0 auto;
+		}
+	}
+
+	.home-button {
+		text-align: center;
+	}
+}

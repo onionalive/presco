@@ -1,0 +1,39 @@
+.faqs-contact {
+	width: 100%;
+	padding: 70px 0;
+
+	background-color: $c-yt-yellow;
+
+	text-align: center;
+
+	> .question {
+		display: block;
+		margin-bottom: 30px;
+
+		@include font-size(36px);
+		@include f-themix-normal;
+
+		color: $c-black;
+	}
+
+	> .contact {
+		display: inline-block;
+
+		padding: 14px 40px;
+
+		@include font-size(16px);
+		@include f-themix-normal;
+		text-transform: uppercase;
+
+		color: $c-white;
+		background-color: $c-black;
+
+		opacity: 1;
+
+		transition: opacity 150ms ease-out;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}

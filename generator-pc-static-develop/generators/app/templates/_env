@@ -1,0 +1,15 @@
+AWS_ACCESS_KEY=<%= awsAccessKey %>
+AWS_SECRET_KEY=<%= awsSecretKey %>
+S3_BUCKET_NAME=<%= s3BucketName %>
+CLOUDFRONT_ID=<%= cloudfrontDistributionID %>
+
+<%if (dato == true) {%>
+# Dato CMS
+DATO_API_TOKEN=<%= datoReadOnlyKey %>
+<% } %>
+
+<%if (contentful == true) {%>
+# Contentful
+CONTENTFUL_ACCESS_TOKEN=<%= contentfulAccessToken %>
+CONTENTFUL_SPACE_ID=<%= contentfulSpaceId %>
+<% } %>

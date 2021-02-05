@@ -1,0 +1,205 @@
+footer {
+	width: 100vw;
+	background-color: $c-dark-grey;
+
+	h2 {
+		font-size: 4rem;
+		letter-spacing: -1.8px;
+		padding-bottom: 10px;
+		margin: 0;
+		@include grid-column(12);
+	}
+
+	.inner {
+		padding: 30px 0 17px 0;
+	}
+
+	.footer-header {
+		@include grid-container;
+	}
+
+	.contact-information {
+		position: relative;
+		@include grid-container;
+
+		.address-container {
+			@include grid-column(3);
+
+			@include grid-media($tablet) {
+				@include grid-column(12);
+			}
+		}
+
+		.contact-us-container {
+
+			p {
+				font-size: 1.8rem;
+				@include f-dinot-medium;
+				line-height: 2.3rem;
+				margin: 0;
+			}
+
+			a {
+				font-size: 1.8rem;
+				letter-spacing: -0.5px;
+				line-height: 2.3rem;
+				transition: color .2s linear;
+
+				&:hover,
+				&:focus {
+					color: $c-alt-grey;
+				}
+			}
+
+			@media only screen and (min-width: 920px) {
+				position:relative;
+				top: -2px;
+			}
+
+			.phone {
+				@media only screen and (min-width: 920px) {
+					pointer-events: none;
+				}
+			}
+		}
+
+		.map-container {
+			@include grid-column(6);
+
+			@include grid-media($tablet) {
+				@include grid-collapse;
+				width:100%;
+				margin-bottom: 40px;
+			}
+		}
+
+		.map {
+			@include grid-column(12);
+			margin-left: 0;
+
+			transition: filter .2s linear;
+
+			&:hover,
+			&:focus {
+				filter: brightness(80%);
+			}
+
+			@include grid-media($tablet) {
+				@include grid-column(12);
+				width: 100%;
+			}
+
+			background-color: $c-black;
+		}
+
+		.address {
+			font-size: 1.8rem;
+			letter-spacing: -0.5px;
+			line-height: 2.3rem;
+			margin-top: 0;
+			margin-bottom: 25px;
+		}
+
+		.details {
+			@media only screen and (min-width: 920px) {
+
+				&.address {
+					top: -6px;
+				}
+
+				&.email-div {
+					position: absolute;
+					bottom: 0px;
+				}
+			}
+		}
+
+		p,
+		a {
+			color: $c-light-grey;
+		}
+
+		a {
+			font-size: 1.8rem;
+		}
+	}
+
+	.logo-text {
+		height: 25px;
+
+		@include grid-media($tablet) {
+			display: none;
+		}
+
+		&.-mobile {
+			display: none;
+
+			@include grid-media($tablet) {
+				margin-top: 50px;
+				display: block
+			}
+		}
+	}
+
+	.line {
+		height: 1px;
+		width: 100%;
+
+		margin: 50px 0 22px 0;
+		@include grid-column(12);
+
+		background-color: $c-light-grey;
+	}
+
+	.bottom-footer {
+		@include grid-column(12);
+	}
+
+	.social-links {
+		display: block;
+		float: right;
+
+		a {
+			color: $c-white;
+			font-size: 2.2rem;
+			margin-right: 35px;
+
+			transition: color .2s linear;
+
+			@include grid-media($small-tablet) {
+				margin-right: 30px;
+			}
+
+			&:hover,
+			&:focus {
+				color: $c-alt-grey;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			span {
+				display: none;
+			}
+		}
+
+		@include grid-media($tablet) {
+			float: none;
+		}
+	}
+
+	.copyright {
+		position: relative;
+		font-size: 1.4rem;
+		top: -3px;
+		display: inline-block;
+		color: $c-light-grey;
+		margin: 0;
+
+		@include grid-media($tablet) {
+			margin-top: 15px;
+			display: block;
+		}
+	}
+}

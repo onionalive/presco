@@ -1,0 +1,24 @@
+<section class="three-image">
+	<div class="lhs">
+		<div class="one skew">
+			{% include 'partials/image.twig' with {
+				image: image_one
+			} %}
+			<p class="caption">{{ image_one.caption }}</p>
+		</div>
+		<div class="two skew">
+			{% include 'partials/image.twig' with {
+				image: image_two
+			} %}
+			<p class="caption">{{ image_two.caption }}</p>
+		</div>
+	</div>
+	<div class="rhs">
+		<div class="three skew">
+			{% include 'partials/image.twig' with {
+				image: image_three
+			} %}
+			<p class="caption">{{ image_three.caption }}</p>
+		</div>
+	</div>
+</section>

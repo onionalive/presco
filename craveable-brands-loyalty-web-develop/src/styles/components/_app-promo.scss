@@ -1,0 +1,78 @@
+.app-promo-container {
+	width: 100%;
+	padding-top: 100px;
+	background-color: $c-dark-grey;
+	color: $c-white;
+
+	.content-container {
+		@include grid-container;
+		text-align: center;
+		background-color: $c-black; // needs the background image
+
+		@include grid-media($mobile) {
+			display: flex;
+			flex-wrap: wrap-reverse;
+		}
+	}
+
+	.text-wrapper {
+		@include grid-column(3.5);
+		@include grid-shift(3);
+		padding-top: 30px;
+
+		@include grid-media($mobile) {
+			left: 0;
+			width: 100%;
+			margin-left: 0;
+			padding: 0 30px;
+		}
+
+		.cta {
+			font-size: 60px;
+			margin-bottom: 25px;
+
+			@include grid-media($mobile) {
+				font-size: 37px;
+			}
+		}
+
+		.cta-copy {
+			font-size: 18px;
+			line-height: 28px;
+
+			@include grid-media($mobile) {
+				font-size: 16px;
+				line-height: 26px;
+			}
+		}
+
+		.logo-container {
+			margin: 36px 0;
+
+			img:first-of-type {
+				margin-right: 15px;
+			}
+		}
+	}
+
+	.image-wrapper {
+		@include grid-column(2);
+		@include grid-shift(2.5);
+
+		@include grid-media($mobile) {
+			left: 0;
+			width: 100%;
+			margin-left: 0;
+		}
+
+		img {
+			position: absolute;
+			top: -60px;
+			z-index: 5;
+
+			@include grid-media($mobile) {
+				position: relative;
+			}
+		}
+	}
+}

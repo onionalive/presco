@@ -1,0 +1,13 @@
+{
+	"source": "./src",
+	"destination": "./doc",
+	"manual": {
+		"usage": [
+			"./manual/testing.md"
+		]
+	},
+	"plugins": [
+		{"name": "esdoc-standard-plugin"},
+		{"name": "esdoc-react-plugin"}
+	  ]
+}

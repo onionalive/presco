@@ -1,0 +1,250 @@
+footer {
+	position: relative;
+	background-color: $c-black;
+	text-align: left;
+
+	@include media($mobile) {
+		text-align: left;
+	}
+
+	.inner {
+
+		color: $c-white;
+
+		hr {
+			display: none;
+			@include media($mobile) {
+				display: block;
+				margin: 70px 0;
+			}
+		}
+
+		a {
+			color: $c-white;
+			text-decoration: none;
+		}
+
+		h3 {
+			font-size: 26px;
+		}
+
+		.details {
+			margin-bottom: 75px;
+
+			@include media($mobile) {
+				margin-bottom: 10%;
+			}
+
+			h2,
+			p {
+				width: 50%;
+
+				@include media($mobile) {
+					width: auto;
+				}
+			}
+
+			p {
+				margin-bottom: 50px;
+			}
+
+			.address {
+				float: none;
+
+				.line-3,
+				.line-4,
+				.line-5 {
+					margin-top: 7px;
+
+					a {
+						transition: color .15s linear;
+
+						&:hover,
+						&:focus {
+							color: $c-purple;
+						}
+					}
+				}
+			}
+
+			.state {
+				@include circular-bold;
+			}
+		}
+
+		.address-container {
+			@include outer-container(100%);
+
+			span {
+				font-size: 14px;
+
+				@include media($mobile) {
+					font-size: 14px;
+				}
+			}
+		}
+
+		.map-container {
+			position: absolute;
+			top: -70px;
+			right: 45px;
+
+			width: 50%;
+
+			.map-img {
+				background-repeat: no-repeat;
+				height: 100%;
+				width: 100%;
+				background-size: contain;
+				background-image: url('./../img/bg/footer-map.png');
+
+				&::after {
+					display: block;
+					content: '';
+					padding-bottom: 80%;
+				}
+			}
+
+			@include media($mobile) {
+				position: relative;
+				top: auto;
+				right: auto;
+
+				@include span-columns(12);
+				display: none;
+				width: 100%;
+			}
+
+			img {
+				width: 100%;
+			}
+
+			.office-locations {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+
+				width: 100%;
+				height: 100%;
+
+				.dot {
+					position: absolute;
+					transform: translate(-50%, -50%);
+
+					width: 7%;
+					height: 7%;
+					padding-bottom: 1.75%;
+					border-radius: 100%;
+
+					background-image: url('./../img/bg/burger.svg');
+					background-repeat: no-repeat;
+					background-position: center;
+
+					@keyframes burgers {
+
+						0% {
+							transform: scale(1);
+							-webkit-transform: scale(1);
+						}
+
+						100% {
+							transform: scale(1.3);
+							-webkit-transform: scale(1.3);
+						}
+					}
+
+					&.-nsw {
+						top: 73.6%;
+						left: 63.1%;
+						animation: burgers 2500ms ease-in-out infinite alternate;
+					}
+
+					&.-wa {
+						top: 68.1%;
+						left: 21.3%;
+						animation: burgers 2400ms ease-in-out infinite alternate;
+					}
+
+					&.-qld {
+						top: 61.3%;
+						left: 66%;
+						animation: burgers 2350ms ease-in-out infinite alternate;
+					}
+
+					&.-vic {
+						top: 78.7%;
+						left: 56.5%;
+						animation: burgers 2225ms ease-in-out infinite alternate;
+					}
+
+					&.-sg {
+						top: 14%;
+						left: 6.6%;
+						animation: burgers 2450ms ease-in-out infinite alternate;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes pulse {
+	0% {
+		width: 0%;
+		height: 0%;
+
+		opacity: 1;
+	}
+
+	60% {
+		width: 250%;
+		height: 250%;
+
+		opacity: 0;
+	}
+
+	95% {
+		width: 250%;
+		height: 250%;
+
+		opacity: 0;
+	}
+
+	100% {
+		width: 0%;
+		height: 0%;
+
+		opacity: 0;
+	}
+}
+
+.address {
+	@include span-columns(2.4);
+
+	@include media($mobile) {
+		@include span-columns(12);
+		margin-bottom: 10%;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	span {
+		display: block;
+		width: 100%;
+	}
+}
+
+.details {
+	.address {
+		@include span-columns(4);
+
+		@include media($mobile) {
+			@include span-columns(12);
+			margin-bottom: 10%;
+		}
+	}
+}

@@ -1,0 +1,22 @@
+<div class='grid-country-select'>
+	<span>Showing wines available in</span>
+	<div class='filter' data-filter='country'>
+		<div class='dropdown'>
+			<a href="#" class="selected">
+				<span>Country</span>
+				<div class="toggle"></div>
+			</a>
+			<div class="tray">
+				<ul class="country-filter-options">
+					{% for country in countries %}
+						<li>
+							<a href="#" data-value='{{country.post_title}}'>
+								{{country.post_title}}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

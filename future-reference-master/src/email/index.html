@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>Future Reference</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<style>
+	button {
+		margin-top: 3rem;
+		background-color:#44c767;
+		border: 0;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		display:inline-block;
+		cursor:pointer;
+		color:#ffffff;
+		font-family:Arial;
+		font-size:15px;
+		padding:10px 56px;
+		text-decoration:none;
+	}
+	button:hover {
+		background-color:#5cbf2a;
+	}
+	button:active {
+		position:relative;
+		top:1px;
+	}
+	</style>
+</head>
+<body>
+
+	<div id="signature">
+		<p style="margin-bottom: 10px;">
+		    <a style="text-decoration:none" href="http://www.futurereference.com.au" class="logo-container">
+		    	<img src="http://www.futurereference.com.au/email/future-reference.png" alt="Future Reference" border="0" class="logo" width="195" height="26">
+			</a>
+		</p>
+		<p style="font-family: 'DINOT-Medium', 'Helvetica Neue', Helvetica, sans-serif; font-size: 13px; line-height: 16px; color: rgb(33, 33, 33); margin-bottom: 10px;">
+			<span class="name" style="font-weight: bold; color: rgb(33, 33, 33); display: inline;" contenteditable="true">Name</span>
+			<span class="sep-blank" style="display: inline;"><br></span>
+			<span class="jobtitle" style="color: #212121;" contenteditable="true">Title</span>
+			<span class="sep-blank" style="display: inline;"><br></span>
+			<span class="sep" style="display: inline; color: #EC1C24; font-size: 17px;">-</span>
+			<span class="sep-blank" style="display: inline;"><br></span>
+			<a class="email change" style="color: rgb(33, 33, 33); text-decoration: none; display: inline;" contenteditable="true">name@futurereference.com.au</a>
+			<span class="sep-blank" style="display: inline;"><br></span>
+			<a class="mobile change" style="color: rgb(33, 33, 33); text-decoration: none; display: inline;" contenteditable="true">+61 000 000 000</a>
+		</p>
+	</div>
+
+	<button id="finish">FINISH EDITING</button>
+
+	<script>
+		
+		var emailC = $('.email'), mobileC = $('.mobile');
+		
+		$('.change').blur(function() {
+			var email = emailC.html(), mobile = mobileC.html();
+			emailC.attr('href', 'mailto:'+email);
+			mobileC.attr('href', 'tel:'+mobile.replace(/\s/g, ''));
+		});
+
+		$('#finish').click(function () {
+			$('span').each(function () {
+				$(this).removeAttr('contenteditable');
+			})
+			$('a').each(function () {
+				$(this).removeAttr('contenteditable');
+				$(this).removeClass('change');
+			})
+  			this.remove();
+		});
+
+
+
+	</script>
+	
+</body>
+
+</html>
+
+
+
+

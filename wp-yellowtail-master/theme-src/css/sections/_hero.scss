@@ -1,0 +1,117 @@
+.hero {
+	position: relative;
+	z-index: 2;
+
+	display: table;
+
+	width: 100%;
+	min-height: 250px;
+	padding-bottom: 30px;
+
+	background: $c-yt-yellow;
+
+	@include media($mobile) {
+		min-height: 0;
+		padding-bottom: 25px;
+	}
+
+	.page-template-page-faqs & {
+		@include media($mobile) {
+			min-height: 300px;
+		}
+	}
+
+	.page-template-page-wines & {
+		height: 30vh;
+		min-height: 318px;
+	}
+
+	.page-template-page-recipes & {
+		min-height: 380px;
+
+		@include media($tablet-p) {
+			min-height: 316px;
+		}
+	}
+
+	.inner {
+		position: relative;
+
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+
+		.page-template-page-recipes & {
+			vertical-align: baseline;
+		}
+
+		> * {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		h1 {
+			margin: 10px 0 20px;
+
+			@include f-brauer-black;
+			@include font-size(66px);
+			text-transform: uppercase;
+
+			color: $c-black;
+
+			@include media($tablet-p) {
+				margin-top: 10px;
+				margin-bottom: 45px;
+				padding: 0 20px;
+				@include font-size(46px);
+
+				.page-template-page-faqs & {
+					margin: 0 auto;
+				}
+			}
+
+			@include media($mobile) {
+				margin-top: 1px;
+				margin-bottom: 10px;
+			}
+
+			.page-template-page-wines & {
+				margin-bottom: 60px;
+				@include font-size(46px);
+
+				@include media($tablet-p) {
+					margin-top: 40px;
+				}
+			}
+
+			span {
+				display: block;
+				@include font-size(66px, 50px);
+			}
+		}
+
+		p {
+			max-width: 500px;
+			margin: 0 auto;
+			@include font-size(18px, 26px);
+
+			@include media($tablet-p) {
+				display: none;
+			}
+		}
+
+		.filters {
+			// position: absolute;
+			// left: 0;
+			// right: 0;
+			// bottom: 30px;
+
+			@include media($tablet-p) {
+				position: relative;
+				//display: table-cell;
+			}
+
+		}
+	}
+}

@@ -1,0 +1,18 @@
+{% extends "master.twig" %}
+
+{% block hero %}
+	{% include 'partials/hero-filter.twig' with {
+		title: title,
+		description: description
+	} %}
+{% endblock %}
+
+{% block content %}
+	<div class="container static-content">
+		<section>
+			<div class='inner'>
+				{{page.content}}
+			</div>
+		</section>
+	</div>
+{% endblock %}

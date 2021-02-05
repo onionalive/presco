@@ -1,0 +1,84 @@
+<div class='hero'>
+	<div class='inner'>
+		<h1>
+			{{ title }}
+		</h1>
+		{% if description %}
+			{{ description|wpautop }}
+		{% endif %}
+		{% if filters %}
+			<div class='filters'>
+				<div class="filter" data-filter="types">
+					<div class="name">Type</div>
+					<div class="dropdown">
+						<a href="#" class="selected">
+							<span aria-label="Type - select to access the drop down menu of wine types">Select</span>
+							<div class="toggle"></div>
+						</a>
+						<div class="tray">
+							<button class="clear"
+							aria-live="assertive"
+							aria-label="Clear all button - select to clear all of your current filter selections">Clear All</button>
+							<ul class="filter-options" aria-live="assertive">
+								{% for selection in filters.selections %}
+									<li>
+										<a href="#" data-value="{{ selection.key }}"
+											aria-label="Select the wine type {{ selection.value }} to filter and show only wines that fall into the {{ selection.value }} category">
+											{{ selection.value }}
+										</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+{# 				<div class="filter" data-filter="varietals">
+					<div class="name">Varietal</div>
+					<div class="dropdown">
+						<a href="#" class="selected">
+							<span>Varietal</span>
+							<div class="toggle"></div>
+						</a>
+						<div class="tray">
+							<button class="clear">Clear All</button>
+							<ul class="filter-options">
+								{% for varietal in filters.varietals %}
+									<li>
+										<a href="#" data-value="{{ varietal.key }}">
+											{{ varietal.value }}
+										</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div> #}
+				{# {% set flavour = 'flavour' %} #}
+				<div class="filter" data-filter="enjoys">
+					<div class="name">Enjoy with</div>
+					<div class="dropdown">
+						<a href="#" class="selected">
+							<span aria-label="Enjoy - select to access the drop down menu of things to enjoy your wine with">Select</span>
+							<div class="toggle"></div>
+						</a>
+						<div class="tray">
+							<button class="clear"
+							aria-live="assertive"
+							aria-label="Clear all button - select to clear all of your current filter selections">Clear All</button>
+							<ul class="filter-options" aria-live="assertive">
+								{% for enjoy in filters.enjoys %}
+									<li>
+										<a href="#" data-value="{{ enjoy.key }}"
+											aria-label="Select {{ enjoy.value }} to filter and show only wines that are enjoyed with {{ enjoy.value }}">
+											{{ enjoy.value }}
+										</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>

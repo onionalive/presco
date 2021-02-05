@@ -1,0 +1,159 @@
+.recipe {
+	.loading {
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+
+		background-color: $c-blue-rgba;
+
+		.loading-icon {
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+	}
+
+	.lhs {
+		@include span-columns(6);
+		text-align: left;
+
+		@include media($tablet-l) {
+			@include span-columns(12);
+			text-align: center;
+		}
+
+		.recipe-title {
+			display: inline-block;
+			padding: 0 20px;
+
+			@include f-brauer-black;
+			@include font-size(97px, 77px);
+			text-transform: uppercase;
+			text-align: left;
+
+			@include media($mobile) {
+				@include font-size(67px, 57px);
+				text-align: center;
+			}
+
+		}
+
+		.recipe-img {
+			width: 40vw;
+			max-width: 530px;
+			margin-top: 40px;
+
+			@include media($tablet-l) {
+				margin: 40px 0;
+				max-width: 490px;
+			}
+
+			@include media($tablet-p) {
+				width: 70vw;
+			}
+
+			@include media($mobile) {
+				margin: 40px 0;
+				max-width: 900px;
+			}
+		}
+	}
+
+	.rhs {
+		@include span-columns(6);
+		display: inline-block;
+		float: right;
+
+		padding: 30px;
+		background: $c-yt-dark-magenta;
+
+		@include f-themix-normal;
+
+		@include media($tablet-l) {
+			@include span-columns(12);
+		}
+
+		.recipe-intro {
+			padding: 0 0 10px;
+			@include font-size(18px, 25px);
+		}
+
+		.row {
+			padding: 10px 0;
+			@include font-size(16px);
+
+			h3 {
+				@include font-size(16px);
+				@include f-themix-bold;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
+
+			a {
+				:hover,
+				:focus {
+					opacity: 0.8;
+				}
+			}
+
+			ul,
+			ol {
+				margin-top: 4px;
+				margin-bottom: 12px;
+			}
+
+			.uses {
+				padding-bottom: 30px;
+			}
+
+			.img-container {
+				display: inline-block;
+				width: 20%;
+
+				@include media($mobile) {
+					text-align: center;
+					width: 40%;
+				}
+			}
+
+			.wine {
+				display: inline-block;
+				float: right;
+				width: 80%;
+
+				@include f-brauer-black;
+
+				@include media($mobile) {
+					width: 60%;
+				}
+
+				h3 {
+					@include font-size(36px);
+					text-transform: uppercase;
+
+					@include media($mobile) {
+						@include font-size(26px, 36px);
+						text-align: right;
+					}
+				}
+
+				> p {
+					width: 50%;
+					@include f-themix-normal;
+					@include font-size(14px);
+
+					@include media($mobile) {
+						width: 100%;
+						text-align: right;
+					}
+				}
+			}
+
+			.steps,
+			.ingredients {
+				line-height: 28px;
+			}
+		}
+	}
+}

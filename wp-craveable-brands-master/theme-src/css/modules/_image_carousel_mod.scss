@@ -1,0 +1,86 @@
+.image-carousel-mod {
+	overflow-x: scroll;
+	-ms-overflow-style: none; // IE 10+
+	-webkit-overflow-scrolling: touch;
+
+	&::-webkit-scrollbar {
+		display: none; // Safari and Chrome
+	}
+
+	.image-carousel {
+		white-space: nowrap;
+		position: relative;
+		top: 0;
+		display: inline-block;
+
+		&:focus,
+		&:hover,
+		&:active {
+			outline: none;
+		}
+
+		img {
+			position: relative;
+			margin: 0 10px;
+
+			height: 365px;
+
+			@include media($small) {
+				height: 255px;
+			}
+		}
+	}
+}
+
+#lightboxBackdrop {
+	background: $c-lightbox-bg;
+
+	button {
+		background-color: $c-black;
+		height: 50px;
+		width: 50px;
+
+		&:hover,
+		&:focus {
+			background-color: lighten($c-black, 15%);
+		}
+	}
+
+	[title='Previous (Left arrow key)'] {
+		left: 0;
+	}
+
+	[title='Next (Right arrow key)'] {
+		right: 0;
+	}
+
+	[title='Close (Esc)'] {
+		top: -5px;
+		background-color: transparent;
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+		}
+
+		svg {
+			&:hover,
+			&:focus {
+				fill: $c-light-grey;
+				background-color: transparent;
+			}
+		}
+	}
+
+	.paginatedThumbnails_1sxciui {
+		right: 0;
+		left: 0;
+		@include media($small) {
+			display: none;
+		}
+	}
+
+	.footerCount_lkhc9u {
+		color: $c-light-grey;
+	}
+}

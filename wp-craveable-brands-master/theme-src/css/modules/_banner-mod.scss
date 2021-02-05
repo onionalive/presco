@@ -1,0 +1,88 @@
+section {
+	&.banner-mod {
+
+		.banner-div {
+			height: 100%;
+			background-position: center top;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.dummy-tint-div {
+			height: 100%;
+			background-color: $c-rgba-grey-dark;
+			visibility: hidden;
+		}
+
+		.inner {
+			height: 100%;
+		}
+
+		&.-pages {
+			padding: 0;
+			height: 40vh;
+			min-height: 490px;
+
+			@include media($small) {
+				height: 45vh;
+				min-height: 250px;
+			}
+
+			.banner-text {
+				text-transform: uppercase;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				color: $c-white;
+				margin: 0;
+				@include center-me;
+				text-align: left;
+
+				@include media($small) {
+					font-size: 2.1rem;
+				}
+			}
+		}
+
+		&.-home {
+			height: auto;
+			padding: 0;
+
+			.banner-text {
+				height: auto;
+				min-height: 473px;
+				color: $c-white;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 50px 0;
+				text-align: center;
+
+				h2 {
+					font-size: 48px;
+					margin-bottom: 20px;
+				}
+
+
+				&::before {
+					content: '';
+					display: block;
+
+					height: 271px;
+					width: 260px;
+					margin: 0 auto 40px;
+
+					background-image: url('../img/logos/craveablelogo.png');
+					background-position: center;
+					background-size: cover;
+
+
+					@include media($small) {
+						height: 170px;
+						background-size: contain;
+						background-repeat: no-repeat;
+					}
+				}
+			}
+		}
+	}
+}

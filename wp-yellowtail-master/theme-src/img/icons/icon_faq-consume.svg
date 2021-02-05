@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>emoticons-64px-outline_satisfied</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-1018.000000, -511.000000)" stroke-width="8" stroke="#000000">
+            <g id="emoticons-64px-outline_satisfied" transform="translate(1022.000000, 515.000000)">
+                <g id="Group">
+                    <circle id="Oval" fill="#FFC823" cx="60" cy="60" r="60"></circle>
+                    <path d="M92,64 C92,81.6 77.6,96 60,96 C42.4,96 28,81.6 28,64" id="Shape"></path>
+                    <path d="M44,44 C44,39.6 40.4,36 36,36 C31.6,36 28,39.6 28,44" id="Shape"></path>
+                    <path d="M92,44 C92,39.6 88.4,36 84,36 C79.6,36 76,39.6 76,44" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

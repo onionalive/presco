@@ -1,0 +1,25 @@
+{% extends "master.twig" %}
+
+{% block hero %}
+	{% include 'partials/hero-filter.twig' with {
+		title: title,
+		description: description,
+		filters: ''
+	} %}
+{% endblock %}
+
+{% block content %}
+	<section class="-roo -right -top">
+		<div class='inner'>
+			<div class='grid filter-grid recipes' data-countries="{{ options.country == 'usa' ?: countryCodes }}">
+				{% if recipes %}
+					{% for recipe in recipes %}
+						{% include 'partials/tile-recipe.twig' with {
+							tile: recipe
+						} %}
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

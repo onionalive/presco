@@ -1,0 +1,13 @@
+<title>{{ meta.title }}</title>
+<meta property="og:title" content="{{ meta.title|striptags }}"/>
+<meta name="description" content="{{ meta.description|striptags }}">
+<meta property="og:description" content="{{ meta.description|striptags }}" />
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="{{ meta.url }}" />
+<meta name="twitter:title" content="{{ meta.title|striptags }}">
+<meta name="twitter:description" content="{{ meta.description|striptags }}">
+<meta property="og:image" content="{{ meta.image|first == "/" ? "https:" }}{{ meta.image }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="{{ site.title|striptags }}"/>
+<meta property="og:type" content="website" />

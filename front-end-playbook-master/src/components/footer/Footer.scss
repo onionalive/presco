@@ -1,0 +1,45 @@
+footer {
+	width: 100%;
+	background-color: $c-black;
+
+	text-align: left;
+
+	@include grid-media($mobile-grid) {
+		display: none;
+		padding: 7.5% 0;
+	}
+
+	nav {
+		display: block;
+
+		ul {
+			margin: 0;
+			padding: 10px 20px;
+
+			li {
+				margin: 5px 0;
+				@include grid-media($mobile-grid) {
+					display: block;
+					margin: 0 0 5% 0;
+
+					line-height: 1em;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+
+				a {
+					opacity: 1;
+					transition: opacity 150ms linear;
+					color: $c-white;
+					font-size: 1.4rem;
+
+					&:hover {
+						opacity: 0.5;
+					}
+				}
+			}
+		}
+	}
+}

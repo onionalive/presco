@@ -1,0 +1,49 @@
+$i-add: url('./img/icons/add-white.png');
+$i-caret-down: url('./img/icons/caret--down-white.png');
+$i-checkmark: url('./img/icons/checkmark-white.png');
+$i-chevron-right: url('./img/icons/chevron--right.png');
+$i-close: url('./img/icons/close-white.png');
+$i-delete: url('./img/icons/delete-white.png');
+// $i-chevron-left: url('./img/icons/checkmark-white.png');
+
+.i-add {
+	background-image: $i-add;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+}
+
+.i-caret-down {
+	background-image: $i-caret-down;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 10px 5px;
+}
+
+.i-checkmark {
+	background-image: $i-checkmark;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 12px 9px;
+}
+
+.i-chevron-right {
+	background-image: $i-chevron-right;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 8px 12px;
+}
+
+.i-delete {
+	background-image: $i-delete;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 12px 18px;
+}
+
+.i-close {
+	background-image: $i-close;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 10px 10px;
+}

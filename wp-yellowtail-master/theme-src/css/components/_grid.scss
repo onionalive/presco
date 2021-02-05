@@ -1,0 +1,10 @@
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 30px;
+	overflow: auto;
+
+	@include media($mobile) {
+		display: block;
+	}
+}

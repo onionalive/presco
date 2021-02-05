@@ -1,0 +1,8 @@
+/*!
+ * Theme Name: <%= name %>
+ * Theme URI: http://presentcompany.co
+ * Description: <% name %> Wordpress theme
+ * Version: 1.0.0
+ * Author: Present Company (hello@presentcompany.co)
+ * Author URI: http://presentcompany.co
+ */

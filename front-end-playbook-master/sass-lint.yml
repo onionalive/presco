@@ -1,0 +1,25 @@
+rules:
+  property-sort-order: 0
+  no-ids: 1
+  no-url-protocols: 0
+  nesting-depth:
+    - 1
+    -
+      max-depth: 6
+  no-duplicate-properties:
+    - 1
+    -
+      exclude:
+        - background-image
+  no-misspelled-properties:
+      - 1
+      -
+          extra-properties:
+              - weight
+              - family
+              - style
+  no-qualifying-elements:
+    - 1
+    -
+      allow-element-with-attribute: true
+

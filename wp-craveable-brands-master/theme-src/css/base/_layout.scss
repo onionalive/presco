@@ -1,0 +1,92 @@
+body,
+html {
+	@include reset-box-model;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+section,
+header,
+footer {
+	@include outer-container(100%);
+
+	.inner {
+		position: relative;
+
+		@include outer-container($max-width);
+		width: 90%;
+
+		@include media($mobile) {
+			width: 100%;
+			padding: 0 7.5%;
+		}
+	}
+}
+
+section,
+footer {
+	padding: 100px 0;
+
+	background-color: $c-white;
+
+	@include media($mobile) {
+		padding: 12.5% 0;
+	}
+}
+
+.container {
+	margin-top: 100px;
+	transition: margin-top 250ms ease-out;
+	@include media($small) {
+		margin-top: 50px;
+	}
+}
+
+.row {
+	@include row;
+}
+
+.-half {
+	@include span-columns(6);
+	width: 49.75%;
+	margin-right: .5%;
+
+	@include media($mobile) {
+		margin: 5px 0;
+		@include span-columns(12);
+	}
+}
+
+.-third {
+	@include span-columns(4);
+	// width: 33%;
+	// margin-right: .5%;
+
+	@include media($mobile) {
+		margin: 5px 0;
+		@include span-columns(12);
+	}
+}
+
+.-quarter {
+	@include span-columns(3);
+	// width: 33%;
+	// margin-right: .5%;
+
+	@include media($mobile) {
+		margin: 5px 0;
+		@include span-columns(12);
+	}
+}
+
+
+.-full {
+	@include span-columns(12);
+	width: 100%;
+
+	@include media($mobile) {
+		margin: 5px 0;
+	}
+}

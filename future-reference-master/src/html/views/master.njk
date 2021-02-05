@@ -1,0 +1,31 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]> 		   <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+	<head>
+		{% block meta %}		
+			{% include "partials/meta.njk" %}
+		{% endblock %}
+		<link rel="icon" type="img/png" href="/img/favicon.ico">
+		<link rel="stylesheet" href="/css/main.css">
+
+	</head>
+	<body>
+	  <p class="skiplinks">
+	    <a href="#main-content" tabindex="1">Skip To Main Content</a>
+	    <a href="#main-nav" tabindex="1">Skip To Nav</a>
+	  </p>
+		{% if pageTitle !== 'Page Not Found' %}
+		{% include "partials/header.njk" %}
+		{% endif %}
+		<div class="main-content" id="main-content">
+			{% block content %}
+			{% endblock %}
+		</div>
+		{% include "partials/footer.njk" %}
+		<script src="/js/scripts.min.js"></script>
+		{% include "partials/analytics.njk" %}
+	</body>
+</html>

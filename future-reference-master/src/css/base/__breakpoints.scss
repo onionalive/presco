@@ -1,0 +1,44 @@
+$medium: new-breakpoint(max-width $max-width);
+$small: new-breakpoint(max-width 767px);
+
+// QUERIES
+$desktop: (
+ columns: 12,
+ media: "(max-width: 1280px)",  // min-width by default
+);
+
+$small-desktop: (
+ columns: 12,
+ media: "(max-width: 1000px)",  // min-width by default
+);
+
+$tablet: (
+ columns: 12,
+ media: "(max-width: 920px)",  // min-width by default
+);
+
+$small-tablet: (
+ columns: 12,
+ media: "(max-width: 767px)",  // min-width by default
+);
+
+$mobile: (
+ columns: 12,
+ media: "(max-width: 550px)",  // min-width by default
+);
+
+$medium-mobile: (
+ columns: 12,
+ media: "(max-width: 440px)",  // min-width by default
+);
+
+$small-mobile: (
+ columns: 12,
+ media: "(max-width: 320px)",  // min-width by default
+);
+
+$tile-mobile: (
+ columns: 12,
+ gutter: 21px,
+ media: "(max-width: 440px)",  // min-width by default
+);

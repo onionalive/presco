@@ -1,0 +1,39 @@
+.careers-single {
+	.back-button {
+		.inner {
+			a {
+				&:hover,
+				&:focus {
+					color: $c-new-yellow;
+				}
+			}
+		}
+	}
+
+	.intro-mod {
+
+		padding-top: 0;
+
+		.quote-container {
+			width: 90%;
+			max-width: 550px;
+			background-color: $c-new-yellow;
+			padding: 30px;
+			color: $c-black;
+			padding-bottom: 86px;
+
+			@include media($mobile) {
+				max-width: 1500px;
+				width: 100%;
+			}
+
+			h2 {
+				margin-top: 0;
+			}
+
+			.quote-cite {
+				color: $c-white;
+			}
+		}
+	}
+}

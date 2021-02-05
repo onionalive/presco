@@ -1,0 +1,21 @@
+section {
+	&.intro-mod {
+
+		h2 {
+			margin-bottom: 5px;
+			margin-top: 0;
+		}
+
+		p {
+			margin-bottom: 15px;
+			margin-top: 0;
+			@include media($mobile) {
+				margin-top: 18px;
+			}
+		}
+
+		.quote-cite {
+			color: $c-light-grey;
+		}
+	}
+}

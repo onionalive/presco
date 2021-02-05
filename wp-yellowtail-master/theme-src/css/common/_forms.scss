@@ -1,0 +1,62 @@
+form {
+
+	.form-row {
+
+		position: relative;
+
+		input,
+		textarea {
+
+			&.error {
+				background-color: $c-form-error-light;
+			}
+		}
+
+		.help-block {
+			display: block;
+			padding-top: 5px;
+			font-size: 12px;
+
+			&.form-error {
+				color: $c-form-error;
+			}
+		}
+
+		.lot-number {
+			display: inline-block;
+			width: 70%;
+			vertical-align: top;
+			font-size: 1.2rem;
+			text-decoration: underline;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.lot-number-tooltip {
+			position: absolute;
+			height: auto;
+			width: 330px;
+			padding: 10px;
+			right: 0;
+			bottom: 30px;
+			border: 1px solid $c-black;
+			border-radius: 5px;
+			background: $c-white;
+			text-align: left;
+
+			visibility: hidden;
+			opacity: 0;
+			@include transition(
+				visibility $transition-speed-medium,
+				opacity $transition-speed-medium linear
+			);
+
+			&.-visible {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+}

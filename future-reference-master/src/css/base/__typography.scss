@@ -1,0 +1,169 @@
+// Typography
+
+@font-face {
+  font-family: 'dinot-light';
+	src:
+	url('../fonts/dinot-light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'dinot-light-italic';
+	src:
+	url('../fonts/dinot-light-italic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'dinot-medium';
+	src:
+	url('../fonts/dinot-medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'dinot-bold';
+	src:
+	url('../fonts/dinot-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'dinot-bold-italic';
+	src:
+	url('../fonts/dinot-bold-italic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'tolyer-regular-no4';
+	src:
+	url('../fonts/Tolyer-Regular-no4.ttf') format('opentype');
+}
+
+// Mixins
+@mixin f-dinot-light {
+	font : {
+		family: 'dinot-light', sans-serif;
+		style: normal;
+	}
+}
+
+@mixin f-tolyer-regular-no4 {
+	font : {
+		family: 'tolyer-regular-no4', sans-serif;
+		style: normal;
+	}
+}
+
+
+@mixin f-dinot-light-italic {
+	font : {
+		family: 'dinot-light-italic', sans-serif;
+		style: italic;
+	}
+}
+
+@mixin f-dinot-medium {
+	font : {
+		family: 'dinot-medium', sans-serif;
+		style: normal;
+	}
+}
+
+@mixin f-dinot-bold {
+	font : {
+		family: 'dinot-bold', sans-serif;
+		style: normal;
+	}
+}
+
+@mixin f-dinot-bold-italic {
+	font : {
+		family: 'dinot-bold-italic', sans-serif;
+		style: italic;
+	}
+}
+
+// Setting default font size for rem
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	@include f-dinot-light;
+	color: inherit;
+	text-decoration: none;
+
+	transition: color .2s;
+}
+
+h1 {
+	@include f-dinot-bold;
+	color: $c-black;
+	letter-spacing: -3.68px;
+	font-size: 10rem;
+	line-height: 10rem;
+
+	&.-white {
+		color: $c-off-white-primary;
+	}
+
+	span {
+		color: $c-red;
+	}
+}
+
+h2 {
+	@include f-dinot-bold;
+	color: $c-black;
+	font-size: 8rem;
+	line-height: 8rem;
+
+	&.-white {
+		color: $c-off-white-primary;
+	}
+
+	span {
+		color: $c-red;
+	}
+}
+
+h3 {
+	@include f-dinot-bold;
+	color: $c-black;
+	font-size: 2.5rem;
+	line-height: 3.4rem;
+}
+
+h4 {
+	@include f-dinot-bold;
+	color: $c-black;
+	font-size: 2rem;
+	line-height: 2rem;
+}
+
+q,
+blockquote {
+	@include f-dinot-light;
+	color: $c-black;
+	font-size: 4rem;
+	line-height: 5.7rem;
+}
+
+p,
+li {
+	@include f-dinot-light;
+	color: $c-grey;
+	font-size: 2.2rem;
+	line-height: 3.1rem;
+}
+
+strong {
+	@include f-dinot-bold;
+}
+
+button {
+	@include f-dinot-medium;
+}

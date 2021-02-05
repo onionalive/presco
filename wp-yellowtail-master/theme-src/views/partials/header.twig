@@ -1,0 +1,154 @@
+<header>
+	{% if site.url~'/' == page.link %}
+		<div class='default-nav'>
+			<div class='main-nav'>
+				<div class='inner'>
+					<i class="fa fa-bars" aria-hidden="true"> <span>Menu</span></i>
+					<div class="yt-logo">
+						<a href="{{ site.url }}">
+							<img src="{{ site.theme.uri }}/img/brand/logo-yellowtail.svg" alt="Yellow tail logo">
+						</a>
+						<div class="strut"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='top-nav'>
+			<div class="main-nav">
+				<div class="inner">
+					<div class="yt-logo">
+						<a href="{{ site.url }}">
+							<img src="{{ site.theme.uri }}/img/brand/logo-yellowtail-white.svg" alt="Yellow tail logo">
+						</a>
+						<div class="strut"></div>
+					</div>
+					<nav>
+						<ul class="header-site-links">
+							{% if options.country == 'usa' %}
+								<li class="link">
+									<a href="{{ site.url }}/big-game/"><span>[yt] IS BIG GAME READY</span></a>
+								</li>
+							{% endif %}
+							<li class="link">
+								<a href="{{ site.url }}/wines/"><span>Wines</span></a>
+							</li>
+							<li class="link">
+								<a href="{{ site.url }}/stores/"><span>Where To Buy</span></a>
+							</li>
+							<li class="link">
+								<a href="{{ site.url }}/recipes/"><span>Recipes</span></a>
+							</li>
+							<li class="link">
+								<a href="{{ site.url }}/our-story/"><span>Our Story</span></a>
+							</li>
+							<li class="link">
+								<a href="{{ site.url }}/faqs/" aria-label="Frequently Asked Questions"><span>FAQs</span></a>
+							</li>
+							<li class="link">
+								<a href="{{ site.url }}/contact/"><span>Contact</span></a>
+							</li>
+							<li class="header-social">
+								{% if (options.social_links) %}
+										{% for social in options.social_links %}
+												<a class="social-link" href="{{ social.link }}" aria-label="{{ social.platform }}"><span class="fa fa-{{ social.platform }} fa-lg" aria-hidden="true"></span></a>
+										{% endfor %}
+								{% endif %}
+							</li>
+							<li class="link country-select" id="country-select">
+								<a href="#">
+									<span class="fa fa-globe fa-lg" aria-hidden="true"></span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<button class="nav-toggle">
+						<span class="bar"></span>
+					</button>
+				</div>
+			</div>
+			<div class="mobile-nav"></div>
+			<div class="country-container">
+				<div class="inner">
+					<div class="country-dropdown">
+						<ul>
+							<li class="helper">Choose Your Region:</li>
+							{% for country in countries %}
+								<li class="country-dropdown-list">
+									<a class="country" href="{{ country.url }}" data-key={{ country.key }} aria-label="Go to the {{ country.title }} YellowTail website"><img class="flag-icon" src="{{ site.theme.uri }}{{ country.flag }}" alt="{{ country.title }} Flag">{{ country.title }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% else %}
+		<div class="main-nav">
+			<div class="inner">
+				<div class="yt-logo">
+					<a href="{{ site.url }}">
+						<img src="{{ site.theme.uri }}/img/brand/logo-yellowtail-white.svg" alt="Yellow tail logo">
+					</a>
+					<div class="strut"></div>
+				</div>
+				<nav>
+					<ul class="header-site-links">
+						{% if options.country == 'usa' %}
+						<li class="link">
+							<a href="{{ site.url }}/lets-yellow-tail/"><span>[let's yellow tail]</span></a>
+						</li>
+						{% endif %}
+						<li class="link">
+							<a href="{{ site.url }}/wines/"><span>Wines</span></a>
+						</li>
+						<li class="link">
+							<a href="{{ site.url }}/stores/"><span>Where To Buy</span></a>
+						</li>
+						<li class="link">
+							<a href="{{ site.url }}/recipes/"><span>Recipes</span></a>
+						</li>
+						<li class="link">
+							<a href="{{ site.url }}/our-story/"><span>Our Story</span></a>
+						</li>
+						<li class="link">
+							<a href="{{ site.url }}/faqs/" aria-label="Frequently Asked Questions"><span>FAQs</span></a>
+						</li>
+						<li class="link">
+							<a href="{{ site.url }}/contact/"><span>Contact</span></a>
+						</li>
+						<li class="header-social">
+							{% if (options.social_links) %}
+									{% for social in options.social_links %}
+											<a class="social-link" href="{{ social.link }}" aria-label="{{ social.platform }}"><span class="fa fa-{{ social.platform }} fa-lg" aria-hidden="true"></span></a>
+									{% endfor %}
+							{% endif %}
+						</li>
+						<li class="link country-select" id="country-select">
+							<a href="#">
+								<span class="fa fa-globe fa-lg" aria-hidden="true"></span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<button class="nav-toggle">
+					<span class="bar"></span>
+				</button>
+			</div>
+		</div>
+		<div class="mobile-nav"></div>
+		<div class="country-container">
+			<div class="inner">
+				<div class="country-dropdown">
+					<ul>
+						<li class="helper">Choose Your Region:</li>
+						{% for country in countries %}
+							<li class="country-dropdown-list">
+								<a class="country" href="{{ country.url }}" data-key={{ country.key }} aria-label="Go to the {{ country.title }} YellowTail website"><img class="flag-icon" src="{{ site.theme.uri }}{{ country.flag }}" alt="{{ country.title }} Flag">{{ country.title }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+</header>

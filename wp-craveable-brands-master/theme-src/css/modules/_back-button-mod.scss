@@ -1,0 +1,34 @@
+.back-button {
+	height: 100px;
+	@include outer-container(100%);
+
+	.inner {
+		position: relative;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+
+		@include outer-container($max-width);
+		width: 90%;
+
+		@include media($mobile) {
+			width: 100%;
+			padding: 0 7.5%;
+		}
+
+		a {
+			display: inline;
+			font-size: .9rem;
+			text-decoration: none;
+			color: $c-mid-grey;
+
+			transition: color .15s linear;
+
+			&:visited {
+				color: $c-mid-grey;
+			}
+		}
+	}
+}

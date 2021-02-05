@@ -1,0 +1,108 @@
+// inline-block list
+@mixin inline-block-list($padding: false) {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	@include clearfix;
+
+	font-size: 0;
+
+	li {
+		list-style-type: none;
+		@include inline-block();
+		white-space: nowrap;
+		@if $padding {
+			padding: {
+				left: $padding;
+				right: $padding;
+			};
+		}
+	}
+}
+
+@mixin reset-ul {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	border: 0;
+
+	font-size: 0;
+
+	li {
+		list-style-type: none;
+	}
+}
+
+@mixin omega-reset($nth) {
+	&:nth-child(#{$nth}) {
+		margin-right: flex-gutter();
+	}
+	&:nth-child(#{$nth}+1) {
+		clear: none;
+	}
+}
+
+// inline-block for old browsers
+@mixin inline-block() {
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+}
+
+@mixin reset-box-model {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+@mixin absolute-fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+// Set font-size (rem, with px fallback) and line-height (em)
+// USAGE: Input desired font-size (px), and optionally line-height (px)
+@mixin font-size($fontSize, $lineHeight: null) {
+	font-size: $fontSize;
+	font-size: rem($fontSize) / 0.625;
+
+	@if ($lineHeight) {
+		line-height: em($lineHeight, $fontSize);
+	} @else {
+		line-height: inherit;
+	}
+}
+
+@mixin headings($from: 1, $to: 6) {
+	 @for $i from $from through $to{
+		h#{$i} {
+			@content
+		}
+	}
+}
+
+@mixin background-image($path) {
+	background-image: url("../img/#{$path}.png");
+	background-image: linear-gradient(transparent, transparent), url("../img/#{$path}.svg");
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+	 @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+	 @return mix(black, $color, $percentage);
+}

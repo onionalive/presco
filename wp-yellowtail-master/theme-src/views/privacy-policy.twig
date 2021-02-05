@@ -1,0 +1,36 @@
+{% extends "master.twig" %}
+
+{% block hero %}
+	{% include 'partials/hero-filter.twig' with {
+		title: title,
+		description: description
+	} %}
+{% endblock %}
+
+{% block content %}
+		<section class="-roo -right -top privacy-policy">
+			<div class="inner">
+				<div class='intro'>
+					{{privacy.get_field('intro')}}
+				</div>
+			{% for section in privacy.get_field('sections') %}
+				<div class="privacy-section" data-section="{{section.title|slug}}">
+					<div class="title">
+						<h3>
+							{{ section.title }}
+						</h3>
+					</div>
+					{% for question in section.questions %}
+						<div class="title">
+							<h4>{{ question.question }}</h4>
+							<div class="content">
+								{{ question.answer }}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% endfor %}
+			</div>
+		</section>
+	</div>
+{% endblock %}

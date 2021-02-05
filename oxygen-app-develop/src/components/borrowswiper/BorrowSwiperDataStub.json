@@ -1,0 +1,6 @@
+{
+	applicationOptions: [
+		'Single',
+		'Joint'
+	]
+}

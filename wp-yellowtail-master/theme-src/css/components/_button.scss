@@ -1,0 +1,57 @@
+.button {
+	display: inline-block;
+
+	padding: 6px 27px;
+	border-radius: 3px;
+	border: 0;
+
+	background-color: $c-mid-grey;
+
+	@include f-brauer-black;
+	@include font-size(16px);
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: $c-white;
+
+	@include transition(
+		background-color $timing-hover
+	);
+
+	&.home-button {
+		padding: 13px 16px;
+		@include f-brauer-black;
+		width: 180px;
+		@include font-size(18px, 12px);
+
+		@include media($mobile) {
+			margin: 0 auto;
+			width: 160px;
+			display: block;
+			@include font-size(14px, 10px);
+		}
+	}
+
+	&.yellow-button {
+		background-color: $c-yt-vdark-yellow;
+
+		&:hover {
+			background-color: darken($c-yt-vdark-yellow, 10%);
+		}
+	}
+
+	&.blue-button {
+		background-color: $c-yt-vdark-blue;
+
+		&:hover {
+			background-color: darken($c-yt-vdark-blue, 10%);
+		}
+	}
+
+	&.orange-button {
+		background-color: $c-yt-dark-orange;
+
+		&:hover {
+			background-color: darken($c-yt-dark-orange, 10%);
+		}
+	}
+}

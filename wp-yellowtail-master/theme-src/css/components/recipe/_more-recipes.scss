@@ -1,0 +1,20 @@
+.more-recipes {
+	height: 70px;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: middle;
+	color: $c-white;
+
+	@include f-brauer-black;
+	@include font-size(16px, 70px);
+
+	> a {
+		position: relative;
+		display: block;
+
+		&:hover {
+			color: $c-white-80;
+		}
+
+	}
+}

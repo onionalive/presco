@@ -1,0 +1,197 @@
+$form-messages-max-width: 660px;
+
+.stores {
+	.contact-form {
+		display: none;
+
+		.inner {
+			margin: auto;
+			left: 0;
+			right: 0;
+			max-width: $max-width;
+			padding-top: 0;
+		}
+	}
+
+	.form-messages {
+		display: block;
+
+		width: 100%;
+		text-align: center;
+
+		.form-container {
+			display: inline-block;
+
+			> h3 {
+
+				display: block;
+
+				max-width: $form-messages-max-width;
+				padding: 20px 0;
+
+				@include font-size(36px, 36px);
+				@include f-themix-light;
+				text-align: center;
+
+			}
+
+			> p {
+
+				display: block;
+
+				max-width: $form-messages-max-width;
+				padding: 20px 0;
+
+				@include font-size(18px, 18px);
+				@include f-themix-light;
+				text-align: center;
+
+			}
+		}
+	}
+
+	.content {
+		padding: 80px 0;
+
+		text-align: center;
+
+		@include media($tablet-l) {
+			padding-top: 30px;
+		}
+
+		> h2 {
+			padding: 0 20px 40px;
+
+			@include f-themix-normal;
+			@include font-size(16px, 22px);
+
+			> a {
+				text-decoration: underline;
+			}
+		}
+
+		.form-row {
+			display: block;
+			margin: 0 auto 20px;
+			max-width: $form-max-width;
+
+			@include font-size(0);
+			text-align: right;
+
+			@include media($tablet-l) {
+				max-width: $form-max-width-tablet-l;
+			}
+
+			@include media($mobile) {
+				width: 90%;
+				margin-bottom: 5px;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			> label {
+				display: inline-block;
+				vertical-align: top;
+				width: 30%;
+				height: 40px;
+				padding-right: 10px;
+
+				@include f-brauer-black;
+				@include font-size(16px, 40px);
+				text-align: right;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+
+				@include media($mobile) {
+					display: block;
+					width: 100%;
+					padding-right: 0;
+
+					text-align: center;
+				}
+
+				&.-multiline {
+					@include font-size(16px, 20px);
+
+					@include media($mobile) {
+						@include font-size(16px, 40px);
+					}
+				}
+			}
+
+			input {
+				padding: 0 10px;
+			}
+
+			input,
+			.country-selector,
+			.varietal-selector {
+				display: inline-block;
+				vertical-align: top;
+				width: 70%;
+				height: 40px;
+				border: 0;
+				border-radius: 4px;
+
+				@include f-themix-normal;
+				@include font-size(16px);
+				text-align: left;
+
+				-webkit-appearance: none;
+
+				@include media($mobile) {
+					width: 100%;
+				}
+
+				&[type='submit'] {
+					width: 240px;
+					height: 50px;
+					border: 0;
+					border-radius: 4px;
+
+					color: $c-white;
+					background-color: $c-yt-yellow;
+
+					@include f-brauer-black;
+					@include font-size(24px);
+					text-align: center;
+					text-transform: uppercase;
+
+					transition: background-color 150ms ease-out;
+
+					@include media($mobile) {
+						width: 100%;
+						margin-top: 20px;
+					}
+
+					&.-success {
+						background-color: $c-yt-green;
+					}
+
+					&:hover,
+					&:focus {
+						background-color: darken($c-yt-yellow, 5%);
+					}
+				}
+			}
+		}
+
+		.submit-div {
+			padding: 10px 0;
+
+			@include media($tablet-l) {
+				padding-top: 80px;
+			}
+		}
+
+		.message-container {
+			height: 190px;
+
+			@include media($tablet-l) {
+				height: 220px;
+			}
+		}
+	}
+}

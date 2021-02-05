@@ -1,0 +1,59 @@
+import React, { Component } from 'react';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import Layout from '../../styles/layout';
+import * as actions from '../classTable/TableReducer';
+import { connect } from 'react-redux';
+
+class target extends Component {
+
+	renderDescription() {
+
+		const { item, expanded } = this.props;
+
+		if (expanded) {
+			return (
+				<Text>{item.description}</Text>
+			);
+		}
+	}
+
+	render() {
+		
+		const { flexCenter } = Layout;
+		const { titleStyle } = styles;
+
+		const { id, title } = this.props.item;
+
+		console.log(this.state);
+
+		return (
+			<TouchableWithoutFeedback
+				onPress={() => this.props.selectAction(id)}
+			>
+				<View>
+					<Text style={ titleStyle }>{title}</Text>
+					{this.renderDescription()}
+				</View>
+			</TouchableWithoutFeedback>
+		);
+	}
+}
+
+const styles = {
+	titleStyle: {
+		fontSize: 18,
+		paddingLeft: 15,
+	}
+}
+
+const mapStateToProps = (state, ownProps) => {
+
+	console.log(state);
+	const expanded = ownProps.item.id === state.tableTarget;
+
+	return { 
+		expanded
+	};
+};
+
+export default connect(mapStateToProps, actions)(target);

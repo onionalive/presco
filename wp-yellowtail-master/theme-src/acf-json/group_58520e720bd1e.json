@@ -1,0 +1,43 @@
+{
+    "key": "group_58520e720bd1e",
+    "title": "Where to buy",
+    "fields": [
+        {
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "default_value": "<h3>Sorry we didn't find any stockists in your area.<\/h3>\r\n<p>Enter your details below and our closest distributor will be in contact.<\/p>",
+            "delay": 0,
+            "key": "field_58520e881e4ba",
+            "label": "No results copy",
+            "name": "no_results_copy",
+            "type": "wysiwyg",
+            "instructions": "Copy to show when no store locations can be found",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-stores.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1481772949
+}

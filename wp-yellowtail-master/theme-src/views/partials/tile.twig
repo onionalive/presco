@@ -1,0 +1,21 @@
+<div class="tile" style="background-color:{{ tile.colour_picker }}" {{ tile|filterAttributes }} data-id="{{tile.id}}">
+	<a class='tile-link' aria-label='{{ tile.title }} - select for more information on another page' href='{{ tile.link }}'>
+		<div class='inner'>
+			{% include 'partials/image.twig' with {
+				image: TimberImage(tile.get_thumbnail),
+				size: 'wine_grid_2x',
+				class: 'wine-image'
+			} %}
+			<div class='text'>
+				<h2>
+					{{ tile.title }}
+				</h2>
+			</div>
+		</div>
+		<div class='cta'>
+			<div class='button'>
+				Tell me more
+			</div>
+		</div>
+	</a>
+</div>

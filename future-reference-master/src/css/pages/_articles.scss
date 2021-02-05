@@ -1,0 +1,277 @@
+.article {
+	height: 100%;
+	background-color: $c-white;
+	padding: 80px;
+	padding-bottom: 60px;
+
+	@include grid-media($tablet) {
+		padding: 42px 21px 84px;
+	}
+
+	h2,
+	h3,
+	p,
+	blockquote,
+	ul,
+	ol,
+	img,
+	.challenge-outcome-div,
+	.line {
+		display: block;
+		max-width: 850px;
+		margin: 20px auto;
+	}
+
+	img {
+		width: 100%;
+		margin-top: 80px;
+		margin-bottom: 0;
+
+		@include grid-media($tablet) {
+			margin-top: 63px;
+		}
+	}
+
+	.image-caption {
+		font-size: 1.5rem;
+		text-align: center;
+		margin-top: -10px;
+	}
+
+	.quotation-mark {
+		width: 32px;
+		display: inline-block;
+		margin: 0;
+	}
+
+	blockquote {
+		@include f-dinot-bold;
+		font-size: 2.3rem;
+		line-height: 3rem;
+		letter-spacing: -.9px;
+		margin-top: 60px;
+		margin-bottom: 0px;
+
+		@include grid-media($small-tablet) {
+			font-size: 1.9rem;
+			line-height: 2.5rem;
+		}
+
+		@include grid-media($tablet) {
+			margin-top: 63px;
+			margin-bottom: 63px;
+		}
+	}
+
+	p,
+	ul,
+	ol,
+	li {
+		color: $c-black;
+		font-size: 2rem;
+		line-height: 2.8rem;
+		letter-spacing: -0.8px;
+		margin-top: 0;
+		margin-bottom: 0;
+
+		@include grid-media($small-tablet) {
+			letter-spacing: -0.2px;
+			font-size: 1.7rem;
+			line-height: 2.8rem;
+		}
+	}
+
+	p,
+	ul,
+	ol {
+		margin-top: 21px;
+	}
+
+	ol,
+	ul {
+		list-style-position: inside;
+		padding: 0;
+	}
+
+	h2 {
+		font-size: 6rem;
+		line-height: 6.7rem;
+		margin-top: 0;
+		letter-spacing: -3.5px;
+		margin: 40px auto 0;
+
+		@include grid-media($small-tablet) {
+			font-size: 3.2rem;
+			line-height: 3.8rem;
+			letter-spacing: -1.9px;
+			margin-top: 21px;
+		}
+	}
+
+	h3 {
+		font-size: 3rem;
+		letter-spacing: -.3px;
+
+		@include grid-media($small-tablet) {
+			font-size: 1.8rem;
+			line-height: 2.8rem;
+			letter-spacing: -.6px;
+		}
+	}
+
+	.challenge-outcome-div {
+		height: 100%;
+		width: 100%;
+		margin-top: 80px;
+		margin-bottom: 0;
+
+		@include grid-media($tablet) {
+			margin-top: 42px;
+		}
+
+		@media only screen and (max-width: 640px) {
+			display: block;
+			width: 100%;
+			padding: 0;
+		}
+	}
+
+	.box {
+		box-sizing: border-box;
+		padding-right: 15px;
+		width: 50%;
+		display: inline-block;
+
+		.box-heading {
+			color: $c-red;
+			@include f-dinot-bold;
+		}
+
+		p {
+			margin: 0;
+			margin-bottom: 15px;
+			margin-right: 20px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&.-right {
+			float: left;
+		}
+
+		@media only screen and (max-width:640px) {
+			display: block;
+			width: 100%;
+			padding-right: 0;
+
+			&.-right {
+				float: none;
+			}
+		}
+	}
+
+	.article-header {
+		max-width: 850px;
+		margin: 0 auto;
+	}
+
+	.article-type {
+		position: relative;
+		top: 3px;
+		margin: 0;
+		text-transform: uppercase;
+		@include f-dinot-bold;
+		font-size: 1.7rem;
+		line-height: 1.3rem;
+		color: $c-type-grey;
+		padding: 0;
+		display: inline-block;
+
+		@include grid-media($small-tablet) {
+			font-size: 1.45rem;
+		}
+	}
+
+	.author {
+		@include f-dinot-light;
+		margin: 0;
+		color: $c-type-grey;
+		letter-spacing: -.1px;
+		font-size: 1.8rem;
+		display: inline-block;
+		float: right;
+	}
+
+	.copy {
+		font-size: 2.2rem;
+		line-height: 3.1rem;
+		font-weight: 300;
+		margin-top: 80px;
+		margin-bottom: 0;
+
+		@include grid-media($tablet) {
+			margin-top: 42px;
+		}
+	}
+
+	.line {
+		height: 1px;
+		width: 100%;
+		margin-top: 80px;
+		margin-bottom: 0;
+		background-color: $c-grey;
+
+		@include grid-media($tablet) {
+			margin-top: 42px;
+		}
+	}
+
+	.subtitle {
+		margin-top: 80px;
+		margin-bottom: 0;
+
+		@include grid-media($tablet) {
+			margin-top: 42px;
+		}
+
+		p {
+			@include f-dinot-bold;
+			color: $c-black;
+
+			@include grid-media($tablet) {
+				letter-spacing: -.6px;
+			}
+		}
+	}
+
+	.fa-quote-left {
+		font-size: 3rem;
+		padding-left: 50px;
+		margin-bottom: 0;
+	}
+
+	.full-width-container {
+		height: 100%;
+		max-height: 500px;
+		width: 100%;
+		position: relative;
+		margin-top: 80px;
+		margin-bottom: 0;
+
+		@include grid-media($tablet) {
+			margin-top: 63px;
+		}
+
+		.full-width {
+			height: 500px;
+			width: 100vw;
+			margin-left: calc(50% - 50vw);
+	    margin-right: calc(50% - 50vw);
+
+			background-size: cover;
+			background-position: center;
+		}
+	}
+}

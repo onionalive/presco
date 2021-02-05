@@ -1,0 +1,22 @@
+.home {
+
+	section {
+		&:nth-child(odd) {
+			background-color: $c-purple;
+			color: $c-white;
+		}
+
+		&:nth-child(even) {
+			background-color: $c-white;
+			color: $c-black;
+		}
+	}
+
+	h1 {
+		display: none;
+	}
+
+	.banner-home {
+		background: $c-purple;
+	}
+}

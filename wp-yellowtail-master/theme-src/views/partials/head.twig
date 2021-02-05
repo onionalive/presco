@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if IE 9]>
+{% if options.country == 'japan'%}
+	<html class="ie9"  lang="ja">
+{% elseif options.country == 'china' %}
+	<html class="ie9"  lang="zh">
+{% else %}
+	<html class="ie9"  lang="en">
+{% endif %}
+<![endif]-->
+<!--[if gt IE 9]><!-->
+{% if options.country == 'japan'%}
+	<html lang="ja">
+{% elseif options.country == 'china' %}
+	<html lang="zh">
+{% else %}
+	<html lang="en">
+{% endif %}
+<!--<![endif]-->
+	<head>
+		<meta charset="{{ function('bloginfo','charset') }}">
+		<meta name="viewport" content="width=device-width, maximum-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		{% include 'partials/metadata.twig' %}
+		<meta name="base_url" content="{{ site.url }}">
+		<meta name="theme_url" content="{{ site.theme.uri }}">
+		<meta name="google_maps_api" content="{{ options.google_maps_api }}">
+		<!--[if lt IE 9]>
+			<script>
+				document.createElement('header');
+				document.createElement('nav');
+				document.createElement('section');
+				document.createElement('article');
+				document.createElement('aside');
+				document.createElement('footer');
+			</script>
+		<![endif]-->
+		<link rel="icon" type="img/png" href="{{ theme.path }}/img/favicon.ico">
+		{{ function('wp_head') }}
+		{% if options.google_analytics_key %}
+			{% include 'partials/analytics.twig' %}
+		{% endif %}
+	</head>

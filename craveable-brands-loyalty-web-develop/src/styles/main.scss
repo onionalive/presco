@@ -1,0 +1,44 @@
+// Ensure that you set the theme in the gulpfile
+
+// Grid settings
+$max-width: 1440px;
+
+$neat-grid: (
+  columns: 12,
+  gutter: 10px,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr
+);
+
+$tablet: (
+	columns: 4,
+	gutter: 1rem,
+	color: rgba(#00d4ff, 0.25),
+	direction: ltr,
+	media: 1000px
+);
+
+$mobile: (
+	columns: 4,
+	gutter: 1rem,
+	color: rgba(#00d4ff, 0.25),
+	direction: ltr,
+	media: 800px
+);
+
+@import 'normalize';
+
+@import 'neat';
+
+// Variables
+@import 'base/*';
+
+// Components
+@import 'components/*';
+@import 'sections/*';
+@import 'fonts/*';
+@import '../components/**/*';
+
+body {
+	background-color: $c-off-white;
+}

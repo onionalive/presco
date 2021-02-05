@@ -1,0 +1,93 @@
+.careers {
+
+	section {
+
+		.banner-div {
+			@include media($mobile) {
+				background-position: center right;
+			}
+		}
+
+		&:nth-child(odd) {
+			background: $c-new-yellow;
+			color: $c-black;
+		}
+
+		&:nth-child(even) {
+			background: $c-white;
+			color: $c-black;
+		}
+
+		&.careers-select-mod {
+			background-color: $c-career-grey;
+		}
+
+		&:nth-child(6) {
+			background-color: $c-career-grey;
+		}
+
+		&:nth-child(7) {
+			background-color: $c-white;
+		}
+
+		&:nth-child(8) {
+			background-color: $c-new-yellow;
+		}
+
+		&:nth-child(9) {
+			background-color: $c-white;
+
+			a {
+				text-transform: uppercase;
+				font-family: 'Circular-Book', sans-serif;
+				display: inline-block;
+				padding: 3px 14px;
+				border-radius: 5px;
+				background-color: $c-white;
+				color: $c-black;
+				text-align: center;
+				border: 1px solid $c-black;
+				cursor: pointer;
+				outline: 0;
+				text-decoration: none;
+				font-size: .9em;
+				transition: background-color .15s linear, color .15s;
+
+				&:hover,
+				&:focus {
+					background-color: $c-black;
+					color: $c-white;
+				}
+			}
+		}
+	}
+
+	.intro-mod {
+
+		.quote-container {
+			width: 90%;
+			max-width: 550px;
+			background-color: $c-new-yellow;
+			padding: 30px;
+			color: $c-black;
+			padding-bottom: 86px;
+
+			@include media($mobile) {
+				max-width: 1500px;
+				width: 100%;
+			}
+
+			h2 {
+				margin-top: 0;
+			}
+
+			.quote-cite {
+				color: $c-white;
+			}
+		}
+	}
+
+	h2 {
+		margin-top: 5px;
+	}
+}

@@ -1,0 +1,9 @@
+{% extends "master.twig" %}
+
+{% block content %}
+	<div class="container">
+		<div class="content" id="content">
+			{% remove and fill in page content here %}
+		</div>
+	</div>
+{% endblock %}

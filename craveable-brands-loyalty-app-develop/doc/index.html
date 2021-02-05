@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">common</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/common/Tranxactor.js~Tranxactor.html">Tranxactor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/common</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/common/Header.js~Header.html">Header</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/home</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Styles">Styles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-HomeTest">HomeTest</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/landscape</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/more</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/offerdetail</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/offers</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/profile</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/swipercontainer</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">styles</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Fonts">Fonts</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="chicken-loyalty-react-native-repo">Chicken Loyalty - React Native repo</h1>
+<p>This is the main repo for Chicken Loyalty. Most documentation can be found by generating docs using <code>esdoc</code> and exporing the exported library.</p>
+<h2 id="theme">Theme</h2>
+<p>To switch between themes, we have the React Native JS runtime bundler accept a <code>THEME</code> env variable that currently points to either <code>oporto</code> or <code>redrooster</code>. This can be accessed throughout the app using <code>process.env.THEME</code>. There is some initial cache resets to allow the env variables to swap.</p>
+<h2 id="app">App</h2>
+<p>All React files for the app itself can be found at <code>/app/</code>. This React app depends on using Redux to hold global state.</p>
+<p>The global <code>combineReducers</code> function is found in <code>/app/reducers.js</code>.</p>
+<h3 id="absolute-imports">Absolute imports</h3>
+<p>Using the <code>packge.json</code> folder in <code>app</code>, you can use absolute imports from <code>app/...</code></p>
+<h3 id="components">Components</h3>
+<p>All major visual components are found within <code>/app/components/</code>, however any files related to navigation can be found in the <code>/app/router/</code> folder.</p>
+<p>The router has been set up to work with Redux - follow the current examples for more info on how to complete a route or check out <a href="https://reactnavigation.org/docs/views/transitioner">React Navigation</a>.
+Components for the app can be found </p>
+<h3 id="building-components">Building Components</h3>
+<p>This repo also Storybook. Best practise for focusing on the one component would be to run it through Storybook and add to the story so others can view the docs and see state changes. </p>
+<p>Given that we are using Redux, it is important that we use the <code>.addDecorator()</code> function to wrap components in the Redux Store. One small example has been left in the <code>/storybook/stories/index.js</code> file.</p>
+<h2 id="static-typing">Static Typing</h2>
+<p>Flow is included with the project. Run <code>npm run flow</code> to run a server. Any libs from node_modules throwing errors will need to be added to <code>libdefs.js</code> and the reducer files generally get throw an issue for the <code>state</code> and <code>action</code> parameters.</p>
+<h3 id="important-notices">Important Notices</h3>
+<h4 id="oct-5-2017">OCT 5 2017</h4>
+<p>Each reducer requires an abitrary action/state. Either set these up with the required objects they need or just use <code>// $FlowFixMe</code> on the line above the export of the reducer.</p>
+<p>Example:</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">// $FlowFixMe
+export const HomeReducer = (state = initialState, action) =&gt; {
+    switch(action.type) {
+        /* Action Switch */
+        case TITLE:
+            return { ...state, loanType: action.value};
+        default:
+            return state;
+    }
+}</code>
+</code></pre>
+<h2 id="testing">Testing</h2>
+<h3 id="important-notices">Important Notices</h3>
+<h4 id="oct-4-2017">OCT 4 2017</h4>
+<p>The tests themselves with Shallow etc do not currently work as the latest version of RN requires a version of React pre-release that does not have the corresponding test-utils package up to date.</p>
+<h4 id="oct-5-2017">OCT 5 2017</h4>
+<p>Looks as if the issue is the <code>react-native-mock</code> lib requiring to be up to date. Currently watching the issue <a href="https://github.com/RealOrangeOne/react-native-mock/pull/130">https://github.com/RealOrangeOne/react-native-mock/pull/130</a></p>
+<p>In the meantime, if tests need to be written just test the JavaScript funcs themselves with unit tests that do not require any React libs to render or consider Jest.</p>
+<p>The Mocha tests could still deal with functionality but will not be able to render elements with the config shadow dom settings found in <code>test/setup.js</code>.</p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

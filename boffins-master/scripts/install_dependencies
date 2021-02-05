@@ -1,0 +1,9 @@
+#!/bin/bash
+cd /home/ec2-user/node-website
+yum clean all && yum update -y
+curl -sL https://rpm.nodesource.com/setup_6.x | bash -
+yum install -y nodejs
+npm install forever -g
+npm install gulp -g
+npm install yarn -g
+yarn install

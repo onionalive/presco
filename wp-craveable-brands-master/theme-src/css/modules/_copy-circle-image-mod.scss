@@ -1,0 +1,69 @@
+.copy-circle-image-mod {
+	.inner {
+		display: flex;
+		justify-content: space-around;
+		flex-direction: row;
+
+		@include media($mobile) {
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+		}
+	}
+
+	.circle-items {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
+		position: relative;
+		left: 60px;
+
+		@include media($mobile) {
+			left: 0;
+			justify-content: center;
+			text-align: center;
+		}
+	}
+
+	.hfp-image {
+		background-image: url('./../img/bg/bg-orange-green.png');
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-size: contain;
+		position: relative;
+		top: -10px;
+		left: -3px;
+
+		@include media($mobile) {
+			height: 130px;
+			background-position: center;
+		}
+	}
+
+	.circle-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		margin: 20px 60px;
+
+		p {
+			margin: 0;
+			padding: 12px 0;
+		}
+
+		img {
+			width: 130px;
+			height: 130px;
+			border-radius: 50%;
+		}
+
+		a {
+			color: $c-white;
+			text-decoration: none;
+			transition: color .2s;
+		}
+	}
+}

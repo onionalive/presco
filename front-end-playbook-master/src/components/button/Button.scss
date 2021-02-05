@@ -1,0 +1,45 @@
+.button {
+	border: 0;
+
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+
+	width: 200px;
+	height: 60px;
+
+	font-size: 2rem;
+
+	transition: background-color $a-desktop-enter ease-in;
+
+	@include grid-media($mobile-grid) {
+		transition: background-color $a-mobile-enter ease-in;
+	}
+
+	&.primary {
+		color: $c-white;
+		background-color: $c-primary;
+
+		&:hover {
+			background-color: $c-primary-dark;
+		}
+	}
+
+	&.secondary {
+		color: $c-white;
+		background-color: $c-secondary;
+
+		&:hover {
+			background-color: $c-secondary-dark;
+		}
+	}
+
+	&.raised {
+		box-shadow: $e-raised;
+	}
+
+	&.floating {
+		box-shadow: $e-floating;
+	}
+}
+

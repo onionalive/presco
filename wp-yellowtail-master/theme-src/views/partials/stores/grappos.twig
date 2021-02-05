@@ -1,0 +1,35 @@
+<div class="container">
+	<div id="grappos-widget" style="width: 100%; height: 620px; padding-top: 0;"> </div> <!--Grappos recommends a height of 620px-->
+</div>
+
+<script type="text/javascript" src="//www.grappos.com/rwidget/js/load.js"></script>
+<script type="text/javascript">
+	var grapposConfig = {};
+	//These are basic settings that you will want to customize.
+	grapposConfig.uid = 'he-890379230'; // This is the Unique Identifier for this locator and product list.
+	grapposConfig.productSearch= 'true'; // Enables the product filter above the list. Options: "true", "false" (default).
+	grapposConfig.bkgdClr = '#FAC322'; // Background Color of the Widget
+	grapposConfig.itemClr = '#FAC322'; // Background Color for Lists and Buttons
+	grapposConfig.txtClr = '#000000'; // Widget Text Color
+	grapposConfig.hoverClr = '#000000'; // Background Color for list items and buttons on Mouse Over
+	grapposConfig.hoverTxtClr = '#F7F7F7'; //Text Color for buttons and list items on Mouse Over
+	grapposConfig.buttonBorders= 'true'; // Should buttons have a border around them. Options: "true", "false"
+	grapposConfig.buttonBkgd= 'true'; // Should buttons use the itemClr as background color Options: "true", "false"
+	//These are optional settings.
+	grapposConfig.onPremiseAlias= 'Restaurants'; // Customizes the on-premise category name. "Restaurants" is the default if this setting is not used.
+	grapposConfig.offPremiseAlias= 'Stores'; // Customizes the off-premise category name. "Stores" is the default if this setting is not used.
+	grapposConfig.fontFamily= '"Lato"'; // By default the widget uses the Web Font "Lato", We also support "Bitter" and any standard css declared font families.
+	grapposConfig.prevNextClr= '#000000'; // Text color for the "Prev" & "Next" buttons. If this setting is not included, it will default to the color used for txtClr. Use this setting when txtClr and bkgdClr are similar.
+	grapposConfig.numResults= 50; // Maximum Number of Results to be displayed. Default is 50. Max is 100.
+	grapposConfig.distanceThreshold= 25; // Maximum distance a retailer is from the search location. Default is 25. Max is 100.
+	grapposConfig.autoLocate= 'true'; // Should locator automatically request user location? Options: "true" (default), "false"
+	grapposConfig.premiseType= 'All Retailers'; // Preselects the premise-type used for the search. Options: "All Retailers" (default), "Restaurants", "Stores"
+	grapposConfig.iconLocationColor = '#455967'; // User location map marker color. #455967 is the default.
+	grapposConfig.iconCurrentColor = '#FAC322'; // Map marker color for the currently selected retailer. Dark colors are recommended. #000000 is the default.
+	grapposConfig.iconColor = '#33343B'; // Map marker color for retailers not currently selected. Dark colors are recommended. #58585a is the default.
+	grapposConfig.scrollBarClr = '#B1B1B1'; // Scrollbar handle color. #B1B1B1 is the default.
+	grapposConfig.scrollBarBkgdClr = '#eaeaea'; // Background color of the scrollbar. #eaeaea is the default.
+	grapposConfig.errorClr= '#E7E7E7'; // Background color of the Determining Location dialog bubble. #ff6666 is the default. The text color synced to txtClr.
+	//If you would rather use a default color theme, use this option instead of bkgdClr, itemClr, txtClr, hoverClr & hoverTxtClr.
+	//grapposConfig.theme = 'default'; // Options: 'default, 'green', 'silver'.
+</script>

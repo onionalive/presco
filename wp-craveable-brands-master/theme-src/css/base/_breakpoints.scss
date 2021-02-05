@@ -1,0 +1,16 @@
+$width-1200: 1200px;
+
+$medium: new-breakpoint(max-width $max-width);
+$small: new-breakpoint(max-width 768px);
+
+// Previous CB
+$mobile: max-width 1024px;
+$mobile-min: min-width 1025px;
+$tablet: max-width 1000px;
+$desktop-small: max-width 1366px;
+
+$width-1250: new-breakpoint(max-width 1250px);
+$width-1000: new-breakpoint(max-width 1024px);
+$width-900: new-breakpoint(max-width 900px);
+$width-750: new-breakpoint(max-width 750px);
+$width-500: new-breakpoint(max-width 500px);

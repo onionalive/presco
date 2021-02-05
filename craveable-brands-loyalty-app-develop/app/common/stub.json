@@ -1,0 +1,180 @@
+{
+	"get_token": {
+		"200": {
+				"_links": {
+				"member": {
+					"href": "https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members/me"
+				}
+			},
+			"module": "WG",
+			"expiration": "2028-01-04T14:27:00.301Z",
+			"userType": "1",
+			"masterToken": "ZjJlZTM2MzgwMTFhNDdjZGJkNTkyNGRiNDk3ZTI4MGQ=",
+			"userName": "6363151845729754",
+			"userId": "104779101",
+			"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtb2R1bGVDb2RlIjoiV0ciLCJ1c2VyVHlwZSI6IjEiLCJleHAiOjE4MzA2MDg4MjAsInVzZXJOYW1lIjoiNjM2MzE1MTg0NTcyOTc1NCIsInVzZXJJZCI6IjEwNDc3OTEwMSJ9.Iu6-DNBo155rIfikQd1ADblSR0Q0wmMNNlff96SGUhQ"
+		},
+		"400": {
+			"errorMessage": "Username or password is not provided.",
+			"errorCode": "400",
+			"developerErrorMessage": "Username or password is not provided.",
+			"moreInfo": "mailto:api@transactortech.com",
+			"httpStatusCode": "400"
+		},
+		"404": {
+			"errorMessage": " We don't recognize this user login or password.",
+			"errorCode": "404",
+			"developerErrorMessage": " We don't recognize this user login or password.",
+			"moreInfo": "mailto:api@transactortech.com",
+			"httpStatusCode": "404"
+		}
+	},
+	"get_user_details": {
+		"200": {
+			"_links": {
+				"identifiers": {
+					"href": "https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members/me/memberIdentifiers"
+				},
+				"members": {
+					"href": "https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members"
+				},
+				"self": {
+					"href": "https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members/104779101"
+				},
+				"transactions": {
+					"href": "https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members/me/transactions"
+				}
+			},
+			"lastName": "Testeleven",
+			"middleName": "Test",
+			"website": "you-rock",
+			"comments": "standard",
+			"gender": {
+				"id": "3",
+				"value": "Unknown"
+			},
+			"address2": "Test street 12",
+			"city": "Auckland",
+			"address1": "Test soft",
+			"postcode": "5022",
+			"type": "Cardholder",
+			"birthDate": "2016-03-04T00:00:00Z",
+			"creditBalance": "10",
+			"enrolmentDate": "2016-03-03T03:46:04Z",
+			"firstName": "Testeleven",
+			"suburb": "Pipitea",
+			"ranking": {
+				"id": "83",
+				"value": "test"
+			},
+			"id": "104779101",
+			"loyaltyBalance": "0",
+			"address4": "Test message",
+			"mobileNumber": "206887744",
+			"phone1": "204565688",
+			"phone2": "204565689",
+			"state": "State",
+			"country": {
+				"id": "2"
+			},
+			"workFax": "Work Fax"
+		}
+	},
+	"get_transaction_list": {
+		"200": {
+			"_links": {
+				"self": {
+					"href": "http://tr4ns2.tr4ns.com/TransactorAPI-SpringBootQSRH/api/2/transactions"
+				}
+			},
+			"_embedded": {
+				"transactions": []
+			}
+		}
+	},
+	"get_reset_token": {
+		"200": {
+		"_links": {
+			"self": {
+			"href": "http://cbtldev.tr4ns.com/TransactorAPI/api/2/resetToken"
+			}
+		},
+		"resetTokenId": "gdjy6qf4-wfjm-n9ix-0j6b-tgw8wp",
+		"creationDate": "2017-06-29T08:07:50Z",
+		"expiryDate": "2017-06-30T08:07:50Z"
+		}
+	},
+	"update_user_details": {
+		"200": {
+			"_links": {
+				"identifiers": {
+					"href": "https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members/me/memberIdentifiers"
+				},
+				"members": {
+					"href": "https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members"
+				},
+				"self": {
+					"href": "https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members/104779101"
+				},
+				"transactions": {
+					"href": "https://tr4ns2.tr4ns.com/TransactorAPI-SpringBoot/api/2/members/me/transactions"
+				}
+			},
+			"lastName": "Testeleven",
+			"middleName": "Test",
+			"website": "you-rock",
+			"comments": "standard",
+			"gender": {
+				"id": "3",
+				"value": "Unknown"
+			},
+			"address2": "Test street 12",
+			"city": "Auckland",
+			"address1": "Test soft",
+			"postcode": "5022",
+			"type": "Cardholder",
+			"birthDate": "2016-03-04T00:00:00Z",
+			"creditBalance": "10",
+			"enrolmentDate": "2016-03-03T03:46:04Z",
+			"firstName": "Bill",
+			"suburb": "Pipitea",
+			"ranking": {
+				"id": "83",
+				"value": "test"
+			},
+			"id": "104779101",
+			"loyaltyBalance": "0",
+			"address4": "Test message",
+			"mobileNumber": "206887744",
+			"phone1": "204565688",
+			"phone2": "204565689",
+			"state": "State",
+			"country": {
+				"id": "2"
+			},
+			"workFax": "Work Fax"
+		}
+	},
+	"update_user_password": {
+		"200": {
+			"_links": {
+			  	"self": {
+					"href": "http://cbtldev.tr4ns.com/TransactorAPI/api/2/resetToken/dizxnkok-tnyg-5jvs-y1pd-d1bzx7"
+				}
+			},
+			"message": "Success"
+		}
+	},
+	"fetch_reset_token": {
+		"200": {
+			"_links": {
+			  "self": {
+				"href": "http://cbtldev.tr4ns.com/TransactorAPI/api/2/resetToken"
+			  }
+			},
+			"resetTokenId": "gdjy6qf4-wfjm-n9ix-0j6b-tgw8wp",
+			"creationDate": "2017-06-29T08:07:50Z",
+			"expiryDate": "2017-06-30T08:07:50Z"
+		}
+	}
+}

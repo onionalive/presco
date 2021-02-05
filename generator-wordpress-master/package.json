@@ -1,0 +1,28 @@
+{
+  "name": "generator-wordpress",
+  "version": "0.0.1",
+  "description": "Wordpress Theme Yeoman Generator",
+  "main": "generators/app/index.js",
+  "repository": "presentcompany/generator-wordpress",
+  "private": true,
+  "author": {
+    "name": "Jack Moggach",
+    "email": "jack@presentcompany.co"
+  },
+  "files": [
+    "generators"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "path": "^0.11.14",
+    "validator": "^3.40.1",
+    "yeoman-generator": "^0.19.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-jshint": "^1.10.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "jshint-stylish": "^1.0.1"
+  }
+}

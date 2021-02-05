@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "867598275584",
+    "firebase_url": "https://cb-loyalty-oporto.firebaseio.com",
+    "project_id": "cb-loyalty-oporto",
+    "storage_bucket": "cb-loyalty-oporto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867598275584:android:2d12d2e8e042206c",
+        "android_client_info": {
+          "package_name": "com.presentcompany.loyaltyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867598275584-4j71g03cgtrk15rq003aol9u8sgqsko8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdvzAduWewKfHPZZOeW8TmWE_TId9VcWU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867598275584:android:a44e21cd9f2fc7dd",
+        "android_client_info": {
+          "package_name": "com.gruden.oporto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867598275584-4j71g03cgtrk15rq003aol9u8sgqsko8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdvzAduWewKfHPZZOeW8TmWE_TId9VcWU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

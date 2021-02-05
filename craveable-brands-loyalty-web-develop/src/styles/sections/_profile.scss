@@ -1,0 +1,268 @@
+.profile {
+	height: 100%;
+	background-color: $c-white;
+	color: $c-off-black;
+
+	h3 {
+		color: $c-off-black;
+		@include f-primary-regular;
+		font-size: 20px;
+
+		@include grid-media($mobile) {
+			font-size: 16px;
+			line-height: 24px;
+		}
+	}
+
+	.third-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 97px;
+		background-color: $c-dark-grey;
+		color: $c-off-white;
+
+		@include grid-media($mobile) {
+			height: auto;
+			padding: 10px 0px;
+		}
+
+		span {
+			position: absolute;
+			top: 50%;
+			left: 0;
+
+			@include grid-media($mobile) {
+				top: unset;
+				left: 20px;
+				display: inline-block;
+			}
+		}
+
+		a:hover {
+			color: $c-primary;
+		}
+
+		h1 {
+			@include f-heading-large;
+			font-size: 40px;
+
+			@include grid-media($mobile) {
+				margin-bottom: 0;
+				font-size: 28px;
+			}
+		}
+	}
+
+	.secondary-container {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.tab-row {
+		width: 100%;
+		margin-bottom: 40px;
+		border-bottom: 3px solid $c-light-grey;
+
+		@include grid-media($mobile) {
+			padding-top: 15px;
+			margin-bottom: 20px;
+			border-bottom: 2px solid $c-light-grey;
+		}
+	}
+
+	.tab {
+		position: relative;
+		display: inline-block;
+		width: 50%;
+		text-align: center;
+
+		h3 {
+			color: $c-grey;
+
+			&.active {
+				color: $c-black;
+			}
+		}
+
+		.active-border-bottom {
+			position: absolute;
+			height: 3px;
+			width: 100%;
+			background-color: $c-primary;
+
+			@include grid-media($mobile) {
+				height: 2px;
+			}
+		}
+	}
+
+	.contact-details-container,
+	.contact-preferences-container {
+		width: 100%;
+		margin-bottom: 60px;
+	}
+
+	.row {
+		position: relative;
+		width: 100%;
+		margin-bottom: 20px;
+
+		@include grid-media($mobile) {
+			margin-left: 25px;
+		}
+
+		&.store-info {
+			margin-bottom: 60px;
+		}
+
+		&.heading {
+			margin-bottom: 30px;
+			border-bottom: 2px solid $c-light-grey;
+
+			@include grid-media($mobile) {
+				width: calc(100% - 50px);
+				margin: 0 25px 10px;
+				border-bottom: 1px solid $c-light-grey;
+
+				&:last-of-type {
+					margin-bottom: 20px;
+				}
+			}
+
+			h3 {
+				margin-bottom: 5px;
+
+				@include grid-media($mobile) {
+					font-size: 10px;
+					line-height: 20px;
+				}
+			}
+		}
+	}
+
+	.edit-options {
+		position: relative;
+		display: block;
+		box-sizing: border-box;
+		width: 100%;
+		padding: 15px 20px;
+		border: 1px solid $c-light-grey;
+
+		p,
+		a {
+			display: inline-block;
+		}
+
+		a:hover,
+		a:focus {
+			color: $c-red;
+		}
+
+		img {
+			float: right;
+		}
+	}
+
+	.field {
+		position: relative;
+		@include grid-column(4);
+		min-height: 61px;
+
+		@include grid-media($mobile) {
+			width: 100%;
+			margin-left: 0;
+			margin-bottom: 20px;
+		}
+
+		p,
+		label {
+			display: block;
+			@include f-primary-regular;
+			font-size: 14px;
+		}
+
+		.field-name {
+			margin-bottom: 10px;
+		}
+
+		input {
+			background-color: transparent;
+			color: $c-off-black;
+			@include f-primary-regular;
+			font-size: 16px;
+			border: 0;
+		}
+
+		.error-message {
+			position: absolute;
+			bottom: 0;
+			display: block;
+			opacity: 0;
+			color: $c-error-red;
+
+			&.show {
+				opacity: 1;
+			}
+		}
+
+		.location {
+			margin-top: 10px;
+			margin-right: 5px;
+			padding-right: 20px;
+			font-size: 16px;
+			border-right: 1px solid $c-light-grey;
+		}
+
+		.distance {
+			color: $c-grey;
+			font-size: 12px;
+		}
+
+		::-webkit-input-placeholder {
+			color: $c-off-black;
+		}
+	}
+
+	.map-container {
+		overflow: hidden;
+		margin-bottom: 40px;
+	}
+
+	.card-container {
+		width: 271px;
+		margin-bottom: 60px;
+
+		.text-container {
+			margin-bottom: 20px;
+			p,
+			a {
+				display: inline-block;
+				font-size: 12px;
+			}
+
+			a {
+				float: right;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	.button {
+		// margin-top: 40px;
+		font-size: 16px;
+
+		&.save {
+			background-color: $c-success-green;
+		}
+
+		@include grid-media($mobile) {
+			width: 100%;
+			margin-bottom: 0;
+		}
+	}
+}

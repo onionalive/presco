@@ -1,0 +1,27 @@
+{% extends "master.twig" %}
+
+{% block hero %}
+	{% include 'partials/hero-filter.twig' with {
+		title: title,
+		filters: filters
+	} %}
+{% endblock %}
+
+{% block content %}
+	<section class="-roo -right -top">
+		<div class='inner'>
+			{# {% if options.country == 'international' %}
+				{% include 'partials/country-select.twig' with {
+					countries: selectCountries
+				} %}
+			{% endif %} #}
+			<div class='grid filter-grid' data-countries="{{ options.country == 'usa' ? "" : countryCodes }}">
+				{% for wine in wines %}
+					{% include 'partials/tile.twig' with {
+						tile: wine
+					} %}
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

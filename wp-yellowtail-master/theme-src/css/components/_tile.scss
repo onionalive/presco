@@ -1,0 +1,190 @@
+.grid {
+	.tile {
+		position: relative;
+
+		display: flex;
+		overflow: hidden;
+		margin-bottom: 30px;
+
+		@include transition(
+			background $timing-hover
+		);
+
+		&:not(.-hide) {
+			@include span-columns(4);
+			@include omega(3n);
+
+			@include media ($tablet-l) {
+				@include omega-reset(3n);
+				@include span-columns(6);
+				@include omega(2n);
+			}
+
+			@include media ($mobile) {
+				display: block;
+				@include span-columns(12);
+				@include omega-reset(2n);
+				@include omega(1n);
+			}
+		}
+
+		&.-hide,
+		&.-country-hide {
+			display: none;
+		}
+
+		.tile-link {
+			display: block;
+			height: 100%;
+
+			background-color: $c-light-grey;
+
+			transition: background-color 150ms ease-out;
+
+			&:hover {
+				background: transparent;
+			}
+		}
+
+		.recipes & {
+			padding: 0;
+			border-radius: 8px;
+		}
+
+		.inner {
+			position: relative;
+			display: inline-block;
+			width: 100%;
+			text-align: center;
+			z-index: 2;
+			padding: 30px;
+
+			.recipes & {
+				text-align: left;
+			}
+
+			> a {
+				&:first-of-type {
+					display: block;
+					text-align: center;
+				}
+			}
+
+			h2 {
+				margin: 10px 10px 40px;
+
+				@include f-brauer-black;
+				@include font-size(34px);
+				text-transform: uppercase;
+
+				.recipes & {
+					position: relative;
+					margin: 10px 0;
+				}
+			}
+
+			img {
+
+				.recipes & {
+					float: left;
+					width: 30%;
+					height: 100%;
+				}
+			}
+
+			.wine-image {
+				max-height: 241px;
+				height: 241px;
+				width: auto;
+			}
+
+
+			.text {
+				.recipes & {
+					float: left;
+					width: 70%;
+					padding: 15px;
+					text-align: left;
+				}
+			}
+
+			.description {
+				margin: 0 auto 60px;
+
+				@include f-themix-normal;
+				@include font-size(14px, 21px);
+				text-align: center;
+				width: 70%;
+
+				.recipes & {
+					text-align: left;
+				}
+			}
+		}
+
+		.cta {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			padding-bottom: 30px;
+			text-align: center;
+
+			.recipes & {
+				bottom: 15px;
+			}
+
+			> .button {
+				display: inline-block;
+				left: 0;
+				right: 0;
+				margin: auto 0;
+			}
+		}
+
+		&.recipe-tile {
+			padding: 0;
+			border-radius: 8px;
+
+			.tile-link {
+				display: flex;
+			}
+
+			&.-hide {
+				display: none;
+			}
+
+			.inner {
+				padding: 10px 5px 0 12px;
+				text-align: left;
+
+				h2 {
+					margin: 10px 10px 0 0;
+					@include f-brauer-black;
+				}
+
+				.description {
+					@include f-themix-normal;
+					@include font-size(14px, 21px);
+					margin: 0 20px 20px 0;
+					text-align: left;
+					width: auto;
+				}
+
+				.cta {
+					position: absolute;
+					left: 12px;
+					bottom: 0;
+					padding-bottom: 30px;
+					text-align: center;
+				}
+			}
+
+			.recipe-tile-img {
+				float: left;
+				border-radius: 7px;
+			}
+		}
+
+	}
+}

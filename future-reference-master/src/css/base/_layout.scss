@@ -1,0 +1,85 @@
+body,
+html {
+	background-color: $c-white;
+  @include reset-box-model;
+	overflow-x: hidden;
+	position: relative;
+}
+
+.inner {
+	max-width: $max-width;
+	margin: 0 auto;
+	position: relative;
+	@include grid-container;
+	// @include grid-visual;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.row {
+	@include grid-container;
+}
+
+.main-cta {
+	display: inline-block;
+	@include f-dinot-bold;
+	color: $c-white;
+	font-size: 1.8rem;
+	background-color: $c-red;
+	border: 2px solid $c-red;
+	padding: 7px 40px;
+	cursor: pointer;
+	transition: color, background-color .15s linear;
+	letter-spacing: -.4px;
+
+	@include grid-media($small-tablet) {
+		font-size: 1.5rem;
+	}
+
+	&:hover,
+	&:focus {
+		border: 2px solid $c-red;
+		color: $c-red;
+		background-color: $c-white;
+		outline: 0;
+	}
+}
+
+.load-more {
+	@include grid-column(12);
+	text-align: center;
+	margin-top: 25px;
+
+	@include grid-media($small-tablet) {
+		margin-top: 0;
+	}
+
+	a {
+		color: $c-alt-grey;
+		border: none;
+		background-color: transparent;
+		font-size: 1.8rem;
+		display: inline-block;
+		margin: 0;
+		line-height: 2rem;
+		cursor: pointer;
+		transition: color .15s linear;
+		box-shadow: 0 2px 0 0;
+		padding: 0;
+		letter-spacing: -0.6px;
+		@include f-dinot-medium;
+
+		&:hover,
+		&:focus {
+			color: $c-red;
+			outline: 0;
+		}
+
+		@include grid-media($small-tablet) {
+			margin-top: 42px;
+			margin-bottom: 0;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+.animation {
+	position: relative;
+
+	overflow: hidden;
+
+	.sprite {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: auto;
+
+		opacity: 0;
+
+		transform: translate3d(0, 0, 0);
+
+		transition: opacity 1000ms linear;
+
+		@keyframes play-anim {
+			to {
+				transform: translate3d(0, -100%, 0);
+			}
+		}
+	}
+}

@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /home/ec2-user/node-website
+gulp build
+aws s3 cp dist/ s3://boffins.prescoapps.co --recursive --acl public-read-write

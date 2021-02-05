@@ -1,0 +1,25 @@
+.table {
+	padding: 10px 10px 10px 30px;
+
+	background-color: $c-light-grey;
+
+	font-size: 1.7rem;
+
+	> tr {
+		height: 30px;
+	}
+
+	.position {
+		margin-right: 80px;
+
+		width: 80px;
+	}
+
+	.selections {
+		width: 306px;
+	}
+
+	.odds {
+		width: 80px;
+	}
+}

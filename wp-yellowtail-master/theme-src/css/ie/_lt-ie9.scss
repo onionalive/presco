@@ -1,0 +1,55 @@
+.lt-ie9 {
+	.agegate-container {
+		.agegate {
+			background-color: $c-yt-yellow;
+		}
+	}
+
+	.country-select {
+		#down-triangle,
+		#up-triangle {
+			display: none;
+		}
+	}
+
+	section {
+
+		&.two,
+		&.four {
+			background-color: $c-yt-blue-rgba-light;
+		}
+
+		> .inner {
+
+			.-frames {
+				&.half {
+					display: none;
+					width: 100%;
+				}
+			}
+
+			.half {
+				display: block;
+				width: 100%;
+				text-align: center;
+				margin: 0;
+			}
+
+			.cell {
+				display: block;
+				width: 100%;
+
+				.content {
+					display: block;
+					width: 100%;
+
+					.bigtext {
+						display: block;
+						width: 100%;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}

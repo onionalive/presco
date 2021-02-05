@@ -1,0 +1,14 @@
+{% include 'partials/head.twig' %}
+<body >
+	<p class="skiplinks">
+    <a href="#main-content" tabindex="1">Skip To Main Content</a>
+    <a href="#main-nav" tabindex="1">Skip To Nav</a>
+	</p>
+	<div id="app"></div>
+	{{ function('wp_footer') }}
+</body>
+
+<noscript>
+	{% include 'partials/noscript.twig' %}
+</noscript>
+</html>

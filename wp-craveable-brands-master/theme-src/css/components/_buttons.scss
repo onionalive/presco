@@ -1,0 +1,43 @@
+button {
+	display: inline-block;
+	width: 140px;
+	height: 40px;
+	padding: 0;
+	border: 0;
+	border-radius: 5px;
+
+	background-color: $c-black;
+	color: $c-white;
+	line-height: 12px;
+	text-align: center;
+
+	cursor: pointer;
+	outline: 0;
+	transition: background-color 100ms ease-out, color 200ms;
+
+	&:hover,
+	&:focus {
+		background-color: lighten($c-black, 15%);
+		outline: 0;
+	}
+}
+
+// Button Class
+
+.button {
+	display: inline-block;
+	width: 270px;
+	height: 60px;
+	padding: 0;
+	border: 0;
+	border-radius: 3px;
+
+	transition: background-color 100ms ease-out;
+
+	@include media($mobile) {
+		// width: auto;
+		height: 50px;
+		width: 175px;
+		padding: 0 30px;
+	}
+}

@@ -1,0 +1,177 @@
+// Colours
+$c-blue: #3498DB;
+$c-green: #2ECC71;
+$c-purple: #9B59B6;
+$c-yellow: #F1C40F;
+$c-orange: #F39C12;
+$c-red: #E74C3C;
+$c-dark-grey: #34495E;
+$c-light-grey: #ECF0F1;
+$c-grey: #BDC3C7;
+$c-black: #000;
+$c-white: #FFF;
+
+
+// Setting the states
+$c-primary: $c-blue;
+$c-primary-light: lighten($c-blue, 10%);
+$c-primary-dark: darken($c-blue, 10%);
+
+$c-secondary: $c-green;
+$c-secondary-light: lighten($c-green, 10%);
+$c-secondary-dark: darken($c-green, 10%);
+
+.bg-blue {
+	background-color: $c-blue;
+	&.-hover {
+		@include backgroundColor($c-blue);
+	}
+}
+
+.blue {
+	color: $c-blue;
+	&.-hover {
+		@include color($c-blue);
+	}
+}
+
+.bg-green {
+	background-color: $c-green;
+	&.-hover {
+		@include backgroundColor($c-green);
+	}
+}
+
+.green {
+	color: $c-green;
+	&.-hover {
+		@include color($c-green);
+	}
+}
+
+.bg-purple {
+	background-color: $c-purple;
+	&.-hover {
+		@include backgroundColor($c-purple);
+	}
+}
+
+.purple {
+	color: $c-purple;
+	&.-hover {
+		@include color($c-purple);
+	}
+
+}
+
+.bg-yellow {
+	background-color: $c-yellow;
+	&.-hover {
+		@include backgroundColor($c-yellow);
+	}
+}
+
+.yellow {
+	color: $c-yellow;
+	&.-hover {
+		@include color($c-yellow);
+	}
+}
+
+.bg-orange {
+	background-color: $c-orange;
+	&.-hover {
+		@include backgroundColor($c-orange);
+	}
+}
+
+.orange {
+	color: $c-orange;
+	&.-hover {
+		@include color($c-orange);
+	}
+}
+
+.bg-red {
+	background-color: $c-red;
+	&.-hover {
+		@include backgroundColor($c-red);
+	}
+}
+
+.red {
+	color: $c-red;
+	&.-hover {
+		@include color($c-red);
+	}
+}
+
+.bg-dark-grey {
+	background-color: $c-dark-grey;
+	&.-hover {
+		@include backgroundColor($c-dark-grey);
+	}
+}
+
+.dark-grey {
+	color: $c-dark-grey;
+	&.-hover {
+		@include color($c-dark-grey);
+	}
+}
+
+.bg-light-grey {
+	background-color: $c-light-grey;
+	&.-hover {
+		@include backgroundColor($c-light-grey);
+	}
+}
+
+.light-grey {
+	color: $c-light-grey;
+	&.-hover {
+		@include color($c-light-grey);
+	}
+}
+
+.bg-grey {
+	background-color: $c-grey;
+	&.-hover {
+		@include backgroundColor($c-grey);
+	}
+}
+
+.grey {
+	color: $c-grey;
+	&.-hover {
+		@include color($c-grey);
+	}
+}
+
+.bg-black {
+	background-color: $c-black;
+	&.-hover {
+		@include backgroundColor($c-black, $lighten: true);
+	}
+}
+
+.black {
+	color: $c-black;
+	&.-hover {
+		@include color($c-black, $lighten: true);
+	}
+}
+
+.bg-white {
+	background-color: $c-white;
+	&.-hover {
+		@include backgroundColor($c-white);
+	}
+}
+
+.white {
+	color: $c-white;
+	&.-hover {
+		@include color($c-white);
+	}
+}

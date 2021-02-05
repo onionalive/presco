@@ -1,0 +1,69 @@
+// Typography
+
+@font-face {
+  font-family: 'MaisonNeueBook';
+  src: url('../fonts/MaisonNeueWEB-Book.woff2') format('woff2'), url('../fonts/MaisonNeueWEB-Book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MaisonNeueBold';
+  src: url('../fonts/MaisonNeueWEB-Bold.woff2') format('woff2'), url('../fonts/MaisonNeueWEB-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: 'MaisonNeue';
+	src: url('fonts/MaisonNeueWEB-Book.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin f-maison-book {
+	font: {
+		family: 'MaisonNeueBook', Calibri, Arial, Roboto, sans-serif;
+		weight: 400;
+		style: normal;
+	}
+}
+
+@mixin f-maison-bold {
+	font: {
+		family: 'MaisonNeueBold', Calibri, Arial, Roboto, sans-serif;
+		weight: 400;
+		style: normal;
+	}
+}
+
+@mixin f-maison-neue {
+	font: {
+		family: 'MaisonNeue', Calibri, Arial, Roboto, sans-serif;
+		weight: 400;
+		style: normal;
+	}
+}
+
+// Setting default font size for rem
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+}
+
+h1,
+h2,
+h3,
+p {
+	@include f-maison-book;
+}
+
+a {
+	color: inherit;
+}

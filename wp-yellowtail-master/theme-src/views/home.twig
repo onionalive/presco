@@ -1,0 +1,198 @@
+{% extends "master.twig" %}
+
+{% block content %}
+
+<section class="fp-animations one">
+	<a href='#' class='prev fa fa-chevron-left'></a>
+	<div class="inner">
+		<div class="cell">
+			<div class="content animation-screen -one">
+				<h2><span class='large-mobile'>Welcome</span> to the world of<br><span class='yt-mobile'>[yellow tail]</span></h2>
+				<p class='header-sub-copy'>We are passionate about creating great tasting, quality wines for everyone to enjoy</p>
+
+				<a href="{{ site.url }}/wines" class="button home-button" aria-label="Find Your Wine by going to the Wines page">Find Your Wine</a>
+				<div class="animationOne" id="animationOne">
+					{% for bottle in page.get_field('animation_one_four') %}
+						<img class='bottle' src='{{ TimberImage(bottle.image).src|resize(100) }}'>
+					{% endfor %}
+			  </div>
+			</div>
+
+			<div class="content animation-screen -two">
+				<h2>Easy to choose, drink, and <span class='large-mobile'>enjoy</span></h2>
+				<p class='header-sub-copy'>Everything we do is about making wine easy and enjoyable so you can focus on having a great time with your family and friends</p>
+				<a href="{{ site.url }}/wines" class="button home-button" aria-label="Find Your Wine by going to the Wines page">Find Your Wine</a>
+				<div class="animationTwo" id="animationTwo">
+			    <div class="bottle -blah -remove"></div>
+			    <div class="bottle -blah -remove"></div>
+			    <div class="bottle -blah -remove"></div>
+			    <div class="bottle -blah -middle" data-image="{{ TimberImage(page.get_field('animation_two')).src }}"></div>
+			    <div class="bottle -blah -remove"></div>
+					<div class="bottle -blah -remove"></div>
+			    <div class="bottle -blah -remove"></div>
+			  </div>
+			</div>
+
+			<div class="content animation-screen -three">
+				<h2><span class='heart-word'>Love</span> <div class='block-mobile'>at first sip<div></h2>
+				<p class='header-sub-copy'>Our wines are great tasting, approachable, vibrant and bursting with flavour</p>
+
+				<a href="{{ site.url }}/wines" class="button home-button " aria-label="Find Your Wine by going to the Wines page">Find Your Wine</a>
+				<div class="animationThree" id="animationThree">
+						<img class='bottle' src='{{ TimberImage(page.get_field('animation_three')).src }}'>
+					<svg class='heart-svg -desktop' preserveAspectRatio="xMidYMid" width="627px" height="392px" viewBox="0 0 627 392" >
+						<path d="m324.5,301.5 L111.5,269.5" id="heart-line-1" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m326.5,300.5 L77.5,236.5" id="heart-line-2" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m329.5,302.5 L27.5,216.5" id="heart-line-3" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m331.5,303.5 L140.5,207.5" id="heart-line-4" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m332.5,302.5 L191.5,200.5" id="heart-line-5" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m332.5,305.5 L227.5,170.5" id="heart-line-6" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m327.5,304.5 L168.5,169.5" id="heart-line-7" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,304.5 L65.5,176.5" id="heart-line-8" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m325.5,302.5 L29.5,164.5" id="heart-line-9" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m330.5,307.5 L6.5,141.5" id="heart-line-10" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m324.5,300.5 L210.5,341.5" id="heart-line-11" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m327.5,301.5 L167.5,340.5" id="heart-line-12" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m329.5,302.5 L218.5,280.5" id="heart-line-13" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m324.5,302.5 L134.5,293.5" id="heart-line-14" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m325.5,303.5 L231.5,234.5" id="heart-line-15" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m326.5,303.5 L163.5,242.5" id="heart-line-16" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,305.5 L223.5,393.5" id="heart-line-17" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,305.5 L141.5,137.5" id="heart-line-18" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m330.5,305.5 L70.5,137.5" id="heart-line-19" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m330.5,304.5 L208.5,109.5" id="heart-line-20" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m331.5,302.5 L21.5,105.5" id="heart-line-21" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m330.5,302.5 L67.5,78.5" id="heart-line-22" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m330.5,302.5 L107.5,52.5" id="heart-line-23" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m329.5,302.5 L166.5,78.5" id="heart-line-24" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,301.5 L208.5,35.5" id="heart-line-25" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m329.5,301.5 L162.5,16.5" id="heart-line-26" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m330.5,300.5 L102.5,8.5" id="heart-line-27" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m330.5,301.5 L42.5,41.5" id="heart-line-28" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,301.5 L422.5,387.5" id="heart-line-29" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m327.5,302.5 L429.5,273.5" id="heart-line-30" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,303.5 L512.5,296.5" id="heart-line-31" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m330.5,304.5 L536.5,265.5" id="heart-line-32" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m327.5,302.5 L493.5,243.5" id="heart-line-33" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,302.5 L414.5,227.5" id="heart-line-34" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,307.5 L570.5,223.5" id="heart-line-35" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m326.5,305.5 L620.5,210.5" id="heart-line-36" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m325.5,302.5 L505.5,201.5" id="heart-line-37" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,302.5 L452.5,193.5" id="heart-line-38" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m327.5,303.5 L418.5,164.5" id="heart-line-39" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,303.5 L478.5,164.5" id="heart-line-40" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m325.5,302.5 L577.5,172.5" id="heart-line-41" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m322.5,302.5 L615.5,160.5" id="heart-line-42" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m323.5,304.5 L632.5,134.5" id="heart-line-43" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m321.5,304.5 L503.5,132.5" id="heart-line-44" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m326.5,300.5 L436.5,103.5" id="heart-line-45" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m326.5,300.5 L477.5,70.5" id="heart-line-46" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m322.5,302.5 L580.5,70.5" id="heart-line-47" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m326.5,302.5 L623.5,99.5" id="heart-line-48" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m328.5,301.5 L603.5,35.5" id="heart-line-49" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m325.5,299.5 L543.5,2.5" id="heart-line-50" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m325.5,298.5 L484.5,8.5" id="heart-line-51" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m323.5,301.5 L435.5,29.5" id="heart-line-52" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m327.5,301.5 L433.5,334.5" id="heart-line-53" stroke="#979797" stroke-linecap="square"></path>
+						<path d="m327.5,303.5 L478.5,336.5" id="heart-line-54" stroke="#979797" stroke-linecap="square"></path>
+					</svg>
+					<svg class='heart-svg -mobile' width="289px" height="181px" viewBox="0 0 289 181" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<path d="M149.27,138.509615 L51.29,123.808761" id="heart-line-1" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.19,138.050214 L35.65,108.648504" id="heart-line-2" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.57,138.969017 L12.65,99.4604701" id="heart-line-3" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.49,139.428419 L64.63,95.3258547" id="heart-line-4" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.95,138.969017 L88.09,92.1100427" id="heart-line-5" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.95,140.347222 L104.65,78.3279915" id="heart-line-6" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.65,139.887821 L77.51,77.8685897" id="heart-line-7" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,139.887821 L30.13,81.0844017" id="heart-line-8" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M149.73,138.969017 L13.57,75.5715812" id="heart-line-9" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.03,141.266026 L2.99,65.0053419" id="heart-line-10" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M149.27,138.050214 L96.83,156.885684" id="heart-line-11" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.65,138.509615 L77.05,156.426282" id="heart-line-12" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.57,138.969017 L100.51,128.862179" id="heart-line-13" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M149.27,138.969017 L61.87,134.834402" id="heart-line-14" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M149.73,139.428419 L106.49,107.729701" id="heart-line-15" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.19,139.428419 L75.21,111.404915" id="heart-line-16" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,140.347222 L102.81,180.774573" id="heart-line-17" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,140.347222 L65.09,63.167735" id="heart-line-18" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.03,140.347222 L32.43,63.167735" id="heart-line-19" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.03,139.887821 L95.91,50.3044872" id="heart-line-20" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.49,138.969017 L9.89,48.4668803" id="heart-line-21" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.03,138.969017 L31.05,36.0630342" id="heart-line-22" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.03,138.969017 L49.45,24.1185897" id="heart-line-23" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.57,138.969017 L76.59,36.0630342" id="heart-line-24" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,138.509615 L95.91,16.3087607" id="heart-line-25" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.57,138.509615 L74.75,7.58012821" id="heart-line-26" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.03,138.050214 L47.15,3.90491453" id="heart-line-27" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.03,138.509615 L19.55,19.0651709" id="heart-line-28" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,138.509615 L194.35,178.018162" id="heart-line-29" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.65,138.969017 L197.57,125.646368" id="heart-line-30" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,139.428419 L235.75,136.212607" id="heart-line-31" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M152.03,139.887821 L246.79,121.971154" id="heart-line-32" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.65,138.969017 L227.01,111.864316" id="heart-line-33" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,138.969017 L190.67,104.513889" id="heart-line-34" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,141.266026 L262.43,102.676282" id="heart-line-35" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.19,140.347222 L285.43,96.7040598" id="heart-line-36" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M149.73,138.969017 L232.53,92.5694444" id="heart-line-37" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,138.969017 L208.15,88.8942308" id="heart-line-38" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.65,139.428419 L192.51,75.5715812" id="heart-line-39" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,139.428419 L220.11,75.5715812" id="heart-line-40" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M149.73,138.969017 L265.65,79.2467949" id="heart-line-41" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M148.35,138.969017 L283.13,73.7339744" id="heart-line-42" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M148.81,139.887821 L290.95,61.7895299" id="heart-line-43" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M147.89,139.887821 L231.61,60.8707265" id="heart-line-44" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.19,138.050214 L200.79,47.5480769" id="heart-line-45" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.19,138.050214 L219.65,32.3878205" id="heart-line-46" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M148.35,138.969017 L267.03,32.3878205" id="heart-line-47" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.19,138.969017 L286.81,45.7104701" id="heart-line-48" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M151.11,138.509615 L277.61,16.3087607" id="heart-line-49" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M149.73,137.590812 L250.01,1.14850427" id="heart-line-50" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M149.73,137.13141 L222.87,3.90491453" id="heart-line-51" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M148.81,138.509615 L200.33,13.5523504" id="heart-line-52" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.65,138.509615 L199.41,153.669872" id="heart-line-53" stroke="#979797" stroke-linecap="square"></path>
+						<path d="M150.65,139.428419 L220.11,154.588675" id="heart-line-54" stroke="#979797" stroke-linecap="square"></path>
+					</svg>
+			  </div>
+			</div>
+
+			<div class="content animation-screen -four">
+				<div class='inner'>
+					<h2>Have you met 'roo?</h2>
+					<p class='header-sub-copy'>He’s on the label of every bottle of [yellow tail] as a tribute to our Australian heritage</p>
+					<a href="{{ site.url }}/wines" class="button home-button " aria-label="Find Your Wine by going to the Wines page">Find Your Wine</a>
+					<div class='roo sprite'></div>
+					<div class="animationFour" data-id="animationFour">
+						{% for i in 0..4 %}
+							{% for bottle in page.get_field('animation_one_four') %}
+							 <div class='bottle -top' style='background-image: url({{ TimberImage(bottle.image).src|resize(145) }})'></div>
+						  {% endfor %}
+						{% endfor %}
+					</div>
+					<div class='spacer'></div>
+				</div>
+			</div>
+			<div class='screenSelector'>
+				<div class='screenOne'></div>
+				<div class='screenTwo'></div>
+				<div class='screenThree'></div>
+				<div class='screenFour'></div>
+			</div>
+			<div class='tiles'>
+				{% for tile in page.get_field('tile') %}
+					<div class='tile'>
+						{% include 'partials/image.twig' with {
+							image: TimberImage(tile.image),
+							size: 'recipe_grid'
+						} %}
+						<h2>{{ tile.title }}</h2>
+						{{ tile.text }}
+						<a href='{{ tile.link }}'>{{ tile.button_text }}</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<a href='#' class='next fa fa-chevron-right'></a>
+
+</section>
+{% endblock %}

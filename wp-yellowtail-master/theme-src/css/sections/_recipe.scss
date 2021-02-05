@@ -1,0 +1,19 @@
+.recipe {
+
+	padding-top: 100px;
+	background-color: $c-yt-magenta;
+
+	color: $c-white;
+
+	.inner {
+		margin: auto;
+		left: 0;
+		right: 0;
+		max-width: $max-width;
+	}
+
+	@include media($tablet-l) {
+		padding-top: 10px;
+	}
+
+}

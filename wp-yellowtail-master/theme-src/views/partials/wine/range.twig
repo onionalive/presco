@@ -1,0 +1,27 @@
+<section class='range -roo -right -top'>
+	<h2>
+		How about something else?
+	</h2>
+	<div class='wines swiper-container'>
+		<div class="swiper-wrapper" data-countries="{{ options.country == 'usa' ? "" : countryCodes }}">
+			{% for wine in wines %}
+				<div class="swiper-slide" {{ wine|filterAttributes }} >
+					<a href="{{ site.url }}/wine/{{ wine.slug }}"
+					aria-label="Select {{ wine.title }} to navigate to the {{ wine.title }} wine page">
+						{% include 'partials/image.twig' with {
+							image: TimberImage(wine.get_thumbnail),
+							size: 'wine_grid_2x'
+						} %}
+					</a>
+					<div class='tooltip'>
+						<div class='text'>
+							{{ wine.title }}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="swiper-button-next paging -right"></div>
+		<div class="swiper-button-prev paging -left"></div>
+	</div>
+</section>

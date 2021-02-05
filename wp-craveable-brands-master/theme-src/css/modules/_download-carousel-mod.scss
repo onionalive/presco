@@ -1,0 +1,112 @@
+.download-carousel-mod {
+	background-color: $c-teal;
+	overflow: hidden;
+
+	h1 {
+		margin-top: 5px;
+	}
+
+	.carousel-download {
+		position: relative;
+		top: 0;
+		display: inline-block;
+		text-align: right;
+
+		transition: top .2s ease;
+
+		&:focus,
+		&:hover,
+		&:active {
+			outline: none;
+			cursor: pointer;
+		}
+
+		&:hover,
+		&:focus {
+			top: -20px;
+		}
+
+		img {
+			position: relative;
+			margin: 0 10px;
+
+			height: 320px;
+			width: 231px;
+
+			filter: brightness(70%);
+
+			@include media($mobile) {
+				height: calc(.75 * 320px);
+				width: calc(.75 * 231px);
+			}
+		}
+
+		.file-type {
+			text-transform: uppercase;
+			width: 100%;
+			margin: 0;
+		}
+
+		a {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 15%;
+			left: 0;
+			margin: auto;
+			height: 40px;
+			width: 40px;
+
+			outline: 0;
+			text-decoration: none;
+			color: $c-white;
+
+			z-index: 100;
+
+			p {
+				margin-top: 0;
+			}
+		}
+
+		.download-link {
+			i,
+			p {
+				transition: transform .2s ease;
+			}
+
+			&:hover {
+				i,
+				p {
+					transform: scale(1.2);
+				}
+			}
+		}
+
+		.download-icon {
+			color: $c-white;
+			font-size: 40px;
+		}
+
+		.download-title {
+			max-width: 230px;
+
+			text-transform: capitalize;
+
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			@include media($mobile) {
+				max-width: calc(.75 * 230px);
+			}
+		}
+
+		.date {
+			margin-right: 12px;
+		}
+
+		p {
+			margin: 0 10px;
+		}
+	}
+}

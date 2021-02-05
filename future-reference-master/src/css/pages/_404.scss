@@ -1,0 +1,50 @@
+.page-not-found {
+	position: relative;
+	.filtered-image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		filter: brightness(30%);
+
+		background-size: cover;
+		background-position: center center;
+	}
+	.inner {
+		.page-not-found-content {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			h2 {
+				margin: 0;
+				color: $c-red;
+				font-size: 10rem;
+			}
+
+			h3 {
+				color: $c-red;
+				margin-top: 10px;
+			}
+			a {
+				color: $c-white;
+				@include f-dinot-bold;
+				font-size: 2rem;
+				margin-top: 20px;
+
+				&:hover,
+				&:focus {
+					box-shadow: 0 2px 0 0 $c-white;
+				}
+			}
+		}
+	}
+}

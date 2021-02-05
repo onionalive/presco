@@ -1,0 +1,38 @@
+#country-japan {
+	// Individual Wine Page
+	.wine {
+		h1 {
+			@include noto-brauer-bold;
+
+			span {
+				@include font-size(60px, 60px);
+			}
+		}
+
+		.properties {
+			h3,
+			p {
+				@include noto-sans-regular;
+			}
+		}
+
+		.component {
+			@include noto-sans-regular;
+		}
+	}
+
+	// Wines Page
+	.tile-link {
+		h2 {
+			@include noto-brauer-bold;
+		}
+	}
+
+	&.single-recipe {
+		.wine {
+			h3 {
+				@include noto-themix-bold;
+			}
+		}
+	}
+}

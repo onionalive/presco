@@ -1,0 +1,8 @@
+app_identifier "com.oporto.rewards" # The bundle identifier of your app
+apple_id "developers@presentcompany.co" # Your Apple email address
+
+itc_team_id "107568802" # iTunes Connect Team ID
+team_id "KU284HK33Z" # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

@@ -1,0 +1,7 @@
+export default class target {
+    
+    init() {
+        console.log('target loaded');
+    }
+
+}

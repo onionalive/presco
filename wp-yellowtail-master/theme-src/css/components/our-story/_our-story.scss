@@ -1,0 +1,180 @@
+.our-story {
+	background-color: $c-yt-yellow;
+
+	.text,
+	.two-image,
+	.three-image {
+		padding: 80px 10px;
+		text-align: center;
+
+		@include media($tablet-p) {
+			padding: 50px 10px;
+		}
+	}
+
+	.text {
+		@include outer-container;
+
+		> .roo {
+			display: block;
+			margin: 0 auto 35px;
+
+			@include media($mobile-l) {
+				margin-bottom: 17.5px;
+			}
+		}
+
+		> p {
+			margin: 0 auto;
+			@include span-columns(7);
+			@include shift(2.5);
+			@include font-size(22px);
+
+			@include media($mobile-l) {
+				@include span-columns(11);
+				@include shift(0.5);
+				@include font-size(16px);
+			}
+		}
+	}
+
+	.two-image,
+	.three-image {
+		display: flex;
+		align-items: center;
+		padding: 0 30px;
+
+		@include media($mobile-l) {
+			display: block;
+		}
+
+		.caption {
+			@include kalam-regular;
+			@include font-size(24px);
+			padding: 4px 0;
+
+			@include media($mobile-l) {
+				@include font-size(16px);
+			}
+		}
+	}
+
+	.two-image {
+		@include outer-container;
+
+		.one,
+		.two {
+			@include span-columns(6);
+			@include media($mobile-l) {
+				@include span-columns(12);
+			}
+		}
+	}
+
+	.three-image {
+		@include outer-container();
+		margin: 0 auto;
+
+		.lhs,
+		.rhs {
+			@include span-columns(6);
+			@include media($mobile-l) {
+				@include span-columns(12);
+			}
+		}
+	}
+
+	// Common Image Styles
+	.one,
+	.two,
+	.three {
+		background-color: $c-white;
+		border: 16px solid $c-white;
+		box-shadow: 0 3px 10px $c-black-50;
+		margin: 40px 0;
+
+		> img {
+			margin-bottom: 10px;
+			width: 100%;
+		}
+
+		@include media($mobile-l) {
+			margin: 10px 0;
+		}
+	}
+
+	.skew {
+		&:nth-of-type(n+1) {
+			transform: rotate(-2deg);
+		}
+
+		&:nth-of-type(n+2) {
+			transform: rotate(2deg);
+		}
+
+		&:nth-of-type(n+3) {
+			transform: rotate(3deg);
+		}
+
+		@include media($mobile-l) {
+			&:nth-of-type(n+1) {
+				transform: rotate(2deg) translate(-3px);
+			}
+
+			&:nth-of-type(n+2) {
+				transform: rotate(-2deg) translate(6px);
+			}
+		}
+	}
+
+	section:last-of-type {
+		padding-bottom: 50px;
+	}
+
+	.end-image {
+		height: 380px;
+		@include media($mobile) {
+			transform: scale(0.8);
+		}
+	}
+
+	.speech {
+		background-image: url('../img/speech-bubble.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 276.5px;
+		width: 356.5px;
+		position: relative;
+		margin: 0 auto;
+
+		.speech-text {
+			transform: rotate(367deg);
+			@include f-brauer-black;
+			text-transform: uppercase;
+			color: $c-white;
+			font-size: 36px;
+			letter-spacing: -1px;
+			line-height: 43px;
+			text-align: center;
+
+			position: relative;
+			top: 120px;
+			right: 14px;
+		}
+	}
+
+	.roo-bottom {
+		@include background-image('roo/roo-right');
+		background-position: center;
+		background-size: contain;
+
+		background-repeat: no-repeat;
+		height: 290px;
+		width: 318px;
+		position: relative;
+		margin: 0 auto;
+		overflow: visible;
+		left: 255px;
+		top: -42px;
+	}
+}

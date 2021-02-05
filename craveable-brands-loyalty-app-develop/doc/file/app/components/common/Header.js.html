@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">app/components/common/Header.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">common</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/common/Tranxactor.js~Tranxactor.html">Tranxactor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/common</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/common/Header.js~Header.html">Header</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/home</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Styles">Styles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-HomeTest">HomeTest</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/landscape</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/more</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/offerdetail</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/offers</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/profile</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/swipercontainer</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-mainStyles">mainStyles</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">styles</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Fonts">Fonts</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">app/components/common/Header.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;;
+import { Text, View, TouchableHighlight, Image } from &apos;react-native&apos;;
+
+/**
+ * Top bar common component - this may be used or replaced by
+ * the default React Navigation settings.
+ * 
+ * @class Header
+ * @extends {Component}
+ */
+class Header extends Component {
+	/**
+	 * Render Header
+	 * 
+	 * @returns Component
+	 * @memberof Header
+	 */
+	render() {
+		const { textStyle, viewStyle, flex, left, dummy } = styles;
+
+		return (
+			&lt;View style={[viewStyle]}&gt;
+			&lt;/View&gt;
+		);
+	}
+};
+
+/**
+ * Styling for the Header
+ */
+const styles = {
+	textStyle: {
+		fontSize: 20
+	},
+	viewStyle: {
+		backgroundColor: &apos;#DDD&apos;,
+		height: 62,
+		paddingTop: 25,
+		paddingLeft: 20,
+		paddingRight: 20,
+		elevation: 2,
+		zIndex: 10,
+		flexDirection: &apos;row&apos;,
+		justifyContent: &apos;space-between&apos;
+	},
+	left: {
+		width: 31, 
+		height: 30,
+		resizeMode: &apos;contain&apos;
+	},
+	dummy: {
+		width: 31, 
+		height: 30
+	},
+	flex: {
+		flexDirection: &apos;row&apos;,
+		alignItems: &apos;center&apos;,
+		justifyContent: &apos;center&apos;,
+		zIndex: 10
+	},
+};
+
+export default Header;</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

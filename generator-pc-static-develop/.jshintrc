@@ -1,0 +1,13 @@
+{
+	"strict": "implied",
+	"unused": true,
+	"curly": true,
+	"eqeqeq": true,
+	"futurehostile": true,
+	"nonbsp": true,
+	"nonew": true,
+	"undef": true,
+	"globals": {
+		"require": false,
+	}
+}

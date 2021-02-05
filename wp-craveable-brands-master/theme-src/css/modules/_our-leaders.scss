@@ -1,0 +1,17 @@
+.our-leaders {
+	section {
+		&:nth-child(odd) {
+			background-color: $c-teal;
+			color: $c-black;
+		}
+
+		&:nth-child(even) {
+			background: $c-white;
+			color: $c-black;
+		}
+	}
+
+	.banner-mod {
+		background: $c-teal;
+	}
+}

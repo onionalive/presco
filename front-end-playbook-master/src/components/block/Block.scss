@@ -1,0 +1,169 @@
+.desktop {
+	margin-bottom: 10px;
+	background-color: $c-grey;
+
+	height: 40px;
+	width: 40px;
+
+	transition: all $a-desktop ease-in-out;
+
+	.container:hover & {
+		transform: translateX(500px);
+	}
+}
+
+.desktop-enter {
+	margin-bottom: 10px;
+	background-color: $c-grey;
+
+	height: 40px;
+	width: 40px;
+
+	transition: all $a-desktop-enter ease-in;
+
+	.container:hover & {
+		transform: translateX(500px);
+	}
+}
+
+.desktop-exit {
+	margin-bottom: 10px;
+	background-color: $c-grey;
+
+	height: 40px;
+	width: 40px;
+
+	transition: all $a-desktop-exit ease-out;
+
+	.container:hover & {
+		transform: translateX(500px);
+	}
+}
+
+.mobile {
+	margin-bottom: 10px;
+	background-color: $c-grey;
+
+	height: 40px;
+	width: 40px;
+
+	transition: all $a-mobile ease-in-out;
+
+	.container:hover & {
+		transform: translateX(500px);
+	}
+}
+
+.mobile-enter {
+	margin-bottom: 10px;
+	background-color: $c-grey;
+
+	height: 40px;
+	width: 40px;
+
+	transition: all $a-mobile-enter ease-in;
+
+	.container:hover & {
+		transform: translateX(500px);
+	}
+}
+
+.mobile-exit {
+	margin-bottom: 10px;
+	background-color: $c-grey;
+
+	height: 40px;
+	width: 40px;
+
+	transition: all $a-mobile-exit ease-out;
+
+	.container:hover & {
+		transform: translateX(500px);
+	}
+}
+
+.button {
+	&-desktop {
+		margin-bottom: 10px;
+		background-color: $c-primary;
+
+		height: 40px;
+		width: 120px;
+
+		transition: all $a-desktop ease-in-out;
+
+		.container:hover & {
+			background-color: $c-primary-dark;
+		}
+	}
+
+	&-desktop-enter {
+		margin-bottom: 10px;
+		background-color: $c-primary;
+
+		height: 40px;
+		width: 120px;
+
+		transition: all $a-desktop-enter ease-in;
+
+		.container:hover & {
+			background-color: $c-primary-dark;
+		}
+	}
+
+	&-desktop-exit {
+		margin-bottom: 10px;
+		background-color: $c-primary;
+
+		height: 40px;
+		width: 120px;
+
+		transition: all $a-desktop-exit ease-out;
+
+		.container:hover & {
+			background-color: $c-primary-dark;
+		}
+	}
+
+	&-mobile {
+		margin-bottom: 10px;
+		background-color: $c-primary;
+
+		height: 40px;
+		width: 120px;
+
+		transition: all $a-mobile ease-in-out;
+
+		.container:hover & {
+			background-color: $c-primary-dark;
+		}
+	}
+
+	&-mobile-enter {
+		margin-bottom: 10px;
+		background-color: $c-primary;
+
+		height: 40px;
+		width: 120px;
+
+		transition: all $a-mobile-enter ease-in;
+
+		.container:hover & {
+			background-color: $c-primary-dark;
+		}
+	}
+
+	&-mobile-exit {
+		margin-bottom: 10px;
+		background-color: $c-primary;
+
+		height: 40px;
+		width: 120px;
+
+		transition: all $a-mobile-exit ease-out;
+
+		.container:hover & {
+			background-color: $c-primary-dark;
+		}
+	}
+}

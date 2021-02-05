@@ -1,0 +1,10 @@
+{
+  "name": "sprite-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate.js",
+  "dependencies": {
+    "sprity": "^1.0.8",
+    "webp-converter": "^2.1.4"
+  }
+}

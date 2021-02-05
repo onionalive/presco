@@ -1,0 +1,33 @@
+.breadcrumbs {
+	display: block;
+	margin-bottom: 10px;
+
+	.breadcrumb {
+		> .item {
+			margin-right: 10px;
+
+			@include f-opensans-regular;
+			font-size: 1.7rem;
+		}
+
+		> a {
+			color: $c-blue;
+		}
+
+		&:after {
+			display: inline-block;
+			margin-right: 10px;
+
+		    content: '/';
+
+		    @include f-opensans-regular;
+		    font-size: 1.7rem;
+		}
+
+		&:last-of-type {
+			&:after {
+				display: none;
+			}
+		}
+	}
+}

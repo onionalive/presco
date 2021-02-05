@@ -1,0 +1,13 @@
+body,
+html {
+  @include reset-box-model;
+	background-color: $c-black;
+	color: $c-white;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+
+	position: relative;
+}

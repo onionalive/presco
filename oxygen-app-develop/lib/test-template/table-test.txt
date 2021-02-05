@@ -1,0 +1,20 @@
+import React, { View, Text, StyleSheet, ListView } from 'react-native';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
+import target from '../src/components/lower/target';
+
+//export default target = () => {
+//	return (
+//		<View>
+//			<Text>enzyme</Text>
+//			<Text>rules</Text>
+//		</View>
+//	);
+//};
+
+describe('<target />', () => {
+  it('should render one View', () => {
+    const wrapper = shallow(<target />);
+    expect(wrapper.find(ListView)).to.have.length(1);
+  });
+});

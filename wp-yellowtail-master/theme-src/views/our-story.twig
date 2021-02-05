@@ -1,0 +1,29 @@
+{% extends "master.twig" %}
+
+{% block hero %}
+	{% include 'partials/hero-filter.twig' with {
+		title: page.post_title
+	} %}
+{% endblock %}
+{% block content %}
+	<div class="our-story">
+		{% for section in sections %}
+			{% if section.type == 'text_section' %}
+				{% include 'partials/our-story/text-section.twig' with {
+					copy: section.copy
+				} %}
+			{% elseif section.type == 'two_images' %}
+	 			{% include 'partials/our-story/two-image-section.twig' with {
+					image_one: TimberImage(section.image_one),
+					image_two: TimberImage(section.image_two)
+				} %}
+			{% else %}
+				{% include 'partials/our-story/three-image-section.twig' with {
+					image_one: TimberImage(section.image_one),
+					image_two: TimberImage(section.image_two),
+					image_three: TimberImage(section.image_three)
+				} %}
+			{% endif %}
+		{% endfor %}
+	</div>
+{% endblock %}

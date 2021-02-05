@@ -1,0 +1,50 @@
+$photo-timing: 600ms;
+
+.roo-photo {
+	position: relative;
+	left: 0;
+	float: left;
+	z-index: 2;
+
+	width: 18.8%;
+	margin-right: 4%;
+
+	box-shadow: 0 3px 10px $c-black-50;
+
+	font-size: 0;
+	color: $c-black;
+
+	transition: transform $photo-timing linear, left $photo-timing linear;
+	transition: transform $photo-timing cubic-bezier(0.41, 0.71, 0.51, 1), left $photo-timing cubic-bezier(0.41, 0.71, 0.51, 1);
+	-webkit-backface-visibility: hidden;
+
+	@include media($mobile) {
+		width: 48%;
+		margin-right: 4%;
+		margin-bottom: 20%;
+		@include omega(2n+1);
+	}
+
+	&:first-child {
+		margin-left: 9.6%;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&.-hidden {
+		left: -100%;
+		transform: rotate(0deg) !important;
+
+		opacity: 0;
+
+		.name {
+			opacity: 0;
+		}
+	}
+
+	img {
+		width: 100%;
+	}
+}

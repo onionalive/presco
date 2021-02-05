@@ -1,0 +1,11 @@
+{
+  "name": "wordpress-gen",
+  "version": "1.0.0",
+  "author": "Present Company",
+  "devDependencies": {
+    "bourbon": "~4.2.4",
+    "neat": "~1.7.2"
+  },
+  "dependencies": {
+  }
+}
